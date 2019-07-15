@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Assistances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assistances.each do |assistance| %>
+      <tr>
+        <td><%= Student.find(assistance.student_id).name %></td>
+        <td><%= Event.find(assistance.event_id).title %></td>
+        <td><%= link_to 'Show', assistance %></td>
+        <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>
+        <td><%= link_to 'Destroy', assistance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assistance', new_assistance_path %>

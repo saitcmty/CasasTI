@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @evidence.points %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @evidence.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @evidence.date %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @evidence.img_url %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @evidence.deadline %>
+</p>
+
+<%= link_to 'Edit', edit_evidence_path(@evidence) %> |
+<%= link_to 'Back', evidences_path %>

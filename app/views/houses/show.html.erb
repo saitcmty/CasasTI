@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<img src="">
+
+<p>
+  <strong>Name:</strong>
+  <%= @house.name %>
+</p>
+
+<p>
+  <strong>House points:</strong>
+  <%= @house.house_points %>
+</p>
+
+<%= link_to 'Edit', edit_house_path(@house) %> |
+<%= link_to 'Back', houses_path %>

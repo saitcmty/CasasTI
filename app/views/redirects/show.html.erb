@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @redirect.code %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @redirect.event_id %>
+</p>
+
+<p>
+  <strong>Evidence:</strong>
+  <%= @redirect.evidence_id %>
+</p>
+
+<%= link_to 'Edit', edit_redirect_path(@redirect) %> |
+<%= link_to 'Back', redirects_path %>

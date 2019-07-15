@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tec_id: MyString
+  name: MyString
+  email: MyString
+  house: one
+
+two:
+  tec_id: MyString
+  name: MyString
+  email: MyString
+  house: two
