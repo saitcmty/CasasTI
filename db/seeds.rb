@@ -13,3 +13,4 @@ House.create!(name: 'Patos',house_points: 0)
 House.create!(name: 'Pavo Reales',house_points: 0)
 House.create!(name: 'Venados',house_points: 0)
 
+Student.delete_all
