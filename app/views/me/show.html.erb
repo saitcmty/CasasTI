@@ -1,0 +1,8 @@
+<h1>Me#show</h1>
+<p>Find me in app/views/me/show.html.erb</p>
+
+<% if current_user %>
+	<% current_user.attributes.each do |k, v| %>
+		<b><%= k %>:</b> <%= v %> <br>
+	<% end %>
+<% end %>
