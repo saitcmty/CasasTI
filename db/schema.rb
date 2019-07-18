@@ -39,9 +39,8 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
   create_table "evidences", force: :cascade do |t|
     t.integer "points", null: false
     t.string "title", null: false
-    t.datetime "date"
     t.string "img_url"
-    t.datetime "deadline"
+    t.datetime "deadline", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,27 +53,29 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
 
   create_table "redirects", force: :cascade do |t|
     t.string "code"
-    t.bigint "evidence_id"
-    t.bigint "event_id"
+    t.bigint "evidence_id", null: false
+    t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id", "evidence_id"], name: "index_redirects_on_event_id_and_evidence_id", unique: true
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.string "student_id"
-    t.bigint "evidence_id"
+    t.string "student_id", null: false
+    t.bigint "evidence_id", null: false
     t.string "proof"
-    t.boolean "approved"
-    t.datetime "date"
+    t.boolean "approved", null: false
+    t.datetime "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id", "evidence_id"], name: "index_registrations_on_student_id_and_evidence_id", unique: true
   end
 
   create_table "students", primary_key: "tec_id", id: :string, force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+    t.string "f_name", null: false
+    t.string "l_name", null: false
+    t.string "email", null: false
+    t.string "profile_img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "house_id"

@@ -2,8 +2,10 @@ class CreateStudents < ActiveRecord::Migration[5.2]
   def change
     create_table :students, id: false do |t|
       t.string :tec_id, null: false
-      t.string :name, null: false
+      t.string :f_name, null: false
+      t.string :l_name, null: false
       t.string :email, null: false
+      t.string :profile_img_url
 
       t.timestamps
     end

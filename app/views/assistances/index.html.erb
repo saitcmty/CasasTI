@@ -14,7 +14,7 @@
   <tbody>
     <% @assistances.each do |assistance| %>
       <tr>
-        <td><%= Student.find(assistance.student_id).name %></td>
+        <td><%= Student.find(assistance.student_id).f_name %></td>
         <td><%= Event.find(assistance.event_id).title %></td>
         <td><%= link_to 'Show', assistance %></td>
         <td><%= link_to 'Edit', edit_assistance_path(assistance) %></td>

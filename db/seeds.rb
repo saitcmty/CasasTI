@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Student.delete_all
 House.delete_all
-House.create!(name: 'Cuervos',house_points: 0)
-House.create!(name: 'Gallinas de Guinea',house_points: 0)
-House.create!(name: 'Patos',house_points: 0)
-House.create!(name: 'Pavo Reales',house_points: 0)
-House.create!(name: 'Venados',house_points: 0)
+House.create!(name: 'Cuervos', house_points: 0)
+House.create!(name: 'Gallinas de Guinea', house_points: 0)
+House.create!(name: 'Patos', house_points: 0)
+House.create!(name: 'Pavo Reales', house_points: 0)
+House.create!(name: 'Venados', house_points: 0)
