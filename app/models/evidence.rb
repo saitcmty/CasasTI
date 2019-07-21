@@ -1,3 +1,4 @@
 class Evidence < ApplicationRecord
-    belongs_to :redirect
+    has_many :redirects
+    has_many :events, through: :redirects
 end

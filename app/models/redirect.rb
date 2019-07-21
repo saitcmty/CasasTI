@@ -1,4 +1,4 @@
 class Redirect < ApplicationRecord
     belongs_to :event
-    has_one :evidence
+    belongs_to :evidence
 end

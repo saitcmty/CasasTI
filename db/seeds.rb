@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Student.delete_all
+
 House.delete_all
 House.create!(name: 'Cuervos', house_points: 0)
 House.create!(name: 'Gallinas de Guinea', house_points: 0)

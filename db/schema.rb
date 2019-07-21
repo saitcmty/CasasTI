@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
 
   create_table "redirects", force: :cascade do |t|
     t.string "code"
-    t.bigint "evidence_id", null: false
-    t.bigint "event_id", null: false
+    t.bigint "event_id"
+    t.bigint "evidence_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id", "evidence_id"], name: "index_redirects_on_event_id_and_evidence_id", unique: true
+    t.index ["event_id"], name: "index_redirects_on_event_id"
+    t.index ["evidence_id"], name: "index_redirects_on_evidence_id"
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
   create_table "students", primary_key: "tec_id", id: :string, force: :cascade do |t|
     t.string "f_name", null: false
     t.string "l_name", null: false
+    t.boolean "is_admin", null: false
     t.string "email", null: false
     t.string "profile_img_url"
     t.datetime "created_at", null: false
@@ -87,8 +89,6 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
 
   add_foreign_key "assistances", "events"
   add_foreign_key "assistances", "students", primary_key: "tec_id"
-  add_foreign_key "redirects", "events"
-  add_foreign_key "redirects", "evidences"
   add_foreign_key "registrations", "evidences"
   add_foreign_key "registrations", "students", primary_key: "tec_id"
   add_foreign_key "students", "houses", primary_key: "name"

@@ -18,6 +18,7 @@ class Student < ApplicationRecord
       student.tec_id = ApplicationController.helpers.assign_tec_id(auth.extra.id_info.email)
       student.profile_img_url = auth.extra.id_info.picture
       student.email = auth.extra.id_info.email
+      student.is_admin = false
       student.house_id = house_id
 			student.save!
     end

@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.string :tec_id, null: false
       t.string :f_name, null: false
       t.string :l_name, null: false
+      t.boolean :is_admin, null: false
       t.string :email, null: false
       t.string :profile_img_url
 
