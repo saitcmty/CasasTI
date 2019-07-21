@@ -1,4 +1,8 @@
-<h1>BIENVENIDO <%= current_user.f_name %>!! ESTE ES EL DASHBOARD!!</h1>
+<% if current_user %>
+    <h1>BIENVENIDO <%= current_user.f_name %>!! ESTE ES EL DASHBOARD!!</h1>
+<% else %>
+    <h1>BIENVENIDO!! ESTE ES EL DASHBOARD!!</h1>
+<% end %>
 
 <% if current_user %>
     <%= button_to "Logout", :logout, method: :get %>
