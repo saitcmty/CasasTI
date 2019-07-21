@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/login'
   resources :registrations
-  resources :redirects
+  resources :redirects, except: [:show]
   resources :assistances
   resources :evidences
   resources :events
   resources :students
-  resources :houses
+  resources :houses, except: [:new, :destroy]
 
   get '/estudiantes', to: 'students#index'
   get '/casas', to: 'houses#index'

@@ -4,21 +4,19 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
+    redirect_to :root if !current_user.is_admin
     @students = Student.all
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
-  end
-
-  # GET /students/new
-  def new
-    @student = Student.new
+    redirect_to :root if current_user != @student
   end
 
   # GET /students/1/edit
   def edit
+    redirect_to :root if current_user != @student
   end
 
   # POST /students
@@ -54,6 +52,7 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
+    redirect_to :root if current_user != @student
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }

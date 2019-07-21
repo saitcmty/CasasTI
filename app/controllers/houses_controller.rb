@@ -4,26 +4,25 @@ class HousesController < ApplicationController
   # GET /houses
   # GET /houses.json
   def index
+    redirect_to :root if !current_user.is_admin
     @houses = House.all
   end
 
   # GET /houses/1
   # GET /houses/1.json
   def show
-  end
-
-  # GET /houses/new
-  def new
-    @house = House.new
+    redirect_to :root if current_user.house.name != @house.name
   end
 
   # GET /houses/1/edit
   def edit
+    redirect_to :root if !current_user.is_admin
   end
 
   # POST /houses
   # POST /houses.json
   def create
+    redirect_to :root if !current_user.is_admin
     @house = House.new(house_params)
 
     respond_to do |format|
@@ -48,16 +47,6 @@ class HousesController < ApplicationController
         format.html { render :edit }
         format.json { render json: @house.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /houses/1
-  # DELETE /houses/1.json
-  def destroy
-    @house.destroy
-    respond_to do |format|
-      format.html { redirect_to houses_url, notice: 'House was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

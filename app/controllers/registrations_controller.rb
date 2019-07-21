@@ -4,6 +4,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
   def index
+    redirect_to :root if !current_user.is_admin
     @registrations = Registration.all
   end
 

@@ -1,5 +1,6 @@
 class AssistancesController < ApplicationController
   before_action :set_assistance, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
   # GET /assistances
   # GET /assistances.json
@@ -70,5 +71,10 @@ class AssistancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def assistance_params
       params.require(:assistance).permit(:student_id, :event_id)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def check_admin
+      redirect_to :root if !current_user.is_admin
     end
 end

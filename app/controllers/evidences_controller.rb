@@ -4,6 +4,7 @@ class EvidencesController < ApplicationController
   # GET /evidences
   # GET /evidences.json
   def index
+    redirect_to :root if !current_user.is_admin
     @evidences = Evidence.all
   end
 

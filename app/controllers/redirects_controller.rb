@@ -1,15 +1,11 @@
 class RedirectsController < ApplicationController
   before_action :set_redirect, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
   # GET /redirects
   # GET /redirects.json
   def index
     @redirects = Redirect.all
-  end
-
-  # GET /redirects/1
-  # GET /redirects/1.json
-  def show
   end
 
   # GET /redirects/new
@@ -70,5 +66,10 @@ class RedirectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def redirect_params
       params.require(:redirect).permit(:code, :event_id, :evidence_id)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def check_admin
+      redirect_to :root if !current_user.is_admin
     end
 end
