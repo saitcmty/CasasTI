@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>BIENVENIDO <%= current_user.f_name %>!! ESTE ES EL DASHBOARD!!</h1>
+
+<% if current_user %>
+    <%= button_to "Logout", :logout, method: :get %>
+<% else %>
+    <%= button_to "Login", :login, method: :get %>
+<% end %>
+
+
+<%= button_to "Perfil", current_user, method: :get %>
+
+
+<%= button_to "Ver eventos", events_path, method: :get %>
+<%= button_to "Registrar evidencia", new_registration_path, method: :get  %>

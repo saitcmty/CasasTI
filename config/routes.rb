@@ -3,12 +3,13 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'home/login'
+  get 'home/admin'
   resources :registrations
   resources :redirects, except: [:show]
   resources :assistances
   resources :evidences
   resources :events
-  resources :students
+  resources :students, except: [:new]
   resources :houses, except: [:new, :destroy]
 
   get '/estudiantes', to: 'students#index'
@@ -17,7 +18,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # Routes for Google authentication
-  get '/login', to: redirect('/auth/google_oauth2'), as: 'login'
+  get '/login', to: redirect('/home/login'), as: 'login'
+  get '/auth/google_oauth2', as: 'google_login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('/')

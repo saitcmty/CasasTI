@@ -5,4 +5,8 @@ class HomeController < ApplicationController
   def login
   end
 
+  def admin
+    redirect_to :root if !current_user.is_admin
+  end
+
 end
