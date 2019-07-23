@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def admin
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
   end
 
 end

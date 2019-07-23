@@ -14,19 +14,19 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
   end
 
   # POST /events
   # POST /events.json
   def create
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -58,7 +58,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root unless current_user.is_admin
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }

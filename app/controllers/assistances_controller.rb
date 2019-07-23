@@ -75,6 +75,6 @@ class AssistancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def check_admin
-      redirect_to :root if !current_user.is_admin
+      redirect_to :root unless current_user.is_admin
     end
 end
