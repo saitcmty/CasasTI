@@ -7,6 +7,6 @@ class House < ApplicationRecord
         students.each do |s| 
             @puntos += s.points
         end
-        @puntos
+        @puntos += house_points
     end
 end

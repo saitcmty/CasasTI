@@ -15,7 +15,7 @@
     <% @houses.each do |house| %>
       <tr>
         <td><%= house.name %></td>
-        <td><%= house.house_points %></td>
+        <td><%= house.points %></td>
         <td><%= link_to 'Show', house %></td>
         <td><%= link_to 'Edit', edit_house_path(house) %></td>
         <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,5 +25,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New House', new_house_path %>
