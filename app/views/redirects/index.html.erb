@@ -18,7 +18,6 @@
         <td><%= redirect.code %></td>
         <td><%= Event.find(redirect.event_id).title %></td>
         <td><%= Evidence.find(redirect.evidence_id).title %></td>
-        <td><%= link_to 'Show', redirect %></td>
         <td><%= link_to 'Edit', edit_redirect_path(redirect) %></td>
         <td><%= link_to 'Destroy', redirect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

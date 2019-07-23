@@ -1,5 +1,5 @@
 class RedirectsController < ApplicationController
-  before_action :set_redirect, only: [:show, :edit, :update, :destroy]
+  before_action :set_redirect, only: [:edit, :update, :destroy]
   before_action :check_admin
 
   # GET /redirects
