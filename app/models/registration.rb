@@ -1,4 +1,4 @@
 class Registration < ApplicationRecord
-    has_many :students
-    has_many :evidence
+    belongs_to :student
+    belongs_to :evidence
 end
