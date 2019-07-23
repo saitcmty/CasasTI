@@ -8,6 +8,15 @@ class Student < ApplicationRecord
     f_name + " " + l_name
   end
 
+  # Function that sums all points from evidence of each student
+  def points
+    @puntos = 0
+    registrations.each do |r| 
+      @puntos += r.evidence.points if r.approved
+    end
+    @puntos
+  end
+
   def self.from_omniauth(auth, house_id)
 
     # Creates a new student only if it doesn't exist
