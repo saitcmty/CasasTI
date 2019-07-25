@@ -1,3 +1,53 @@
 // Place all the styles related to the Students controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@mixin student-img-component ($img-size) {
+    height: $img-size;
+    width: $img-size;
+
+    .profile-img {
+        width: $img-size;
+        height: $img-size;
+        border-radius: $img-size/2;
+    }
+
+    .house-icon {
+        height: $img-size/2;
+        float: right;
+        transform: translateY(-$img-size/2.5);
+    }
+}
+
+header {
+    justify-content: space-between;
+    background-color: #30257d;
+}
+
+#student-display {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .user-image-component {
+        @include student-img-component(64px);
+        padding-right: 8px;
+    }
+
+    #student-info-container {
+
+        #student-name {
+            font-size: 20px;
+            height: 2.25em;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+        }
+
+        #student-id {
+            font-size: 16px;
+            font-family: 'Roboto Mono', monospace;
+        }
+    }
+
+
+}

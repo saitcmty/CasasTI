@@ -1,7 +1,28 @@
-<span>Sign Up</span>
+<header>
+    <%= link_to :root, {:class => "back-button"} do %>
+        <img src="/material/baseline_arrow_back_white_18dp.png">
+    <% end %>
+    <p class="header-title">Iniciar Sesión</p>
+    <img src="" class="left-corner"/>
+</header>
 
-<%= button_to "Cuervos", select_cuervo_path, method: :get %>
-<%= button_to "Gallinas de Guinea", select_gallina_path, method: :get %>
-<%= button_to "Patos", select_pato_path, method: :get %>
-<%= button_to "Pavo Reales", select_pavo_real_path, method: :get %>
-<%= button_to "Venados", select_venado_path, method: :get %>
+<p class="signup_label">ESCOGE TU CASA</p>
+
+<section id="houses-container">
+
+    <%= link_to :select_cuervo, method: :get do %>
+        <img src="/casas/cuervos.png" />
+    <% end %>
+    <%= link_to :select_cuervo, method: :get do %>
+        <img src="/casas/gallinas.png" />
+    <% end %>
+    <%= link_to :select_cuervo, method: :get do %>
+        <img src="/casas/patos.png" />
+    <% end %>
+    <%= link_to :select_cuervo, method: :get do %>
+        <img src="/casas/pavo_reales.png" />
+    <% end %>
+    <%= link_to :select_cuervo, method: :get do %>
+        <img src="/casas/venados.png" />
+    <% end %>
+</section>

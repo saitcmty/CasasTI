@@ -1,18 +1,36 @@
-<% if current_user %>
-    <h1>BIENVENIDO <%= current_user.f_name %>!! ESTE ES EL DASHBOARD!!</h1>
-<% else %>
-    <h1>BIENVENIDO!! ESTE ES EL DASHBOARD!!</h1>
-<% end %>
+<header>
+    <img src="" class="empty">
 
-<% if current_user %>
-    <%= button_to "Logout", :logout, method: :get %>
-<% else %>
-    <%= button_to "Login", :login, method: :get %>
-<% end %>
+    <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
 
+    <%= link_to current_user do %>
+        <div class="user-image-component" >
+            <%= image_tag current_user.profile_img_url, :class => "right-corner profile-img" %>
 
-<%= button_to "Perfil", current_user, method: :get %>
+            <% case current_user.house.name
+                when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+            <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+            <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
+            <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+            <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
+        </div>
+        <% end %>
+    <% end %>
+</header>
 
+<p id="greeting">BIENVENIDO <%= current_user.f_name %>!!</p>
 
-<%= button_to "Ver eventos", events_path, method: :get %>
-<%= button_to "Registrar evidencia", new_registration_path, method: :get  %>
+<section id="register-evidence-panel">
+    <p>¿Te encuentras en este evento?</p>
+    <div class="button-component">
+        <input></input>
+    <%= link_to new_registration_path do %>
+            <p>>></p>
+        </div>
+    <% end %>
+
+    
+    <%= link_to new_registration_path do %>
+        <p>REGISTRAR EVIDENCIA</p>
+    <% end %>
+</section>

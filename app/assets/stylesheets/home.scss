@@ -1,3 +1,131 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@mixin student-img-component ($img-size) {
+    height: $img-size;
+    width: $img-size;
+
+    .profile-img {
+        width: $img-size;
+        height: $img-size;
+        border-radius: $img-size/2;
+    }
+
+    .house-icon {
+        height: $img-size/2;
+        float: right;
+        transform: translateY(-$img-size/2.5);
+    }
+}
+
+header {
+    justify-content: space-between;
+    background-color: #30257d;
+
+    a {
+        height: 42px;
+    }
+
+    .empty {
+        width: 48px;
+    }
+
+    .header-main-icon {
+        height: 48px;
+    }
+
+    .user-image-component {
+        @include student-img-component(36px);
+        padding-right: 8px;
+    }
+}
+
+.button-component {
+    background-color: azure;
+    height: 48px;
+    width: 80%;
+}
+
+#greeting {
+    font-size: 2.5em;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 16px;
+    text-align: center;
+}
+
+.google-login {
+    margin: 0 auto;
+  
+    img {
+        width: 288px;
+        height: auto;
+    }
+}
+
+#login-container {
+    margin-top: 48px;
+}
+
+#signup-container {
+    justify-content: center;
+    margin-top: 48px;
+
+    a {
+        height: 64px;
+        min-width: 256px;
+        border: 6px solid #3871d0;
+        border-radius: 4px;
+        box-shadow: 5px 7px 8px black;
+        box-sizing: border-box;
+        text-align: center;
+        max-width: 300px;
+        background-color: #e3c6ef;
+        color: black;
+        font-size: 40px;
+        line-height: normal;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', sans-serif;
+        align-items: center;
+    }
+}
+
+#houses-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: calc(100% - 1em);
+
+    img {
+        height: 12em;
+    }
+}
+
+.signup_label {
+    padding: 0.5em;
+    font-size: 4em;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+}
+
+@media only screen and (min-width: 640px) {
+    header {
+        a {
+            height: 64px;
+        }
+
+        .empty {
+            width: 72px;
+        }
+    
+        .header-main-icon {
+            height: 72px;
+        }
+    
+        .user-image-component {
+            @include student-img-component(54px);
+            padding-right: 12px;
+        }
+    }
+}
