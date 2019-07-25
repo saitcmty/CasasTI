@@ -17,12 +17,11 @@ class Student < ApplicationRecord
     @puntos
   end
 
-  def self.from_omniauth(auth, house_id)
+  def self.create_from_omniauth(auth, house_id)
 
-    # Creates a new student only if it doesn't exist
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |student|
+    Student.all.first_or_initialize.tap do |student|
       student.provider = auth.provider
-			student.uid = auth.uid
+      student.uid = auth.uid
       student.f_name = auth.extra.id_info.given_name
       student.l_name = auth.extra.id_info.family_name
       student.tec_id = ApplicationController.helpers.assign_tec_id(auth.extra.id_info.email)
@@ -30,8 +29,9 @@ class Student < ApplicationRecord
       student.email = auth.extra.id_info.email
       student.is_admin = false
       student.house_id = house_id
-			student.save!
+      student.save!
     end
+
   end
 
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/login'
   get 'home/admin'
+  get 'home/signup', as: 'signup'
   resources :registrations
   resources :redirects, except: [:show]
   resources :assistances
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('/')
-  get '/home', to: 'home#index'
+  get '/home', to: 'home#index', as: 'dashboard'
   get '/me', to: 'me#show', as: 'me'
 
   # Routes for selecting your house when signup

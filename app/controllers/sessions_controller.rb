@@ -26,15 +26,37 @@ class SessionsController < ApplicationController
     end
   
     def create
-        @student = Student.from_omniauth(request.env["omniauth.auth"], session[:house_selected])
-        session[:user_id] = @student.tec_id
-        redirect_to :root
+        auth = request.env["omniauth.auth"]
+
+        matricula = assign_tec_id(auth.extra.id_info.email)
+        estudiante = Student.where(tec_id: matricula).first
+        house_selected = session[:house_selected]
+
+        if estudiante
+            @student = estudiante
+            session[:user_id] = @student.tec_id
+            redirect_to :root
+        elsif !house_selected
+            redirect_to :signup
+        else
+            @student = Student.create_from_omniauth(auth, session[:house_selected])
+            session[:house_selected] = nil
+            session[:user_id] = @student.tec_id
+            redirect_to :root
+        end
     end
   
     def destroy
         session[:user_id] = nil
         redirect_to root_path
         @current_user = nil
+    end
+
+    def assign_tec_id(email)
+        if (email.split(/@/).second != 'itesm.mx' and email.split(/@/).second != 'tec.mx')
+        raise "Correo debe ser de dominio @tec.mx o @itesm.mx"
+        end
+        email.split(/@/).first.upcase
     end
   
   end

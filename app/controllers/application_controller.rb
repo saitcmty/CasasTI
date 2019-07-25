@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-  	@current_user ||= Student.find(session[:user_id]) if session[:user_id]
+    student = Student.where(tec_id: session[:user_id])
+
+    if (student.length > 0)
+      @current_user = student.first
+    else
+      @current_user = nil
+    end
   end
 
   def user_signed_in?
