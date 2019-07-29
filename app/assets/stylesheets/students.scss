@@ -2,39 +2,39 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@mixin student-img-component ($img-size) {
-    height: $img-size;
-    width: $img-size;
-
-    .profile-img {
-        width: $img-size;
-        height: $img-size;
-        border-radius: $img-size/2;
-    }
-
-    .house-icon {
-        height: $img-size/2;
-        float: right;
-        transform: translateY(-$img-size/2.5);
-    }
-}
-
 header {
     justify-content: space-between;
     background-color: #30257d;
 }
 
 #student-display {
+    width: auto;
+    min-width: calc(320px - 2em);
+    max-width: calc(640px - 2em);
+    margin: 0 auto;
     display: flex;
     justify-content: start;
     align-items: center;
 
-    .user-image-component {
-        @include student-img-component(64px);
-        padding-right: 8px;
+    .profile-img-component {
+        width: 15%;
+        height: auto;
+        padding: 0;
+    }
+
+    .profile-img-component .user-img {
+        width: 100%;
+        border-radius: 50%;
+    }
+    
+    .profile-img-component .house-icon {
+        width: 45%;
+        float: right;
+        transform: translateY(-75%);
     }
 
     #student-info-container {
+        flex-grow: 1;
 
         #student-name {
             font-size: 20px;
@@ -48,6 +48,4 @@ header {
             font-family: 'Roboto Mono', monospace;
         }
     }
-
-
 }

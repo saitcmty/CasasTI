@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
     redirect_to :login unless current_user
+    
+    # TODO: Hacer que los eventos sean después de la fecha de hoy
+    @events = Event.all
   end
 
   def login

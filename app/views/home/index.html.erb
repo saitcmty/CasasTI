@@ -3,34 +3,66 @@
 
     <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
 
-    <%= link_to current_user do %>
-        <div class="user-image-component" >
-            <%= image_tag current_user.profile_img_url, :class => "right-corner profile-img" %>
-
-            <% case current_user.house.name
-                when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
-            <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
-            <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
-            <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
-            <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
-        </div>
-        <% end %>
+    <%= link_to current_user, :class => "profile-img-component" do %>
+        <%= image_tag current_user.profile_img_url, :class => "user-img" %>
     <% end %>
 </header>
 
-<p id="greeting">BIENVENIDO <%= current_user.f_name %>!!</p>
+<p id="greeting">BIENVENID@ <%= current_user.f_name %>!!</p>
 
-<section id="register-evidence-panel">
-    <p>¿Te encuentras en este evento?</p>
-    <div class="button-component">
-        <input></input>
-    <%= link_to new_registration_path do %>
-            <p>>></p>
+<div class="page-wrapper">
+    <section id="register-evidence-panel">
+        <p>¿Te encuentras en este evento?</p>
+        <div id="code-input" class="input-component">
+            <input placeholder="Código:" maxlength="12" size="12"></input>
+            <%= link_to new_registration_path do %>
+                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+            <% end %>
         </div>
-    <% end %>
 
-    
-    <%= link_to new_registration_path do %>
-        <p>REGISTRAR EVIDENCIA</p>
-    <% end %>
-</section>
+        
+        <%= link_to new_registration_path do %>
+            <div class="button-component">
+                <span>REGISTRAR EVIDENCIA</span>
+                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+            </div>
+        <% end %>
+    </section>
+
+    <section id="next-events-panel">
+        <p class="label">Próximos Eventos:</p>
+        
+        <div id="next-events-container">
+        <% @events.each do |event| %>
+        <%= link_to event do %>
+            <div class="event-component">
+                <span class="date">
+                    <%= I18n.l(event.start_date, format: "%b %d") %>
+                </span>
+                <div class="info">
+                    <p class="title"><%= event.title %></p>
+                    <div class="icon-text-component">
+                        <i class="material-icons">room</i>
+                        <span class="event-info hour"><%= event.start_time %></span>
+                    </div>
+                    <div class="icon-text-component event-hour">
+                        <i class="material-icons">access_time</i>
+                        <span class="event-info hour"><%= event.start_time.strftime("%H:%M %p") %></span>
+                    </div>
+                </div>
+
+                <% if event.assistances.where(student_id: current_user.tec_id).empty? %>
+                <i class="material-icons md-48">
+                    calendar_today
+                </i>
+                <% else %>
+                <i class="material-icons md-48" style="color:#30257d;">
+                    event_available
+                </i>
+                <% end %>
+            </div>
+        <% end %>
+        <% end %>
+        </div>
+    </section>
+</div>

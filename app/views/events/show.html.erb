@@ -1,44 +1,78 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <%= link_to :root  do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<%= image_tag @event.img_url, :id => "event-portrait" %>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+<h1 class="title"><%= @event.title %></h1>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
+<div class="page-wrapper">
 
-<p>
-  <strong>End date:</strong>
-  <%= @event.end_date %>
-</p>
+  <section id="event-info">
+    <div class="info-container">
+      <i class="material-icons md-dark md-inherit">room</i>
+      <span><%= @event.start_date %></span>
+    </div>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
+    <div id="dates-container">
+      <div id="date-start-info">
+        <div class="info-container">
+          <i class="material-icons md-dark md-inherit">event</i>
+          <span>
+            <%= I18n.l(@event.start_date, format: "%b %d") %>
+          </span>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
+        <div class="info-container">
+          <i class="material-icons md-dark md-inherit">access_time</i>
+          <span><%= @event.start_time.strftime("%H:%M %p") %></span>
+        </div>
 
-<p>
-  <strong>Img url:</strong>
-  <%= @event.img_url %>
-</p>
+      </div>
 
-<p>
-  <strong>Link:</strong>
-  <%= @event.link %>
-</p>
+      <% unless @event.end_date.nil? %>
+      <i class="material-icons md-dark md-48 middle-icon">trending_flat</i>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+      <div id="date-end-info">
+        <div class="info-container">
+          <i class="material-icons md-dark md-inherit">event</i>
+          <span><%= I18n.l(@event.end_date, format: "%b %d") %></span>
+        </div>
+        
+        <div class="info-container">
+          <i class="material-icons md-dark md-inherit">access_time</i>
+          <span><%= @event.end_time.strftime("%H:%M %p") %></span>
+        </div>
+
+      </div>
+      <% end %>
+    </div>
+
+    <div id="assistance-display">
+    <% if @event.assistances.where(student_id: current_user.tec_id).empty? %>
+      <i class="material-icons md-dark md-inherit">event_available</i>
+      <span>¿Asistirás a este evento?</span>
+    <% else %>
+      <i class="material-icons md-dark md-inherit" style="color:#30257d;">event_available</i>
+      <span>Asistirás a este evento</span>
+    <% end %>
+    </div>
+  </section>
+
+  <section id="event-details">
+    <p id="event-description"><%= @event.description %></p>
+
+    <% unless @event.link.empty? %>
+    <%= link_to @event.link, target: :_blank do %>
+        <div id="event-link-component" class="button-component">
+            <span>LINK DEL EVENTO</span>
+            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+        </div>
+    <% end %>
+    <% end %>
+  </section>
+
+</div>

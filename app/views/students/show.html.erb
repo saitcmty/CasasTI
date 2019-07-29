@@ -1,21 +1,24 @@
 <header>
-  <%= link_to dashboard_url, {:class => "back-button"} do %>
-    <img src="/material/baseline_arrow_back_white_18dp.png">
+  <%= link_to dashboard_url do %>
+    <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <%= link_to :logout do %>
+    <i class="material-icons md-36 md-light">exit_to_app</i>
   <% end %>
 </header>
 
 <section id="student-display">
 
-  <div class="user-image-component" >
-      <%= image_tag current_user.profile_img_url, :class => "profile-img" %>
+  <div class="profile-img-component">
+    <%= image_tag current_user.profile_img_url, :class => "user-img" %>
 
-      <% case current_user.house.name
-          when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
-      <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
-      <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
-      <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
-      <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
-      <% end %>
+    <% case current_user.house.name
+        when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+    <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+    <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
+    <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+    <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
+    <% end %>
   </div>
 
   <div id="student-info-container">

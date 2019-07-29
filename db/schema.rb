@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_144612) do
     t.index ["student_id", "event_id"], name: "index_assistances_on_student_id_and_event_id", unique: true
   end
 
+  # TODO: Añadir events place
   create_table "events", force: :cascade do |t|
     t.string "title", null: false
     t.date "start_date", null: false

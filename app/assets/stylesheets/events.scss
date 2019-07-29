@@ -1,3 +1,63 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_global.scss";
+
+header {
+  background-color: #1515b0;
+}
+
+h1 {
+  font-size: 1.5em;
+  padding: 0.3em;
+}
+
+#dates-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+  margin-left: 0.3em;
+  font-size: 0.75em;
+  max-width: 16em;
+
+  .middle-icon {
+    margin-right: 0.2em;
+    margin-left: 0.2em;
+  }
+}
+
+#event-portrait {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+#event-portrait::after {
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#event-info {
+  .info-container {
+    @include icon-text-component(1em);
+  }
+}
+
+#assistance-display {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+
+  i {
+    font-size: 2em;
+  }
+}
+
+#event-link-component.button-component {
+  @include button-component(24px, #75cee2, #2166e0);
+}
