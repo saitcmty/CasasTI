@@ -9,13 +9,13 @@ header {
 }
 
 #student-display {
-    width: auto;
+    width: 100%;
     min-width: calc(320px - 2em);
-    max-width: calc(640px - 2em);
     margin: 0 auto;
     display: flex;
     justify-content: start;
     flex-direction: row;
+    justify-content: center;
 
     .profile-img-component {
         @include user-image(3em);
@@ -49,20 +49,25 @@ header {
     }
 }
 
-.event-component {
-    @include event-component(64px);
-}
-
 #my-registrations {
     border: #91d0f3 solid;
     border-radius: 8px;
     padding: 0;
+    min-width: 13em;
 
     .registration-component {
-        height: 48px;
+        height: 2em;
         border-top: #30257d solid 2px;
         display: flex;
         justify-content: space-between;
+
+        .icon-container {
+            width: 2em;
+
+            i {
+                font-size: 2em;
+            }
+        }
     }
 
     .label {

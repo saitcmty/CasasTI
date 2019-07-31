@@ -39,6 +39,8 @@ h1 {
 }
 
 #event-info {
+  align-items: baseline;
+  
   .info-container {
     @include icon-text-component(1em);
   }

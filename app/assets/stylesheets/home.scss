@@ -16,6 +16,13 @@ header {
   .empty {
     width: 56px;
   }
+  
+  .user-img {
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+    border-radius: 50%;
+  }
 }
 
 #code-input {
@@ -67,12 +74,13 @@ header {
 
 #signup-container {
   justify-content: center;
+  align-items: center;
   margin-top: 48px;
 
   a {
     height: 64px;
     min-width: 256px;
-    border: 4px solid #3871d0;
+    border: 3px solid #3871d0;
     border-radius: 4px;
     box-shadow: 2px 2px 8px black;
     box-sizing: border-box;

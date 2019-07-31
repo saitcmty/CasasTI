@@ -3,7 +3,7 @@
 
     <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
 
-    <%= link_to current_user, :class => "profile-img-component" do %>
+    <%= link_to current_user do %>
         <%= image_tag current_user.profile_img_url, :class => "user-img" %>
     <% end %>
 </header>

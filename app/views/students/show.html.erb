@@ -7,6 +7,8 @@
   <% end %>
 </header>
 
+<div class="page-wrapper">
+
 <section id="student-display">
 
   <%= link_to current_user.house do %>
@@ -35,7 +37,7 @@
   <span id="student-puntos"><%= @student.points %></span>
 </div>
 
-<section id="my-registrations">
+<section id="my-registrations" class="registrations-panel">
 
     <p class="label">Registros de Evidencias:</p>
     
@@ -47,11 +49,15 @@
               <p class="title"><%= registration.evidence.title %></p>
               <p class="date"><%= registration.date %></p>
           </div>
-          <% if registration.approved %>
-            <i class="material-icons md-48">done</i>
-          <% end %>
+          <div class="icon-container">
+            <% if registration.approved %>
+              <i class="material-icons">done</i>
+            <% end %>
+          </div>
       </div>
     <% end %>
     </div>
 
 </section>
+
+</div>

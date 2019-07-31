@@ -8,9 +8,12 @@ body {
 
 #house-img {
     padding: 8px;
+    width: fit-content;
+    margin: 0 auto;
 
     .house-icon {
-        width: 100%;
+        max-height: 60vh;
+        width: auto;
         height: auto;
     }
 }
