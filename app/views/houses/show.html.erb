@@ -1,16 +1,25 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <%= link_to dashboard_url do %>
+    <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <%= link_to :logout do %>
+    <i class="material-icons md-36 md-light">exit_to_app</i>
+  <% end %>
+</header>
 
-<img src="">
+<section id="house-display">
+  <div id="house-img">
+    <% case @house.name
+        when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+    <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+    <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
+    <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+    <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @house.name %>
-</p>
-
-<p>
-  <strong>House points:</strong>
-  <%= @house.points %>
-</p>
-
-<%= link_to 'Edit', edit_house_path(@house) %> |
-<%= link_to 'Back', houses_path %>
+  <div id="points-container">
+    <span>Puntos: </span>
+    <span id="house-points"><%= @house.points %></span>
+  </div>
+</section>

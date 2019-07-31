@@ -26,10 +26,13 @@ class RegistrationsController < ApplicationController
   # POST /registrations.json
   def create
     @registration = Registration.new(registration_params)
+    @registration.student_id =  current_user.tec_id
+    @registration.approved = false
+    @registration.date = DateTime.now
 
     respond_to do |format|
       if @registration.save
-        format.html { redirect_to @registration, notice: 'Registration was successfully created.' }
+        format.html { redirect_to :root, notice: 'Registration was successfully created.' }
         format.json { render :show, status: :created, location: @registration }
       else
         format.html { render :new }

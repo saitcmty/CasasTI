@@ -9,6 +9,7 @@
 
 <section id="student-display">
 
+  <%= link_to current_user.house do %>
   <div class="profile-img-component">
     <%= image_tag current_user.profile_img_url, :class => "user-img" %>
 
@@ -20,6 +21,7 @@
     <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
     <% end %>
   </div>
+  <% end %>
 
   <div id="student-info-container">
     <p id="student-name"><%= @student.name %></p>
@@ -29,6 +31,27 @@
 </section>
 
 <div id="puntos-display">
-  <p>Puntos</p>
-  <p id="student-puntos"><%= @student.points %></p>
+  <span>Puntos: </span>
+  <span id="student-puntos"><%= @student.points %></span>
 </div>
+
+<section id="my-registrations">
+
+    <p class="label">Registros de Evidencias:</p>
+    
+    <div id="my-registrations-container">
+
+    <% current_user.registrations.each do |registration| %>
+      <div class="registration-component">
+          <div class="info">
+              <p class="title"><%= registration.evidence.title %></p>
+              <p class="date"><%= registration.date %></p>
+          </div>
+          <% if registration.approved %>
+            <i class="material-icons md-48">done</i>
+          <% end %>
+      </div>
+    <% end %>
+    </div>
+
+</section>

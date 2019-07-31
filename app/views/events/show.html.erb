@@ -1,11 +1,11 @@
 <header>
-  <%= link_to :root  do %>
+  <%= link_to :root do %>
       <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
   <div class="empty"></div>
 </header>
 
-<%= image_tag @event.img_url, :id => "event-portrait" %>
+<%= image_tag(@event.img_url, id: "event-portrait") unless @event.img_url.empty? %>
 
 <h1 class="title"><%= @event.title %></h1>
 

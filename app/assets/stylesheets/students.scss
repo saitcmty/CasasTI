@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "_global.scss";
+
 header {
     justify-content: space-between;
-    background-color: #30257d;
 }
 
 #student-display {
@@ -14,38 +15,63 @@ header {
     margin: 0 auto;
     display: flex;
     justify-content: start;
-    align-items: center;
+    flex-direction: row;
 
     .profile-img-component {
-        width: 15%;
-        height: auto;
-        padding: 0;
-    }
-
-    .profile-img-component .user-img {
-        width: 100%;
-        border-radius: 50%;
-    }
-    
-    .profile-img-component .house-icon {
-        width: 45%;
-        float: right;
-        transform: translateY(-75%);
+        @include user-image(3em);
     }
 
     #student-info-container {
-        flex-grow: 1;
+        padding: 4px;
 
         #student-name {
-            font-size: 20px;
+            font-size: 1em;
             height: 2.25em;
             font-family: 'Source Sans Pro', sans-serif;
             font-weight: 600;
         }
 
         #student-id {
-            font-size: 16px;
+            font-size: 0.7em;
             font-family: 'Roboto Mono', monospace;
         }
+    }
+}
+
+#puntos-display {
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 2em;
+
+    span#student-puntos {
+        font-size: 1.5em;
+        font-weight: 900;
+    }
+}
+
+.event-component {
+    @include event-component(64px);
+}
+
+#my-registrations {
+    border: #91d0f3 solid;
+    border-radius: 8px;
+    padding: 0;
+
+    .registration-component {
+        height: 48px;
+        border-top: #30257d solid 2px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .label {
+        background-color: #91d0f3;
+        padding-bottom: 4px;
+    }
+
+    .info .date {
+        font-size: 0.7em;
+        font-family: 'Roboto Mono', monospace;
     }
 }

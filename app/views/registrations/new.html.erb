@@ -1,5 +1,33 @@
-<h1>New Registration</h1>
+<header>
+  <%= link_to :root do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
-<%= render 'form', registration: @registration %>
+<%= form_with(model: @registration, local: true) do |form| %>
+  <% if @registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
 
-<%= link_to 'Back', registrations_path %>
+      <ul>
+      <% @registration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= select("registration", "evidence_id", Evidence.all.collect {|e| [ e.title, e.id ] }, { include_blank: true }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :proof %>
+    <%= form.text_field :proof %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
