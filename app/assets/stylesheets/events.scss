@@ -46,13 +46,14 @@ h1 {
   }
 }
 
-#assistance-display {
+#assistance-display a {
   margin-top: 24px;
   display: flex;
   align-items: center;
 
   i {
     font-size: 2em;
+    margin-right: 0.1em;
   }
 }
 

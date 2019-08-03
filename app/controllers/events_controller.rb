@@ -1,6 +1,12 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
+  def register_assistance
+  end
+
+  def remove_assistance
+  end
+
   # GET /events
   # GET /events.json
   def index
@@ -10,6 +16,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @assistance = Assistance.all.where(student_id: current_user.tec_id, event_id: @event.id).first
+    session[:selected_event] = @event.id
   end
 
   # GET /events/new
@@ -74,6 +82,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :start_date, :start_time, :end_date, :end_time, :description, :img_url, :link)
+      params.require(:event).permit(:title, :place, :start, :end, :description, :img_url, :link)
     end
 end

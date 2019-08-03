@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_events
+  end
+
   def user_signed_in?
   	# converts current_user to a boolean by negating the negation
   	!!current_user

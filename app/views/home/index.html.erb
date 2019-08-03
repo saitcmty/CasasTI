@@ -12,13 +12,16 @@
 
 <div class="page-wrapper">
     <section id="register-evidence-panel">
+        <% unless @current_events.empty? %>
         <p>¿Te encuentras en este evento?</p>
+        <form action="/home/validate_input">
         <div id="code-input" class="input-component">
-            <input placeholder="Código:" maxlength="12" size="12"></input>
-            <%= link_to new_registration_path do %>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
+            <input class="input-text" type="text" name="registration_code" placeholder="Código:" maxlength="12" size="12">
+            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+            <input id="submit-btn" type="Submit" value=""/>
         </div>
+        </form>
+        <% end %>
 
         
         <%= link_to new_registration_path do %>
@@ -37,17 +40,17 @@
         <%= link_to event do %>
             <div class="event-component">
                 <span class="date">
-                    <%= I18n.l(event.start_date, format: "%b %d") %>
+                    <%= I18n.l(event.start.to_date, format: "%b %d") %>
                 </span>
                 <div class="info">
                     <p class="title"><%= event.title %></p>
                     <div class="icon-text-component">
                         <i class="material-icons">room</i>
-                        <span class="event-info hour"><%= event.start_time %></span>
+                        <span class="event-info hour"><%= event.place %></span>
                     </div>
                     <div class="icon-text-component event-hour">
                         <i class="material-icons">access_time</i>
-                        <span class="event-info hour"><%= event.start_time.strftime("%H:%M %p") %></span>
+                        <span class="event-info hour"><%= event.start.strftime("%H:%M %p") %></span>
                     </div>
                 </div>
 

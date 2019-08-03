@@ -4,6 +4,10 @@
 
 @import "_global.scss";
 
+body {
+  background-color: #9092c7;
+}
+
 header {
   background-color: #30257d;
 
@@ -26,6 +30,7 @@ header {
 }
 
 #code-input {
+  position: relative;
   width: calc(320px - 2em);
   height: 48px;
   margin: 0 auto;
@@ -37,18 +42,26 @@ header {
   input {
     background-color: #00000000;
     border-color: #00000000;
+  }
+
+  .input-text {
     font-size: 24px;
     font-family: "Roboto Mono", monospace;
     flex-grow: 1;
   }
 
-  a {
-    background-color: #7b6eda;
+  #submit-btn {
+    width: 48px;
+    height: 48px;
     color: white;
+    z-index: 10;
   }
 
   i {
     padding: calc((48px - 36px) / 2);
+    position: absolute;
+    right: 0;
+    background-color: #7b6eda;
   }
 }
 

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  get '/home', to: 'home#index', as: 'dashboard'
   get 'home/index'
   get 'home/login'
   get 'home/admin'
+  get 'home/validate_input'
   get 'home/signup', as: 'signup'
   resources :registrations
   resources :redirects, except: [:show]
@@ -18,13 +20,14 @@ Rails.application.routes.draw do
   get '/Venados', to: redirect('houses/Venados')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get '/registration_with_code', to: 'registrations#create_with_code', as: 'register_with_code'
+
   # Routes for Google authentication
   get '/login', to: redirect('/home/login'), as: 'login'
   get '/auth/google_oauth2', as: 'google_login'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', to: redirect('/')
-  get '/home', to: 'home#index', as: 'dashboard'
   get '/me', to: 'me#show', as: 'me'
 
   # Routes for selecting your house when signup

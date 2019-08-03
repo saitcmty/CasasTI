@@ -26,9 +26,31 @@ class RegistrationsController < ApplicationController
   # POST /registrations.json
   def create
     @registration = Registration.new(registration_params)
-    @registration.student_id =  current_user.tec_id
+    @registration.student_id = current_user.tec_id
     @registration.approved = false
     @registration.date = DateTime.now
+
+    respond_to do |format|
+      if @registration.save
+        format.html { redirect_to :root, notice: 'Registration was successfully created.' }
+        format.json { render :show, status: :created, location: @registration }
+      else
+        format.html { render :new }
+        format.json { render json: @registration.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # POST /registrations
+  # POST /registrations.json
+  def create_with_code
+    @registration = Registration.new
+    @registration.student_id = current_user.tec_id
+    @registration.approved = true
+    @registration.evidence_id = session[:matching_evidence]
+    @registration.date = DateTime.now
+
+    logger.debug(@registration.evidence_id)
 
     respond_to do |format|
       if @registration.save
