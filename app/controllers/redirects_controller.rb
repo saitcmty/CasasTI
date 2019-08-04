@@ -24,7 +24,7 @@ class RedirectsController < ApplicationController
 
     respond_to do |format|
       if @redirect.save
-        format.html { redirect_to :root, notice: 'Redirect was successfully created.' }
+        format.html { redirect_to :admin_dashboard, notice: 'Redirect was successfully created.' }
         format.json { render :show, status: :created, location: @redirect }
       else
         format.html { render :new }

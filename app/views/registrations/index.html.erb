@@ -18,7 +18,7 @@
     <% @registrations.each do |registration| %>
       <tr>
         <td><%= registration.student_id %></td>
-        <td><%= registration.evidence_id %></td>
+        <td><%= Evidence.find(registration.evidence_id).title %></td>
         <td><%= registration.proof %></td>
         <td><%= registration.approved %></td>
         <td><%= registration.date %></td>
