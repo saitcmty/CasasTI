@@ -50,8 +50,6 @@ class RegistrationsController < ApplicationController
     @registration.evidence_id = session[:matching_evidence]
     @registration.date = DateTime.now
 
-    logger.debug(@registration.evidence_id)
-
     respond_to do |format|
       if @registration.save
         format.html { redirect_to :root, notice: 'Registration was successfully created.' }

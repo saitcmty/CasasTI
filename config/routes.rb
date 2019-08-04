@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   resources :students, except: [:new]
   resources :houses, except: [:new, :destroy]
 
+  get '/admin', to: 'home#admin', as: 'admin_dashboard'
+
   get '/estudiantes', to: 'students#index'
   get '/casas', to: 'houses#index'
-  get '/Venados', to: redirect('houses/Venados')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/registration_with_code', to: 'registrations#create_with_code', as: 'register_with_code'

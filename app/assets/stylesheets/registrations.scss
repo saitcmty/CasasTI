@@ -1,3 +1,72 @@
 // Place all the styles related to the Registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_global.scss";
+
+form {
+    input {
+        display: block;
+        width: 256px;
+        height: 32px;
+        margin: 0 auto;
+    }
+}
+
+#registration_evidence_id {
+    display: block;
+    width: 256px;
+    height: 32px;
+    margin: 0 auto;
+    background-color: #00000060;
+    border-color: #00000060;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+#registration_proof {
+    display: block;
+    width: 100%;
+    min-width: 300px;
+    max-width: 80%;
+    height: 32px;
+    margin: 0 auto;
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: black solid 2px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    color: white;
+}
+
+.button-component {
+    @include button-component(24px, #e8892a, #6a3f13);
+}
+
+.field {
+    margin-top: 16px;
+    font-size: 18px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 256px;
+    height: 64px;
+    margin: 0 auto;
+    margin-top: 24px;
+    font-family: 'Roboto Mono', monospace;
+    padding: 8px;
+    justify-content: space-between;
+    padding: 8px;
+    font-size: 24px;
+    background-color: #e8892a;
+    border: #6a3f13 solid 4px;
+    border-radius: 8px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+td {
+    padding: 4px;
+}
