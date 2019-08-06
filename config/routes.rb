@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/signup', as: 'signup'
   resources :registrations
   resources :redirects, except: [:show]
-  resources :assistances
+  resources :assistances, only: [:create, :destroy]
   resources :evidences
   resources :events
   resources :students, except: [:new]
