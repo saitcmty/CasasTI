@@ -20,7 +20,7 @@ class Student < ApplicationRecord
 
   def self.create_from_omniauth(auth, house_id)
 
-    Student.all.first_or_initialize.tap do |student|
+      student = Student.new
       student.provider = auth.provider
       student.uid = auth.uid
       student.f_name = auth.extra.id_info.given_name
@@ -31,7 +31,7 @@ class Student < ApplicationRecord
       student.is_admin = false
       student.house_id = house_id
       student.save!
-    end
+      student
 
   end
 
