@@ -68,6 +68,8 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     redirect_to :root unless current_user.is_admin
+    Assistance.where(event_id: @event.id).delete_all
+    Redirect.where(event_id: @event.id).delete_all
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }

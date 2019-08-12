@@ -52,7 +52,9 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    redirect_to :root if current_user != @student
+    redirect_to :root unless current_user.is_admin
+    Assistance.where(student_id: @student.id).delete_all
+    Registration.where(student_id: @student.id).delete_all
     @student.destroy
     respond_to do |format|
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }

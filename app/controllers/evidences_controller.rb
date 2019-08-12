@@ -55,6 +55,8 @@ class EvidencesController < ApplicationController
   # DELETE /evidences/1
   # DELETE /evidences/1.json
   def destroy
+    Registration.where(evidence_id: @evidence.id).delete_all
+    Redirect.where(evidence_id: @evidence.id).delete_all
     @evidence.destroy
     respond_to do |format|
       format.html { redirect_to evidences_url, notice: 'Evidence was successfully destroyed.' }

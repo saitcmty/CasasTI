@@ -31,7 +31,7 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save
-        format.html { redirect_to :completed, notice: 'Registration was successfully created.' }
+        format.html { redirect_to completed_registration_path(@registration.id), notice: 'Registration was successfully created.' }
         format.json { render :completed, status: :created, location: @registration }
       else
         format.html { render :new }
