@@ -11,7 +11,7 @@
     <% @students.each do |student| %>
     <div class="event-component element-component">
         <div class="profile-img-component">
-          <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+          <%= image_tag student.profile_img_url, :class => "user-img" %>
 
           <% case current_user.house.name
               when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
