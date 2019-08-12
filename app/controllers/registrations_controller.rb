@@ -5,12 +5,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations.json
   def index
     redirect_to :root unless current_user.is_admin
-    @registrations = Registration.all
-  end
-
-  # GET /registrations/1
-  # GET /registrations/1.json
-  def show
+    @registrations = Registration.all.where(approved: false)
   end
 
   # GET /registrations/new
@@ -20,6 +15,10 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/1/edit
   def edit
+  end
+
+  # Registrations pantalla para usuario
+  def completed
   end
 
   # POST /registrations
@@ -32,8 +31,8 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save
-        format.html { redirect_to :root, notice: 'Registration was successfully created.' }
-        format.json { render :show, status: :created, location: @registration }
+        format.html { redirect_to :completed, notice: 'Registration was successfully created.' }
+        format.json { render :completed, status: :created, location: @registration }
       else
         format.html { render :new }
         format.json { render json: @registration.errors, status: :unprocessable_entity }
@@ -52,8 +51,8 @@ class RegistrationsController < ApplicationController
 
     respond_to do |format|
       if @registration.save
-        format.html { redirect_to :root, notice: 'Registration was successfully created.' }
-        format.json { render :show, status: :created, location: @registration }
+        format.html { redirect_to completed_registration_path(@registration.id), notice: 'Registration was successfully created.' }
+        format.json { render :completed, status: :created, location: @registration }
       else
         format.html { render :new }
         format.json { render json: @registration.errors, status: :unprocessable_entity }
@@ -73,6 +72,14 @@ class RegistrationsController < ApplicationController
         format.json { render json: @registration.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # For admins to approve students' registrations
+  def approve
+    @registration = Registration.find(params[:id])
+    @registration.approved = true
+    @registration.save!
+    redirect_to :registrations
   end
 
   # DELETE /registrations/1

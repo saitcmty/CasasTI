@@ -1,6 +1,9 @@
-<h1>Editing Event</h1>
+<header>
+  <%= link_to :events do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <p class="title">ADMIN</p>
+  <div class="empty"></div>
+</header>
 
 <%= render 'form', event: @event %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>

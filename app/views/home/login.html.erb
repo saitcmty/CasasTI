@@ -6,15 +6,14 @@
     <div class="empty"></div>
 </header>
 
-<div class="page-wrapper">
-    <section id="login-container">
-        <%= link_to :google_login, {:class => "google-login"} do %>
-            <img src="/material/btn_google_signin.png" />
-        <% end %>
-    </section>
+<section id="login-container">
+    <%= link_to :google_login, {:class => "google-login"} do %>
+        <img src="/material/btn_google_signin.png" />
+    <% end %>
+</section>
 
-    <section id="signup-container">
-        <%= link_to "Sign Up", :signup  %>
-    </section>
-</div>
+<section id="signup-container" class="button-component">
+    <p>¿Primera vez aquí?</p>
+    <%= link_to "Registrarme", :signup  %>
+</section>
 

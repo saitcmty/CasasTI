@@ -61,6 +61,41 @@ input[type="submit"] {
     color: rgba(0, 0, 0, 0.54);
 }
 
-td {
-    padding: 4px;
+#all-redirects-panel {
+  @include panel-component(#91d3f9, #3e85af);
+  max-width: 90vw;
+  margin-bottom: 1em;
+
+  .elements-container {
+    max-height: fit-content;
+
+    .element-component {
+        align-items: center;
+        height: 2.5em;
+
+        .redirect-info {
+            flex-grow: 1;
+
+            .event-title { font-weight: bold; }
+            .evidence-title {
+                max-height: 1em;
+            }
+        }
+
+        .redirect-code {
+            width: 8em;
+            text-align: end;
+            margin: 0 0.5em;
+        }
+  
+        .right-icon {
+          font-size: 2em;
+        }
+    }
+  }
+}
+
+a#new-redirect {
+  @include button-component(2em, #91d3f9, #3e85af);
+  margin: 1em auto;
 }

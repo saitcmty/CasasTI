@@ -48,6 +48,9 @@ table {
 a {
 	color: black;
 }
+a:hover, input:hover {
+	cursor: pointer;
+}
 input:focus,
 select:focus,
 textarea:focus,

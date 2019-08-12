@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'home/admin'
   get 'home/validate_input'
   get 'home/signup', as: 'signup'
-  resources :registrations
+
+  resources :registrations  do
+    get :approve, on: :member
+    get :completed, on: :member
+  end
   resources :redirects, except: [:show]
   resources :assistances, only: [:create, :destroy]
   resources :evidences

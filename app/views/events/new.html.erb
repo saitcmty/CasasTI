@@ -1,5 +1,8 @@
-<h1>New Event</h1>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
 <%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>

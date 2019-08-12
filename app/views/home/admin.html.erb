@@ -1,5 +1,36 @@
-<h1>BIENVENIDO <%= current_user.f_name %>!! ESTE ES EL ADMIN PODEROSO ALV!!</h1>
+<header>
+    <img src="" class="empty">
+    <p class="title">ADMIN</p>
+    <img src="" class="empty">
+</header>
 
+<h1 class="main-title">BIENVENIDO <%= current_user.f_name %>!! TOP SECRET</h1>
 
-<%= button_to "Crear evento", new_event_path, method: :get %>
-<%= button_to "Crear evidencia", new_evidence_path, method: :get %>
+<section id="admin-actions" class="page-wrapper">
+
+<%= link_to :students, {:id => "students-button", :class => "button-component"}, method: :get do %>
+    <span>ESTUDIANTES</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
+
+<%= link_to :events, {:id => "events-button", :class => "button-component"}, method: :get do %>
+    <span>EVENTOS</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
+
+<%= link_to :registrations, {:id => "registrations-button", :class => "button-component"}, method: :get do %>
+    <span>REGISTROS</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
+
+<%= link_to :evidences, {:id => "evidences-button", :class => "button-component"}, method: :get do %>
+    <span>EVIDENCIAS</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
+
+<%= link_to :redirects, {:id => "redirects-button", :class => "button-component"}, method: :get do %>
+    <span>REDIRECTS</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
+
+</section>

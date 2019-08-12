@@ -12,31 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :student_id %>
-    <%= form.text_field :student_id %>
+    <%= select("registration", "evidence_id", Evidence.all.collect {|e| [ e.title, e.id ] }) %>
   </div>
 
   <div class="field">
-    <%= form.label :evidence_id %>
-    <%= form.text_field :evidence_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :proof %>
+    <p>Ingresa tu prueba para la evidencia: (link hacia elemento compartido)</p>
     <%= form.text_field :proof %>
   </div>
 
-  <div class="field">
-    <%= form.label :approved %>
-    <%= form.check_box :approved %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "REGISTRAR" %>
   </div>
 <% end %>

@@ -8,27 +8,6 @@ body {
   background-color: #9092c7;
 }
 
-header {
-  background-color: #30257d;
-
-  .title {
-    font-size: 36px;
-    color: white;
-    font-family: "Source Sans Pro", sans-serif;
-  }
-
-  .empty {
-    width: 56px;
-  }
-  
-  .user-img {
-    width: 36px;
-    height: 36px;
-    padding: 10px;
-    border-radius: 50%;
-  }
-}
-
 #code-input {
   position: relative;
   width: calc(320px - 2em);
@@ -55,6 +34,7 @@ header {
     height: 48px;
     color: white;
     z-index: 10;
+    margin: 0;
   }
 
   i {
@@ -88,25 +68,15 @@ header {
 #signup-container {
   justify-content: center;
   align-items: center;
-  margin-top: 48px;
+  margin-top: 4em;
+
+  p { font-size: 2em; }
 
   a {
-    height: 64px;
-    min-width: 256px;
-    border: 3px solid #3871d0;
-    border-radius: 4px;
-    box-shadow: 2px 2px 8px black;
-    box-sizing: border-box;
+    @include button-component(24px, #88b2f7, #3e5271);
     text-align: center;
-    max-width: 300px;
-    background-color: #e3c6ef;
-    color: black;
-    font-size: 40px;
-    line-height: normal;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: "Source Sans Pro", sans-serif;
-    align-items: center;
+    display: block;
+    line-height: 48px;
   }
 }
 
@@ -136,72 +106,90 @@ header {
   text-align: center;
 }
 
-.button-component {
-  @include button-component(24px, #e1d437, #a06e33);
+#admin-actions {
+
+  .button-component {
+    height: 2em;
+    width: 10em;
+  }
+}
+
+a#students-button {
+  @include button-component(2em, #91f999, #437246);
+}
+
+a#registrations-button {
+  @include button-component(2em, #ff88aa, #753e4e);
+}
+
+a#events-button {
+  @include button-component(2em, #8099ff, #3b4675);
+}
+
+a#evidences-button {
+  @include button-component(2em, #e1d437, #a06e33);
+}
+
+a#redirects-button {
+  @include button-component(2em, #91d3f9, #3e85af);
+}
+
+
+
+a#new-registration {
+  @include button-component(2em, #ff88aa, #753e4e);
 }
 
 #next-events-panel {
-  display: block;
-  padding: 0;
-  border: #30257d solid 4px;
-  border-radius: 8px;
-  font-family: "Source Sans Pro", sans-serif;
-  max-width: 15em;
-}
+  @include panel-component(#466bff, #172455);
+  
+  #next-events-container {
+    overflow: auto;
 
-#next-events-container {
-  overflow: auto;
-  max-height: 256px;
-}
+    .element-component {
+      .date {
+        width: 2.5em;
+        min-width: 2.5em;
+        font-size: 2em;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-right: 4px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-family: "Roboto Mono", monospace;
+      }
 
-#next-events-panel .label {
-  background-color: #30257d;
-  font-size: 24px;
-  color: white;
-}
+      .title {
+        height: 2em;
+        max-height: 2em;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding-top: 0.1em;
+      }
 
-.event-component {
-  height: 64px;
-  font-size: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  border-top: #30257d solid 2px;
+      .icon-text-component {
+        margin-top: 0.3em;
+        font-size: 1.25em;
+        max-height: 1em;
+      }
 
-  .date {
-    width: 64px;
-    line-height: 24px;
-    font-size: 24px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-family: "Roboto Mono", monospace;
-  }
+      .event-info {
+      }
 
-  i {
-    font-size: 1em;
-  }
-
-  .info {
-    flex-grow: 1;
-  }
-
-  .title {
-    font-size: 24px;
-    margin-bottom: 4px;
-  }
-
-  .event-info {
+      .right-icon {
+        font-size: 2.5em;
+        line-height: 2em;
+      }
+    }
   }
 }
 
-.icon-text-component {
-  display: flex;
-  height: 1em;
+#admin-actions {
+  margin-bottom: 2em;
 }
+
+
 
 @media only screen and (min-width: 640px) {
 }

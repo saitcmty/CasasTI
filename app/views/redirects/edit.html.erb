@@ -1,5 +1,10 @@
-<h1>Editing Redirect</h1>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
+<section id="edit-redirect">
 <%= render 'form', redirect: @redirect %>
-
-<%= link_to 'Back', redirects_path %>
+</section>

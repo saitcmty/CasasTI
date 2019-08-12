@@ -16,21 +16,21 @@
 <div class="page-wrapper">
 
   <section id="event-info">
-    <div class="info-container">
+    <div id="event-place" class="info-container icon-text-component">
       <i class="material-icons md-dark md-inherit">room</i>
       <span><%= @event.place %></span>
     </div>
 
     <div id="dates-container">
-      <div id="date-start-info">
-        <div class="info-container">
+      <div id="date-start-info" class="date-time-container">
+        <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">event</i>
           <span>
             <%= I18n.l(@event.start, format: "%b %d") %>
           </span>
         </div>
 
-        <div class="info-container">
+        <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">access_time</i>
           <span><%= @event.start.strftime("%H:%M %p") %></span>
         </div>
@@ -40,13 +40,13 @@
       <% unless @event.end.nil? %>
       <i class="material-icons md-dark md-48 middle-icon">trending_flat</i>
 
-      <div id="date-end-info">
-        <div class="info-container">
+      <div id="date-end-info" class="date-time-container">
+        <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">event</i>
           <span><%= I18n.l(@event.end, format: "%b %d") %></span>
         </div>
         
-        <div class="info-container">
+        <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">access_time</i>
           <span><%= @event.end.strftime("%H:%M %p") %></span>
         </div>
@@ -55,10 +55,9 @@
       <% end %>
     </div>
 
-    <div id="assistance-display">
     <% if @event.assistances.where(student_id: current_user.tec_id).empty? %>
       <%= link_to :assistances, method: :post do %>
-        <i class="material-icons md-dark md-inherit">event_available</i>
+        <i class="material-icons md-dark md-inherit">calendar_today</i>
         <span>¿Asistirás a este evento?</span>
       <% end %>
     <% else %>
@@ -67,18 +66,15 @@
         <span>Asistencia registrada</span>
       <% end %>
     <% end %>
-    </div>
   </section>
 
   <section id="event-details">
     <p id="event-description"><%= @event.description %></p>
 
     <% unless @event.link.empty? %>
-    <%= link_to @event.link, target: :_blank do %>
-        <div id="event-link-component" class="button-component">
-            <span>LINK DEL EVENTO</span>
-            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-        </div>
+    <%= link_to @event.link, {:id => "event-link-component", :class => "button-component"}, target: :_blank do %>
+        <span>LINK DEL EVENTO</span>
+        <i class="material-icons md-inherit md-dark">arrow_forward_ios</i>
     <% end %>
     <% end %>
   </section>

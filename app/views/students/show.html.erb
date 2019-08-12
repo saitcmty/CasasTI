@@ -17,7 +17,7 @@
 
     <% case current_user.house.name
         when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
-    <% when "Gallinas" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+    <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
     <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
     <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
     <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
@@ -37,21 +37,20 @@
   <span id="student-puntos"><%= @student.points %></span>
 </div>
 
-<section id="my-registrations" class="registrations-panel">
+<section id="my-registrations-panel" class="panel-component">
 
     <p class="label">Registros de Evidencias:</p>
     
-    <div id="my-registrations-container">
-
+    <div id="my-registrations-container" class="elements-container">
     <% current_user.registrations.each do |registration| %>
-      <div class="registration-component">
+      <div class="registration-component element-component">
           <div class="info">
               <p class="title"><%= registration.evidence.title %></p>
               <p class="date"><%= registration.date %></p>
           </div>
           <div class="icon-container">
             <% if registration.approved %>
-              <i class="material-icons">done</i>
+              <i class="material-icons right-icon">done</i>
             <% end %>
           </div>
       </div>

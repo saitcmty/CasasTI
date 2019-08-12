@@ -1,30 +1,34 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
-<h1>Redirects</h1>
+<%= link_to new_redirect_path, {:id => "new-redirect", :class => "button-component"}, method: :get do %>
+    <span>NUEVO REDIRECT</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Event</th>
-      <th>Evidence</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section id="all-redirects-panel" class="panel-component">
+    <p class="label">REDIRECTS:</p>
+    <div id="next-events-container" class="elements-container">
     <% @redirects.each do |redirect| %>
-      <tr>
-        <td><%= redirect.code %></td>
-        <td><%= Event.find(redirect.event_id).title %></td>
-        <td><%= Evidence.find(redirect.evidence_id).title %></td>
-        <td><%= link_to 'Edit', edit_redirect_path(redirect) %></td>
-        <td><%= link_to 'Destroy', redirect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="event-component element-component">
+        <div class="redirect-info">
+            <p class="event-title"><%= redirect.event.title %></p>
+            <p class="evidence-title"><%= redirect.evidence.title %></p>
+        </div>
+        <span class="redirect-code monospace"><%= redirect.code %></span>
+
+        <%= link_to edit_redirect_path(redirect) do %>
+        <i class="material-icons right-icon">edit</i>
+        <% end %>
+
+        <%= link_to redirect, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="material-icons right-icon">delete</i>
+        <% end %>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Redirect', new_redirect_path %>
+    </div>
+</section>

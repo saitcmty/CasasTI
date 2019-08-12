@@ -4,25 +4,6 @@
 
 @import "_global.scss";
 
-h1 {
-  font-size: 1.5em;
-  padding: 0.3em;
-}
-
-#dates-container {
-  display: flex;
-  align-items: center;
-  margin-top: 0.5em;
-  margin-left: 0.3em;
-  font-size: 0.75em;
-  max-width: 16em;
-
-  .middle-icon {
-    margin-right: 0.2em;
-    margin-left: 0.2em;
-  }
-}
-
 #event-portrait {
   width: 100%;
   max-height: 250px;
@@ -38,25 +19,123 @@ h1 {
   width: 100%;
 }
 
+h1 {
+  font-size: 3em;
+  padding: 0.1em;
+}
+
 #event-info {
-  align-items: baseline;
-  
-  .info-container {
-    @include icon-text-component(1em);
+
+  #event-place {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  #dates-container {
+    display: flex;
+    align-items: center;
+    max-width: 30em;
+    font-size: 1.5em;
+
+    .date-time-container {
+      margin-top: 0.5em;
+      margin-left: 0.3em;
+
+      span {
+        width: 5em;
+      }
+    }
+
+    .middle-icon {
+      margin-right: 0.2em;
+      margin-left: 0.2em;
+    }
+  }
+
+  a {
+    font-size: 2em;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(128, 153, 255, 0.7);
+    padding: 0.3em;
+    border: #3b4675 solid 0.2em;
+    border-radius: 0.5em;
+
+    i {
+      font-size: 1.5em;
+      margin-right: 0.2em;
+    }
   }
 }
 
-#assistance-display a {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
+#event-details {
+  font-size: 1.5em;
+}
 
-  i {
-    font-size: 2em;
-    margin-right: 0.1em;
+input[type="submit"] {
+    background-color: #8099ff;
+    border-color: #3b4675;
+}
+
+#all-events-panel {
+  @include panel-component(#466bff, #172455);
+  max-width: 90vw;
+  margin-bottom: 1em;
+
+  .elements-container {
+    max-height: fit-content;
+
+    .element-component {
+      max-height: 5em;
+      
+      .date {
+        width: 2.5em;
+        min-width: 2.5em;
+        font-size: 2em;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-right: 4px;
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-family: "Roboto Mono", monospace;
+      }
+  
+      .title {
+        height: 2em;
+        max-height: 2em;
+        font-size: 1.5em;
+        font-weight: bold;
+        padding-top: 0.1em;
+      }
+  
+      .icon-text-component {
+        font-size: 1.25em;
+        max-height: 1em;
+      }
+
+      .event-buttons {
+        width: 1.5em;
+
+        a {
+          font-size: 1.5em;
+
+          i {
+            display: block;
+            font-size: 1em;
+          }
+        }
+      }
+    }
   }
 }
 
 #event-link-component.button-component {
-  @include button-component(24px, #75cee2, #2166e0);
+  @include button-component(1em, #8099ff, #3b4675);
+}
+
+a#new-event {
+  @include button-component(2em, #8099ff, #3b4675);
+  margin: 1em auto;
 }

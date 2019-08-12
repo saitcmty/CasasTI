@@ -1,31 +1,39 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
-<h1>Students</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tec</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>House</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section id="all-students-panel" class="panel-component">
+    <p class="label">ESTUDIANTES:</p>
+    <div id="students-container" class="elements-container">
     <% @students.each do |student| %>
-      <tr>
-        <td><%= student.tec_id %></td>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.house.name %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="event-component element-component">
+        <div class="profile-img-component">
+          <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+
+          <% case current_user.house.name
+              when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+          <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+          <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
+          <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+          <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
+          <% end %>
+        </div>
+
+        <div id="student-info-container" class="student-info">
+          <p id="student-name" class="student-name"><%= student.name %></p>
+          <p id="student-id" class="student-tec-id"><%= student.tec_id %></p>
+          <p id="student-points" class="student-points">Puntos: <%= student.points %></p>
+        </div>
+
+        <%= link_to student, method: :delete, data: { confirm: '¿Segur@ que quieres borrar a este ITC de la existencia?' } do %>
+        <i class="material-icons right-icon">delete</i>
+        <% end %>
+    </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
+</section>
 
 <br>

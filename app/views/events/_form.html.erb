@@ -12,38 +12,33 @@
   <% end %>
 
   <div class="field">
-    <span>¿Cómo se llamará?:</span>
+    <p>¿Cómo se llamará?:</p>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <span>¿Dónde será?:</span>
+    <p>¿Dónde será?:</p>
     <%= form.text_field :place %>
   </div>
 
-  <div class="field">
-    <span>¿Cuándo comienza?</span>
+  <div class="field date_select">
+    <p>¿Cuándo comienza?</p>
     <%= form.datetime_select :start %>
   </div>
 
-  <div class="field">
-    <span>¿Cuándo termina?</span>
+  <div class="field date_select">
+    <p>¿Cuándo termina?</p>
     <%= form.datetime_select :end, :include_blank => true %>
   </div>
 
   <div class="field">
-    <span>Descripción vrgas:</span>
+    <p>Descripción vrgas:</p>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
     <span>Imagen vrgas (URL):</span>
     <%= form.text_field :img_url %>
-  </div>
-
-  <div class="field">
-    <span>Imagen vrgas (ARCHIVO):</span>
-    <%= form.file_field :portrait %>
   </div>
 
   <div class="field">

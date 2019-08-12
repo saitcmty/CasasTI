@@ -8,40 +8,45 @@ header {
     justify-content: space-between;
 }
 
+.profile-img-component {
+    @include user-image(6em);
+}
+
 #student-display {
     width: 100%;
     min-width: calc(320px - 2em);
-    margin: 0 auto;
+    margin: 8px;
     display: flex;
     justify-content: start;
     flex-direction: row;
     justify-content: center;
 
     .profile-img-component {
-        @include user-image(3em);
+        @include user-image(6em);
     }
 
     #student-info-container {
         padding: 4px;
 
         #student-name {
-            font-size: 1em;
+            font-size: 2em;
             height: 2.25em;
             font-family: 'Source Sans Pro', sans-serif;
             font-weight: 600;
         }
 
         #student-id {
-            font-size: 0.7em;
+            font-size: 1.5em;
             font-family: 'Roboto Mono', monospace;
         }
     }
 }
 
 #puntos-display {
-    width: fit-content;
+    width: 100%;
+    text-align: center;
     margin: 0 auto;
-    font-size: 2em;
+    font-size: 3em;
 
     span#student-puntos {
         font-size: 1.5em;
@@ -49,34 +54,77 @@ header {
     }
 }
 
-#my-registrations {
-    border: #91d0f3 solid;
-    border-radius: 8px;
-    padding: 0;
-    min-width: 13em;
+#my-registrations-panel {
+    @include panel-component(#ea6d91, #622839);
+    margin-bottom: 1em;
 
     .registration-component {
-        height: 2em;
-        border-top: #30257d solid 2px;
-        display: flex;
-        justify-content: space-between;
+        height: 4.5em;
 
-        .icon-container {
-            width: 2em;
+        .info {
+            padding: 0.3em;
+        }
 
-            i {
-                font-size: 2em;
-            }
+        .title {
+            height: 2em;
+            max-height: 2em;
+            font-size: 1.5em;
+        }
+
+        .date {
+            margin-top: 0.25em;
+        }
+
+        .right-icon {
+          font-size: 2.5em;
+          line-height: 2em;
         }
     }
 
-    .label {
-        background-color: #91d0f3;
-        padding-bottom: 4px;
-    }
-
     .info .date {
-        font-size: 0.7em;
         font-family: 'Roboto Mono', monospace;
     }
 }
+
+#all-students-panel {
+    @include panel-component(#91f999, #437246);
+    max-width: 90vw;
+    margin-bottom: 1em;
+
+    .elements-container {
+        max-height: fit-content;
+        font-size: 1.5em;
+
+        .element-component {
+            height: 3.3em;
+            align-items: center;
+
+            .student-info {
+                margin-left: 0.5em;
+                flex-grow: 1;
+            }
+
+            .profile-img-component {
+                @include user-image(2.5em);
+                height: 3em;
+                margin-left: 0.2em;
+            }
+
+            .title {
+                height: 2em;
+                max-height: 2em;
+                font-size: 1.5em;
+                font-weight: bold;
+                padding-top: 0.1em;
+            }
+    
+            .right-icon {
+                font-size: 2em;
+                line-height: 1.5em;
+            }
+        }
+    }
+}
+
+.student-tec-id { font-family: 'Roboto Mono', monospace; }
+.student-points { font-weight: bold; }

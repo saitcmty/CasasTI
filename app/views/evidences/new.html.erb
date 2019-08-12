@@ -1,5 +1,10 @@
-<h1>New Evidence</h1>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
+<section id="show-evidence">
 <%= render 'form', evidence: @evidence %>
-
-<%= link_to 'Back', evidences_path %>
+</section>

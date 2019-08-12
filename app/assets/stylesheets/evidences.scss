@@ -1,3 +1,48 @@
 // Place all the styles related to the Evidences controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_global.scss";
+
+input[type="submit"] {
+    background-color: #e1d437;
+    border-color: #676119;
+}
+
+a#new-evidence {
+  @include button-component(2em, #e1d437, #676119);
+  margin: 1em auto;
+}
+
+.panel-component {
+    @include panel-component(#e1d437, #676119);
+    max-width: 90vw;
+    margin-bottom: 1em;
+
+    .elements-container {
+        max-height: fit-content;
+
+        .element-component {
+            align-items: center;
+            height: 2.5em;
+
+            .evidence-info {
+                flex-grow: 1;
+            }
+
+            .evidence-points {
+                font-size: 2em;
+                font-weight: bold;
+                margin: 0 0.5em;
+            }
+
+            .element-title {
+                font-weight: bold;
+            }
+
+            .right-icon {
+                font-size: 2em;
+            }
+        }
+    }
+}

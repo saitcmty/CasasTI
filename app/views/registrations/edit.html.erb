@@ -1,6 +1,10 @@
-<h1>Editing Registration</h1>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
+<section id="edit-registration">
 <%= render 'form', registration: @registration %>
-
-<%= link_to 'Show', @registration %> |
-<%= link_to 'Back', registrations_path %>
+</section>

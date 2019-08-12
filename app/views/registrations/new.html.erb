@@ -8,30 +8,5 @@
 <p class="page-title">REGISTRAR EVIDENCIA:</p>
 
 <section>
-  <%= form_with(model: @registration, local: true) do |form| %>
-    <% if @registration.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
-
-        <ul>
-        <% @registration.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= select("registration", "evidence_id", Evidence.all.collect {|e| [ e.title, e.id ] }, { include_blank: true }) %>
-    </div>
-
-    <div class="field">
-      <p>Ingresa tu prueba para la evidencia: (link hacia elemento compartido)</p>
-      <%= form.text_field :proof %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit "REGISTRAR" %>
-    </div>
-  <% end %>
+<%= render 'form', registration: @registration %>
 </section>

@@ -1,34 +1,37 @@
-<p id="notice"><%= notice %></p>
+<header>
+  <%= link_to :admin_dashboard do %>
+      <i class="material-icons md-36 md-light">arrow_back</i>
+  <% end %>
+  <div class="empty"></div>
+</header>
 
-<h1>Evidences</h1>
+<%= link_to new_evidence_path, {:id => "new-evidence", :class => "button-component"}, method: :get do %>
+    <span>NUEVA EVIDENCIA</span>
+    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Points</th>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Img url</th>
-      <th>Deadline</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<section id="all-evidences-panel" class="panel-component">
+    <p class="label">EVIDENCIAS:</p>
+    <div id="evidences-container" class="elements-container">
     <% @evidences.each do |evidence| %>
-      <tr>
-        <td><%= evidence.points %></td>
-        <td><%= evidence.title %></td>
-        <td><%= evidence.img_url %></td>
-        <td><%= evidence.deadline %></td>
-        <td><%= link_to 'Show', evidence %></td>
-        <td><%= link_to 'Edit', edit_evidence_path(evidence) %></td>
-        <td><%= link_to 'Destroy', evidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="evidence-component element-component">
+        <div class="evidence-info">
+            <p class="element-title"><%= evidence.title %></p>
+            <div class="icon-text-component">
+                <i class="material-icons md-inherit">outlined_flag</i>
+                <span class="event-info hour"><%= evidence.deadline %></span>
+            </div>
+        </div>
+        <span class="evidence-points"><%= evidence.points %></span>
+
+        <%= link_to edit_evidence_path(evidence) do %>
+        <i class="material-icons right-icon md-inherit">edit</i>
+        <% end %>
+
+        <%= link_to evidence, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <i class="material-icons right-icon md-inherit">delete</i>
+        <% end %>
+    </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Evidence', new_evidence_path %>
+    </div>
+</section>

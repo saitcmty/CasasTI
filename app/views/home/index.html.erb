@@ -8,7 +8,7 @@
     <% end %>
 </header>
 
-<p id="greeting">BIENVENID@ <%= current_user.f_name %>!!</p>
+<h1 id="greeting" class="main-title">BIENVENID@ <%= current_user.f_name %>!!</h1>
 
 <div class="page-wrapper">
     <section id="register-evidence-panel">
@@ -31,46 +31,38 @@
         <% end %>
 
         
-        <%= link_to new_registration_path do %>
-            <div class="button-component">
-                <span>REGISTRAR EVIDENCIA</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            </div>
+        <%= link_to new_registration_path, {:id => "new-registration", :class => "button-component"} do %>
+            <span>REGISTRAR EVIDENCIA</span>
+            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
         <% end %>
     </section>
 
-    <section id="next-events-panel">
+    <section id="next-events-panel" class="panel-component">
         <p class="label">Próximos Eventos:</p>
         
-        <div id="next-events-container">
+        <div id="next-events-container" class="elements-container">
         <% @events.each do |event| %>
-        <%= link_to event do %>
-            <div class="event-component">
-                <span class="date">
-                    <%= I18n.l(event.start.to_date, format: "%b %d") %>
-                </span>
-                <div class="info">
-                    <p class="title"><%= event.title %></p>
-                    <div class="icon-text-component">
-                        <i class="material-icons">room</i>
-                        <span class="event-info hour"><%= event.place %></span>
-                    </div>
-                    <div class="icon-text-component event-hour">
-                        <i class="material-icons">access_time</i>
-                        <span class="event-info hour"><%= event.start.strftime("%H:%M %p") %></span>
-                    </div>
+        <%= link_to event, {:class => "event-component element-component"} do %>
+            <span class="date">
+                <%= I18n.l(event.start.to_date, format: "%b %d") %>
+            </span>
+            <div class="info">
+                <p class="title"><%= event.title %></p>
+                <div class="icon-text-component">
+                    <i class="material-icons md-inherit">room</i>
+                    <span class="event-info hour"><%= event.place %></span>
                 </div>
-
-                <% if event.assistances.where(student_id: current_user.tec_id).empty? %>
-                <i class="material-icons md-48">
-                    calendar_today
-                </i>
-                <% else %>
-                <i class="material-icons md-48" style="color:#30257d;">
-                    event_available
-                </i>
-                <% end %>
             </div>
+
+            <% if event.assistances.where(student_id: current_user.tec_id).empty? %>
+            <i class="material-icons right-icon">
+                calendar_today
+            </i>
+            <% else %>
+            <i class="material-icons right-icon" style="color:#30257d;">
+                event_available
+            </i>
+            <% end %>
         <% end %>
         <% end %>
         </div>

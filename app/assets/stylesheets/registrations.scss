@@ -41,32 +41,50 @@ form {
 }
 
 .button-component {
-    @include button-component(24px, #e8892a, #6a3f13);
-}
-
-.field {
-    margin-top: 16px;
-    font-size: 18px;
-    text-align: center;
+    @include button-component(24px, #ff88aa, #753e4e);
 }
 
 input[type="submit"] {
-    display: block;
-    width: 256px;
-    height: 64px;
-    margin: 0 auto;
-    margin-top: 24px;
-    font-family: 'Roboto Mono', monospace;
-    padding: 8px;
-    justify-content: space-between;
-    padding: 8px;
-    font-size: 24px;
-    background-color: #e8892a;
-    border: #6a3f13 solid 4px;
-    border-radius: 8px;
-    color: rgba(0, 0, 0, 0.54);
+    background-color: #ff88aa;
+    border-color: #753e4e;
 }
 
 td {
     padding: 4px;
+}
+
+#all-registrations-panel {
+  @include panel-component(#ff88aa, #753e4e);
+  max-width: 90vw;
+  margin-bottom: 1em;
+
+  .elements-container {
+    max-height: fit-content;
+    align-items: center;
+
+    .registration-info, .registration-approved, a {
+        height: fit-content;
+    }
+
+    .element-component {
+        height: 2.5em;
+        align-items: center;
+
+        .registration-proof {
+            flex-grow: 1;
+            margin-left: 0.5em;
+        }
+
+        .student-tec-id { font-weight: bold; }
+        .evidence-title {
+            flex-grow: 1;
+            text-align: end;
+            margin: 0 0.5em;
+        }
+      
+        .right-icon {
+          margin-left: 0.5em;
+        }
+    }
+  }
 }
