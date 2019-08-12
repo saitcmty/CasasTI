@@ -86,45 +86,5 @@ header {
     }
 }
 
-#all-students-panel {
-    @include panel-component(#91f999, #437246);
-    max-width: 90vw;
-    margin-bottom: 1em;
-
-    .elements-container {
-        max-height: fit-content;
-        font-size: 1.5em;
-
-        .element-component {
-            height: 3.3em;
-            align-items: center;
-
-            .student-info {
-                margin-left: 0.5em;
-                flex-grow: 1;
-            }
-
-            .profile-img-component {
-                @include user-image(2.5em);
-                height: 3em;
-                margin-left: 0.2em;
-            }
-
-            .title {
-                height: 2em;
-                max-height: 2em;
-                font-size: 1.5em;
-                font-weight: bold;
-                padding-top: 0.1em;
-            }
-    
-            .right-icon {
-                font-size: 2em;
-                line-height: 1.5em;
-            }
-        }
-    }
-}
-
 .student-tec-id { font-family: 'Roboto Mono', monospace; }
 .student-points { font-weight: bold; }

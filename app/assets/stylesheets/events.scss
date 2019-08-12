@@ -131,6 +131,35 @@ input[type="submit"] {
   }
 }
 
+#assisting-students-panel {
+    @include panel-component(#91f999, #437246);
+    max-width: 90vw;
+    margin-bottom: 1em;
+
+    .elements-container {
+        max-height: fit-content;
+        font-size: 1.25em;
+
+        .element-component {
+            height: 2em;
+            align-items: center;
+
+            .student-info { flex-grow: 1; }
+
+            .profile-img-component {
+                @include user-image(1.5em);
+                height: 1.7em;
+                margin: 0 0.2em;
+            }
+
+            .student-tec-id {
+              font-size: 0.7em;
+              flex-grow: 1;
+            }
+        }
+    }
+}
+
 #event-link-component.button-component {
   @include button-component(1em, #8099ff, #3b4675);
 }
