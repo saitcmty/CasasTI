@@ -13,7 +13,7 @@
         <div class="profile-img-component">
           <%= image_tag student.profile_img_url, :class => "user-img" %>
 
-          <% case current_user.house.name
+          <% case student.house.name
               when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
           <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
           <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
