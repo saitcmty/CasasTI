@@ -45,7 +45,8 @@
 @mixin user-image ($width) {
   width: $width;
   min-width: $width;
-  height: auto;
+  height: $width*1.15;
+  position: relative;
   padding: 0;
 
   .user-img {
@@ -54,9 +55,10 @@
   }
 
   .house-icon {
-      width: 45%;
-      float: right;
-      transform: translateY(-75%);
+      width: 35%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
   }
 }
 

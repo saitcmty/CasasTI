@@ -11,8 +11,7 @@
 
 <section id="student-display">
 
-  <%= link_to current_user.house do %>
-  <div class="profile-img-component">
+  <%= link_to current_user.house, class: "profile-img-component" do %>
     <%= image_tag current_user.profile_img_url, :class => "user-img" %>
 
     <% case current_user.house.name
@@ -22,7 +21,6 @@
     <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
     <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
     <% end %>
-  </div>
   <% end %>
 
   <div id="student-info-container">
