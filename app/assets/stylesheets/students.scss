@@ -86,5 +86,46 @@ header {
     }
 }
 
+
+
+#all-students-panel {
+    @include panel-component(#91f999, #437246);
+    max-width: 90vw;
+    margin-bottom: 1em;
+
+    .elements-container {
+        height: fit-content;
+        font-size: 1.25em;
+
+        .element-component {
+            height: 2em;
+            align-items: center;
+
+            .student-info {
+                flex-grow: 1;
+
+                .student-name { white-space: nowrap; }
+            }
+
+            .profile-img-component {
+                @include user-image(1.5em);
+                height: 1.7em;
+                margin: 0 0.2em;
+            }
+
+            .student-tec-id {
+              font-size: 0.7em;
+              flex-grow: 1;
+            }
+
+            .student-points {
+                margin: 0 0.5em;
+                width: 7em;
+                text-align: end;
+            }
+        }
+    }
+}
+
 .student-tec-id { font-family: 'Roboto Mono', monospace; }
 .student-points { font-weight: bold; }

@@ -22,14 +22,15 @@
           <% end %>
         </div>
 
-        <div id="student-info-container" class="student-info">
-          <p id="student-name" class="student-name"><%= student.name %></p>
-          <p id="student-id" class="student-tec-id"><%= student.tec_id %></p>
-          <p id="student-points" class="student-points">Puntos: <%= student.points %></p>
+        <div class="student-info">
+          <p class="student-name"><%= student.name %></p>
+          <p class="student-tec-id"><%= student.tec_id %></p>
         </div>
 
+        <p class="student-points">Puntos: <%= student.points %></p>
+
         <%= link_to student, method: :delete, data: { confirm: '¿Segur@ que quieres borrar a este ITC de la existencia?' } do %>
-        <i class="material-icons right-icon">delete</i>
+        <i class="material-icons right-icon md-inherit">delete</i>
         <% end %>
     </div>
     <% end %>
