@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    redirect_to :root if !current_user.is_admin
+    redirect_to :root if !current_user.admin?
     @students = Student.all
   end
 
@@ -52,7 +52,7 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
     Assistance.where(student_id: @student.id).delete_all
     Registration.where(student_id: @student.id).delete_all
     @student.destroy

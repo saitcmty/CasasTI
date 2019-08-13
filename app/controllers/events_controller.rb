@@ -22,19 +22,19 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
   end
 
   # POST /events
   # POST /events.json
   def create
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
     @event = Event.new(event_params)
 
     respond_to do |format|
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
     @event.portrait.attach(params[:portrait])
     respond_to do |format|
       if @event.update(event_params)
@@ -67,7 +67,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
     Assistance.where(event_id: @event.id).delete_all
     Redirect.where(event_id: @event.id).delete_all
     @event.destroy

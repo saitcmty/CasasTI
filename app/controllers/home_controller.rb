@@ -39,7 +39,7 @@ class HomeController < ApplicationController
   end
 
   def admin
-    redirect_to :root unless current_user.is_admin
+    redirect_to :root unless current_user.admin?
   end
 
   def validate_input
