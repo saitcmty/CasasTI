@@ -27,7 +27,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     @registration.student_id = current_user.tec_id
     @registration.approved = false
-    @registration.date = DateTime.now
+    @registration.date = DateTime.current
 
     respond_to do |format|
       if @registration.save
@@ -47,7 +47,7 @@ class RegistrationsController < ApplicationController
     @registration.student_id = current_user.tec_id
     @registration.approved = true
     @registration.evidence_id = session[:matching_evidence]
-    @registration.date = DateTime.now
+    @registration.date = DateTime.current
 
     respond_to do |format|
       if @registration.save
