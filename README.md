@@ -2,12 +2,12 @@
 
 Applicacion para las Casas de ITC
 
-#Proceso de Instalacion:
+## Proceso de Instalacion:
 1- Gem Install - Install All Dependencies
 
 2- rails server - Launch Server 
 
-#Comandos Utiles
+## Comandos Utiles
 
 - rails generate - Generate new views or components (assets/channel/controller)
 
