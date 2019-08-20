@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Applicacion para las Casas de ITC
 
-Things you may want to cover:
+#Proceso de Instalacion:
+1- Gem Install - Install All Dependencies
 
-* Ruby version
+2- rails server - Launch Server 
 
-* System dependencies
+#Comandos Utiles
 
-* Configuration
+- rails generate - Generate new views or components (assets/channel/controller)
 
-* Database creation
+- rails console - See console logs in rails app (assets/channel/controller)
 
-* Database initialization
 
-* How to run the test suite
+Requerimientos
+- Google Auth
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All Changes must be made through a pull request.
