@@ -1,20 +1,30 @@
 # README
 
+# All Changes must be made through a pull request.
+
 Applicacion para las Casas de ITC
 
-#Proceso de Instalacion:
-1- Gem Install - Install All Dependencies
+## Proceso de Instalacion:
+- Install All Dependencies
+```bash
+Gem Install``` - Install All Dependencies
+```
+- Launch Server 
+```bash
+foo@bar:~$$ rails server
+``` 
 
-2- rails server - Launch Server 
+## Comandos Utiles
 
-#Comandos Utiles
-
-- rails generate - Generate new views or components (assets/channel/controller)
-
-- rails console - See console logs in rails app (assets/channel/controller)
-
+- Generate new views or components (assets/channel/controller)
+```bash 
+$ rails generate
+```
+- See console logs in rails app (assets/channel/controller)
+```bash
+$ rails console
+```
 
 Requerimientos
 - Google Auth
 
-All Changes must be made through a pull request.
