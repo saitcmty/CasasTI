@@ -1,32 +1,28 @@
 <header>
   <%= link_to :admin_dashboard do %>
-      <i class="material-icons md-36 md-light">arrow_back</i>
+    <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
-  <div class="empty"></div>
+  <img>
 </header>
 
-<h1>Casas</h1>
+<section id="houses-container" class="page-wrapper">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>House points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @houses.each do |house| %>
+    <div class="house-component">
+      <div class="house-img">
+        <% case house.name
+            when "Cuervos" %><%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
+        <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
+        <% when "Patos" %><%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
+        <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
+        <% when "Venados" %><%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
+        <% end %>
+      </div>
 
-  <tbody>
-    <% @houses.each do |house| %>
-      <tr>
-        <td><%= house.name %></td>
-        <td><%= house.points %></td>
-        <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+      <div class="points-container">
+        <span>Puntos: </span>
+        <span id="house-points"><%= house.points %></span>
+      </div>
+    </div>
+  <% end %>
+</section>
