@@ -1,5 +1,11 @@
 <header>
-    <img src="" class="empty">
+    <% if current_user.admin? %>
+        <%= link_to :admin_dashboard do %>
+            <i class="material-icons md-36 md-light">business_center</i>
+        <% end %>
+    <% else %>
+        <img src="" class="empty">
+    <% end %>
 
     <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
 
