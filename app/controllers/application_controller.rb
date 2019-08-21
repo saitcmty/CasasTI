@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    student = Student.where(tec_id: session[:user_id])
+    student = Student.where(tec_id: cookies[:user_id])
 
     if (student.length > 0)
       @current_user = student.first

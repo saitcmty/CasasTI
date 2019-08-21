@@ -34,20 +34,20 @@ class SessionsController < ApplicationController
 
         if estudiante
             @student = estudiante
-            session[:user_id] = @student.tec_id
+            cookies[:user_id] = @student.tec_id
             redirect_to :root
         elsif !house_selected
             redirect_to :signup
         else
             @student = Student.create_from_omniauth(auth, session[:house_selected])
             session[:house_selected] = nil
-            session[:user_id] = @student.tec_id
+            cookies[:user_id] = @student.tec_id
             redirect_to :root
         end
     end
   
     def destroy
-        session[:user_id] = nil
+        cookies[:user_id] = nil
         redirect_to :root
     end
 
