@@ -8,7 +8,7 @@
 <section id="all-students-panel" class="panel-component">
     <p class="label">ESTUDIANTES:</p>
     <div id="students-container" class="elements-container">
-    <% @students.each do |student| %>
+    <% @students.sort_by(&:points).each do |student| %>
     <div class="event-component element-component">
         <div class="profile-img-component">
           <%= image_tag student.profile_img_url, :class => "user-img" %>
