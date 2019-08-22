@@ -34,14 +34,14 @@ class SessionsController < ApplicationController
 
         if estudiante
             @student = estudiante
-            cookies[:user_id] = @student.tec_id
+            cookies[:user_id] = { value: @student.tec_id, expires: 1.month }
             redirect_to :root
         elsif !house_selected
             redirect_to :signup
         else
             @student = Student.create_from_omniauth(auth, session[:house_selected])
             session[:house_selected] = nil
-            cookies[:user_id] = @student.tec_id
+            cookies[:user_id] = { value: @student.tec_id, expires: 1.month }
             redirect_to :root
         end
     end
