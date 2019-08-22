@@ -16,7 +16,7 @@
         </div>
         <span class="registration-proof"><%= registration.proof %></span>
 
-        <%= link_to 'Aprovar', approve_registration_path(registration.id), data: { confirm: '¿Aprovar registro?' } %>
+        <%= link_to 'Aprobar', approve_registration_path(registration.id), data: { confirm: '¿Aprovar registro?' } %>
 
         <%= link_to registration, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <i class="material-icons right-icon">delete</i>
