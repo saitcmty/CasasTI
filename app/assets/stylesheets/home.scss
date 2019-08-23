@@ -114,6 +114,10 @@ body {
   }
 }
 
+a#houses-button {
+  @include button-component(2em, #9b83ea, #473c6b);
+}
+
 a#students-button {
   @include button-component(2em, #91f999, #437246);
 }
