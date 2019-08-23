@@ -7,7 +7,7 @@
 
 <section id="houses-container" class="page-wrapper">
 
-  <% @houses.each do |house| %>
+  <% @houses.sort_by(&:points).reverse.each do |house| %>
     <div class="house-component">
       <div class="house-img">
         <% case house.name
