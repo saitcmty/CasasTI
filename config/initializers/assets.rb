@@ -20,6 +20,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
     evidences
     home
     houses
+    internships
     me
     redirects
     registrations

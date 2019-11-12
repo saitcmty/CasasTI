@@ -41,4 +41,6 @@ Rails.application.routes.draw do
   get '/select_pato', to: 'sessions#select_pato', as: 'select_pato'
   get '/select_pavo_real', to: 'sessions#select_pavo_real', as: 'select_pavo_real'
   get '/select_venado', to: 'sessions#select_venado', as: 'select_venado'
+
+  get '/internships', to: 'internships#index'
 end
