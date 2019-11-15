@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @current_events = []
     Event.all.order(:start).each do |e|
       # Muestra eventos dentro de los próximos 15 días
-      @events.push(e) if (e.end || e.start+90.minutes).between?(Time.current, Time.current + 15.days)
+      @events.push(e) if (e.end || e.start+90.minutes).between?(Time.zone.today, Time.zone.today + 15.days)
 
       # Lógica para mostrar o no el popup
 
