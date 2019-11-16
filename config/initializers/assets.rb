@@ -21,6 +21,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
     home
     houses
     me
+    privacy
     redirects
     registrations
     scaffolds

@@ -1,0 +1,44 @@
+// Place all the styles related to the privacy controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+    padding: 1em;
+    font-weight: bold;
+    background-color: #41305f;
+    margin-bottom: 1em;
+    color: white;
+}
+
+.privacy-policy {
+    margin: 0 2em;
+    margin-bottom: 4em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0.5em 0;
+}
+
+h4 {
+    font-weight: bold;
+    margin: 0.5em 0;
+    font-style: italic;
+}
+
+p {
+    margin-bottom: 0.75em;
+}
