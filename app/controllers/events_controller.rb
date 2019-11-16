@@ -1,3 +1,5 @@
+require 'google/apis/calendar_v3'
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 

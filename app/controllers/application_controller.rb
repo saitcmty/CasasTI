@@ -1,3 +1,5 @@
+require 'google/api_client/client_secrets.rb'
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
@@ -22,5 +24,16 @@ class ApplicationController < ActionController::Base
   def user_signed_in?
   	# converts current_user to a boolean by negating the negation
   	!!current_user
+  end
+    
+  def google_secret
+    Google::APIClient::ClientSecrets.new({
+      "web" => {
+        "access_token" => current_user.google_token,
+        "refresh_token" => current_user.google_refresh_token,
+        "client_id" => ENV["GOOGLE_ID"],
+        "client_secret" => ENV["GOOGLE_SECRET"],
+      }
+    })
   end
 end

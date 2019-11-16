@@ -21,6 +21,8 @@ class Student < ApplicationRecord
   def self.create_from_omniauth(auth, house_id)
     Student.create(
       provider: auth.provider,
+      google_token: auth.credentials.token,
+      google_refresh_token: auth.credentials.refresh_token,
       uid: auth.uid,
       f_name: auth.info.first_name,
       l_name: auth.info.last_name,

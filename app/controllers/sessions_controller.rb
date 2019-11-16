@@ -31,6 +31,11 @@ class SessionsController < ApplicationController
         existing_student = Student.find_by(tec_id: tec_id)
         
         if existing_student
+            ### To handle the cases of previously registered students ###
+            existing_student.google_token = auth.credentials.token
+            existing_student.google_refresh_token = auth.credentials.refresh_token
+            existing_student.save!
+            #############################################################
             cookies[:user_id] = { value: existing_student.tec_id, expires: 1.month }
             redirect_to :root
         else
