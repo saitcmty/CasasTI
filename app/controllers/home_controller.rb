@@ -1,8 +1,12 @@
+require 'google/apis/drive_v2'
+
 class HomeController < ApplicationController
   def index
-    unless current_user
+    unless (current_user && current_user.google_refresh_token)
       redirect_to(:login) and return
     end
+
+    google_secret.to_authorization.refresh!
     
     # Eventos a mostrar en el Próximos Eventos Panel
     @events = []

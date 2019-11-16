@@ -28,11 +28,14 @@ class SessionsController < ApplicationController
     def create
         auth = request.env["omniauth.auth"]
 
-        matricula = assign_tec_id(auth.extra.id_info.email)
+        matricula = assign_tec_id(auth.info.email)
         estudiante = Student.where(tec_id: matricula).first
         house_selected = session[:house_selected]
 
         if estudiante
+            estudiante.google_token = auth.credentials.token
+            estudiante.google_refresh_token = auth.credentials.refresh_token
+            estudiante.save!
             @student = estudiante
             cookies[:user_id] = { value: @student.tec_id, expires: 1.month }
             redirect_to :root
