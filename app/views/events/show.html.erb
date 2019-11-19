@@ -37,18 +37,18 @@
 
       </div>
 
-      <% unless @event.end.nil? %>
+      <% unless @event.finish.nil? %>
       <i class="material-icons md-dark md-48 middle-icon">trending_flat</i>
 
       <div id="date-end-info" class="date-time-container">
         <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">event</i>
-          <span><%= I18n.l(@event.end, format: "%b %d") %></span>
+          <span><%= I18n.l(@event.finish, format: "%b %d") %></span>
         </div>
         
         <div class="info-container icon-text-component">
           <i class="material-icons md-dark md-inherit">access_time</i>
-          <span><%= @event.end.strftime("%H:%M %p") %></span>
+          <span><%= @event.finish.strftime("%H:%M %p") %></span>
         </div>
 
       </div>
