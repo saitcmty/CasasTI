@@ -27,21 +27,17 @@ class SessionsController < ApplicationController
   
     def create
         auth = request.env["omniauth.auth"]
-
-        matricula = assign_tec_id(auth.extra.id_info.email)
-        estudiante = Student.where(tec_id: matricula).first
-        house_selected = session[:house_selected]
-
-        if estudiante
-            @student = estudiante
-            cookies[:user_id] = { value: @student.tec_id, expires: 1.month }
+        tec_id = assign_tec_id(auth.extra.id_info.email)
+        existing_student = Student.find_by(tec_id: tec_id)
+        
+        if existing_student
+            cookies[:user_id] = { value: existing_student.tec_id, expires: 1.month }
             redirect_to :root
-        elsif !house_selected
-            redirect_to :signup
         else
-            @student = Student.create_from_omniauth(auth, session[:house_selected])
+            redirect_to(:signup) and return unless session[:house_selected]
+            new_student = Student.create_from_omniauth(auth, session[:house_selected])
             session[:house_selected] = nil
-            cookies[:user_id] = { value: @student.tec_id, expires: 1.month }
+            cookies[:user_id] = { value: new_student.tec_id, expires: 1.month }
             redirect_to :root
         end
     end
