@@ -19,20 +19,17 @@ class Student < ApplicationRecord
   end
 
   def self.create_from_omniauth(auth, house_id)
-
-      student = Student.new
-      student.provider = auth.provider
-      student.uid = auth.uid
-      student.f_name = auth.extra.id_info.given_name
-      student.l_name = auth.extra.id_info.family_name
-      student.tec_id = ApplicationController.helpers.assign_tec_id(auth.extra.id_info.email)
-      student.profile_img_url = auth.extra.id_info.picture
-      student.email = auth.extra.id_info.email
-      student.admin = false
-      student.house_id = house_id
-      student.save!
-      student
-
+    student = Student.create(
+      provider: auth.provider,
+      uid: auth.uid,
+      f_name: auth.info.first_name,
+      l_name: auth.info.last_name,
+      tec_id: ApplicationController.helpers.assign_tec_id(auth.info.email),
+      profile_img_url: auth.info.image,
+      email: auth.info.email,
+      admin: false,
+      house_id: house_id
+    )
   end
 
 end
