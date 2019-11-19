@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= select("registration", "evidence_id", Evidence.all.collect {|e| [ e.title, e.id ] }) %>
+    <%= select("registration", "evidence_id", Evidence.open_evidences.collect {|e| [ e.title, e.id ] }) %>
   </div>
 
   <div class="field">
