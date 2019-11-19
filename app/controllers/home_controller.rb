@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @current_events = []
     Event.all.order(:start).each do |e|
       # Muestra eventos dentro de los próximos 15 días
-      @events.push(e) if (e.end || e.start+90.minutes).between?(Time.current, Time.current + 15.days)
+      @events.push(e) if (e.finish || e.start+90.minutes).between?(Time.current, Time.current + 15.days)
 
       # Lógica para mostrar o no el popup
 
@@ -23,11 +23,11 @@ class HomeController < ApplicationController
 
       next unless current_user.registrations.where(evidence_id: @redirect.evidence.id).empty?
 
-      if e.end.nil?
+      if e.finish.nil?
         # Mostrar evento durante una hora si no tiene fecha de cierre
         @current_events.push(e) if Time.current.between?(e.start, e.start + 90.minutes)
       else
-        @current_events.push(e) if Time.current.between?(e.start, e.end)
+        @current_events.push(e) if Time.current.between?(e.start, e.finish)
       end
     end
   end
@@ -50,9 +50,9 @@ class HomeController < ApplicationController
     redirect_to(:root) and return unless @redirect
 
     @event = @redirect.event
-    if (@event.end && Time.current > @event.end)
+    if (@event.finish && Time.current > @event.finish)
       redirect_to(:root) and return
-    elsif (!@event.end && Time.current > @event.start + 90.minutes)
+    elsif (!@event.finish && Time.current > @event.start + 90.minutes)
       redirect_to(:root) and return
     end
 
