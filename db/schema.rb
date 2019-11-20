@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_031950) do
+ActiveRecord::Schema.define(version: 2019_11_20_050821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_031950) do
   end
 
   create_table "evidences", force: :cascade do |t|
-    t.integer "points", null: false
+    t.integer "points"
     t.string "title", null: false
     t.string "img_url"
     t.datetime "deadline", null: false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_031950) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "justification"
+    t.integer "assigned_points"
     t.index ["student_id", "evidence_id"], name: "index_registrations_on_student_id_and_evidence_id", unique: true
   end
 

@@ -76,9 +76,11 @@ class RegistrationsController < ApplicationController
 
   # For admins to approve students' registrations
   def approve
-    @registration = Registration.find(params[:id])
-    @registration.approved = true
-    @registration.save!
+    registration = Registration.find(params[:id])
+    if (registration.evidence.points || params[:assigned_points].present?)
+      registration.update(approved: true)
+      registration.update(assigned_points: params[:assigned_points])
+    end
     redirect_to :registrations
   end
 
@@ -100,6 +102,6 @@ class RegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
-      params.require(:registration).permit(:student_id, :evidence_id, :proof, :approved, :date, :justification)
+      params.require(:registration).permit(:student_id, :evidence_id, :proof, :approved, :date, :justification, :assigned_points)
     end
 end
