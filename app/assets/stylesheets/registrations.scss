@@ -11,6 +11,24 @@ form {
         height: 32px;
         margin: 0 auto;
     }
+
+    span.side-note {
+        font-size: 0.75em;
+        font-style: italic;
+    }
+
+    .field {
+        margin-bottom: 2.5em;
+    }
+
+    .justification_field {
+        textarea {
+            margin-top: 0.5em;
+            font-size: 0.9em;
+            min-height: 5em;
+            height: auto;
+        }
+    }
 }
 
 .field select {
@@ -67,12 +85,16 @@ td {
     }
 
     .element-component {
-        height: 2.5em;
+        height: auto;
         align-items: center;
 
         .registration-proof {
             flex-grow: 1;
             margin-left: 0.5em;
+        }
+
+        .registration-justification {
+            font-size: 0.5em;
         }
 
         .student-tec-id { font-weight: bold; }

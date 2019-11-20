@@ -16,8 +16,17 @@
   </div>
 
   <div class="field">
-    <p>Ingresa tu prueba para la evidencia: (link hacia elemento compartido)</p>
+    <p>Prueba para la evidencia:
+      <span class="side-note">(link hacia elemento compartido)</span>
+    </p>
     <%= form.text_field :proof %>
+  </div>
+
+  <div class="field justification_field">
+    <p>Descripción de lo que hiciste:
+      <span class="side-note">(Opcional)</span>
+    </p>
+    <%= form.text_area :justification %>
   </div>
 
   <div class="actions">

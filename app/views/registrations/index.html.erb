@@ -15,6 +15,7 @@
             <p class="evidence-title"><%= registration.evidence.title %></p>
         </div>
         <span class="registration-proof"><%= registration.proof %></span>
+        <p class="index-justification"><%= registration.justification %></p>
 
         <%= link_to 'Aprobar', approve_registration_path(registration.id), data: { confirm: '¿Aprobar registro?' } %>
 
