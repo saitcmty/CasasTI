@@ -4,37 +4,6 @@
 
 ### All Changes must be made through a pull request.
 
-## Proceso de Instalacion:
-- Check if Ruby is installed
-```bash
-foo@bar:~$ ruby -v
-```
-
-If not please follow the link for installation 
-https://www.ruby-lang.org/en/documentation/installation/
-
-- Install all dependencies
-```bash
-foo@bar:~$ gem install
-```
-
-- Launch Server 
-```bash
-foo@bar:~$ rails server
-``` 
-
-## Comandos Utiles
-
-- Generate new views or components (assets/channel/controller)
-```bash 
-foo@bar:~$ rails generate
-```
-- See console logs in rails app (assets/channel/controller)
-```bash
-foo@bar:~$ rails console
-```
-
-
 ## Installing SATIC on MAC OS X
 First, go to the folder you would like to have the application in.
 
@@ -79,3 +48,20 @@ Run: `$ bin/setup`
 You'll probably see some red lines, don't worry, leave the program running until it installs everything necessary.
 
 When done, you can start the application server with `$ rails server`
+
+
+
+## Useful commands
+
+- Check if Ruby is installed
+```bash
+foo@bar:~$ ruby -v
+```
+- Install all dependencies
+```bash
+foo@bar:~$ gem install
+```
+- Launch Server 
+```bash
+foo@bar:~$ rails server
+``` 
