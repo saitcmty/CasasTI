@@ -13,7 +13,7 @@ class Student < ApplicationRecord
   def points
     @puntos = 0
     registrations.each do |r| 
-      @puntos += r.evidence.points if r.approved
+      @puntos += r.points if r.approved
     end
     @puntos
   end

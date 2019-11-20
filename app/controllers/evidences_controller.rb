@@ -43,6 +43,11 @@ class EvidencesController < ApplicationController
   def update
     respond_to do |format|
       if @evidence.update(evidence_params)
+        unless @evidence.points
+          @evidence.registrations.each do |r|
+            r.update(approved: false) unless r.assigned_points
+          end
+        end
         format.html { redirect_to @evidence, notice: 'Evidence was successfully updated.' }
         format.json { render :show, status: :ok, location: @evidence }
       else

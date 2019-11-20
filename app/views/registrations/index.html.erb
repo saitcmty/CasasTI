@@ -16,9 +16,13 @@
         </div>
         <span class="registration-proof"><%= registration.proof %></span>
         <p class="index-justification"><%= registration.justification %></p>
-
-        <%= link_to 'Aprobar', approve_registration_path(registration.id), data: { confirm: '¿Aprobar registro?' } %>
-
+        
+        <%= form_tag approve_registration_path(registration.id), method: "get" do %>
+            <%= text_field_tag :assigned_points, params[:assigned_points], class: "assigned_points" %>
+            <%= button_tag :type => :submit, :class => "btn btn-medium btn-inverse", :data => { confirm: '¿Aprobar registro?' } do %>
+                <i class="material-icons">done_outline</i>
+            <% end %>
+        <% end %>
         <%= link_to registration, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <i class="material-icons right-icon">delete</i>
         <% end %>
