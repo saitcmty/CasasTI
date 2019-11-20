@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   
     def create
         auth = request.env["omniauth.auth"]
-        tec_id = assign_tec_id(auth.extra.id_info.email)
+        tec_id = assign_tec_id(auth.info.email)
         existing_student = Student.find_by(tec_id: tec_id)
         
         if existing_student
