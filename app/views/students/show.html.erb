@@ -44,7 +44,7 @@
       <div class="registration-component element-component">
           <div class="info">
               <p class="title"><%= registration.evidence.title %></p>
-              <p class="date"><%= registration.date %></p>
+              <p class="date"><%= registration.date.strftime("%A %B %d, %Y") %></p>
           </div>
           <div class="icon-container">
             <% if registration.approved %>
