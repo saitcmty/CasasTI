@@ -3,6 +3,6 @@ class Registration < ApplicationRecord
     belongs_to :evidence
 
     def points
-        evidence.points || assigned_points
+        assigned_points || evidence.points
     end
 end

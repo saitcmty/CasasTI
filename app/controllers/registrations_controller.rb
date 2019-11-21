@@ -77,9 +77,9 @@ class RegistrationsController < ApplicationController
   # For admins to approve students' registrations
   def approve
     registration = Registration.find(params[:id])
-    if (registration.evidence.points || params[:assigned_points].present?)
-      registration.update(approved: true)
+    if (params[:assigned_points].present? || registration.evidence.points)
       registration.update(assigned_points: params[:assigned_points])
+      registration.update(approved: true)
     end
     redirect_to :registrations
   end
