@@ -15,11 +15,9 @@
     <%= select("registration", "evidence_id", Evidence.open_evidences.collect {|e| [ e.title, e.id ] }) %>
   </div>
 
-  <div class="field">
-    <p>Prueba para la evidencia:
-      <span class="side-note">(link hacia elemento compartido)</span>
-    </p>
-    <%= form.text_field :proof %>
+  <div class="field file_proof">
+    <p>Prueba para la evidencia:</p>
+    <%= form.file_field :file_proof %>
   </div>
 
   <div class="field justification_field">
