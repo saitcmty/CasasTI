@@ -43,19 +43,16 @@ form {
     color: white;
 }
 
-#registration_proof {
-    display: block;
-    width: 100%;
-    min-width: 300px;
-    max-width: 80%;
-    height: 32px;
-    margin: 0 auto;
-    background-color: transparent;
-    border-color: transparent;
-    border-bottom: black solid 2px;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 12px;
-    color: white;
+.file_proof {
+    p {
+        margin-bottom: 0.5em;
+    }
+}
+
+.justification_field {
+    textarea {
+        color: white;
+    }
 }
 
 .button-component {
@@ -93,8 +90,13 @@ td {
             margin-left: 0.5em;
         }
 
+        .file_proof_attachment {
+            margin: 0 8px;
+        }
+
         .index-justification {
             font-size: 0.75em;
+            flex-grow: 1;
         }
 
         form {
