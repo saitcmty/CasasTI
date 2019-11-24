@@ -193,7 +193,16 @@ a#new-registration {
   margin-bottom: 2em;
 }
 
+/*.twitter-timeline{
+  height: 800px;
+  scroll-behavior: smooth;
+}*/
 
+.twitter-feed{
+  /*@include panel-component(#466bff, #172455);*/
+  margin: 15px;
+  margin-top: 1.5%;
+}
 
 @media only screen and (min-width: 640px) {
 }
