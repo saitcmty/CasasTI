@@ -1,0 +1,194 @@
+// Place all the styles related to the Assistances controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_global.scss";
+
+
+#internship-link-component.button-component {
+  @include button-component(1em, #8099ff, #3b4675);
+}
+
+#internships-panel {
+    @include panel-component(#466bff, #172455);
+    text-align: center;
+}
+
+.internship-title {
+    text-align:center;
+    background:
+        linear-gradient(65deg , transparent 50%,rgba(3,78,136,0.7) 50%) left no-repeat, 
+        linear-gradient(0deg , rgba(3,78,136,0.7),rgba(3,78,136,0.7)) 30px 0 no-repeat;
+    
+    background-size:30px 100%, 100% 100%;
+    line-height:30px;
+    //padding:0 100px;
+    color:white;
+    position:relative;
+    height: 2em;
+    width: 50%;
+    max-width: 432px;
+    margin: 0 auto;
+    margin-top: 24px;
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    justify-content: center;
+    padding: 8px;
+
+  span {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  i {
+    font-size: 1em;
+  }
+}
+
+
+.internship-body{
+    text-align:center;
+    color:white;
+    margin:20px auto;
+    position:relative;
+}
+
+.internship-info{
+    text-align:center;
+}
+
+a#new-internship {
+    @include button-component(1.3em, #83e6b7, #5fa181);
+    margin: 1em auto;
+  }
+
+//buttons:
+.see-internship{
+    @include button-component(1em, #f7f7f7, #9999);
+    margin: 0.5em auto;
+}
+.edit-internship{
+    @include button-component(1em, #83e6b7, #5fa181);
+    font-size: 1em;
+    width: 5em;
+    padding: 5px;
+    height:1.7em;
+    margin: 0.5em auto;
+}
+.delete-internship{
+    @include button-component(1em, #8f0c0c, rgba(147, 17, 17, 0.6));
+    font-size: 1em;
+    width: 5em;
+    padding: 5px;
+    height:1.7em;
+    margin: 0.5em auto;
+    color:white;
+}
+.back-internships{
+    @include button-component(1em, #f7f7f7, #9999);
+    font-size: 1em;
+    width: 5em;
+    padding: 5px;
+    height:1.7em;
+    margin: 0.5em auto;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 640px;
+
+  input {
+      display: block;
+      width: 90%;
+      height: 32px;
+      margin: 0 auto;
+  }
+
+  .field {
+    margin-top: 24px;
+    font-size: 18px;
+    text-align: center;
+
+    textarea, input {
+        font-size: 100px;
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      background-color: transparent;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+
+    textarea {
+        font-size: 100px;
+      height: 4em;
+      background-color: #00000040
+    }
+  }
+
+  .area {
+    margin-top: 24px;
+    font-size: 18px;
+    text-align: center;
+
+    textarea, input {
+      display: block;
+      margin: 0 auto;
+      width: 90%;
+      background-color: transparent;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+
+    textarea {
+      height: 4em;
+      background-color: #00000040
+    }
+  }
+
+  .field.date_select select {
+    width: 30%;
+    display: inline;
+  }
+
+  input[type="text"] {
+    margin: 0 auto;
+    padding: 4px;
+    font-size: 18px;
+    border: 0;
+    border-bottom: solid 2px;
+  }
+
+  input[type="number"] {
+    width: 5em;
+    margin: 0 auto;
+    padding: 4px;
+    font-size: 24px;
+    border: 0;
+    border-bottom: solid 2px;
+  }
+
+  input[type="submit"] {
+    height: 50px;
+    margin: 2em auto;
+    padding: 8px;
+    font-family: 'Roboto Mono', monospace;
+    justify-content: space-between;
+    padding: 8px;
+    font-size: 20px;
+    border: solid 4px;
+    border-radius: 8px;
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .field select {
+    display: block;
+    width: 256px;
+    height: 32px;
+    margin: 0 auto;
+    background-color: #00000060;
+    border-color: #00000060;
+    font-size: 18px;
+    color: white;
+  }
+}

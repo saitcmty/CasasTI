@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/admin'
   get 'home/validate_input'
   get 'home/signup', as: 'signup'
+  get '/internships', controller: 'internships', action:'index', as: 'internships_index'
 
   resources :registrations  do
     get :approve, on: :member
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
   resources :events
   resources :students, except: [:new]
   resources :houses, except: [:new, :destroy]
+  resources :internships
 
   get '/admin', to: 'home#admin', as: 'admin_dashboard'
 
