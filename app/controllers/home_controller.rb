@@ -1,5 +1,3 @@
-require 'google/apis/drive_v2'
-
 class HomeController < ApplicationController
   def index
     unless (current_user && current_user.google_refresh_token)
