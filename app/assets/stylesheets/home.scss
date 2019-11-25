@@ -44,6 +44,7 @@ body {
     background-color: #7b6eda;
   }
 }
+//launching page
 
 #greeting {
   font-size: 36px;
@@ -52,31 +53,67 @@ body {
   text-align: center;
 }
 
+.login-group{
+  border: 5px ridge #3b2e94;
+}
 .google-login {
   margin: 0 auto;
 
   img {
     width: 288px;
     height: auto;
+    
   }
 }
+#image-launcher
+{
+  margin: 0;
+  min-width: 450px;
+  img{
+    max-width: 100%;
+    height: auto;
 
-#login-container {
-  margin-top: 48px;
+  };
 }
+#login-container
+{
+  margin: 15% 0 0 0;
+  text-align: left;
+  p { font-size: 1.5em; 
+    text-align: center;
+  }
+
+}
+
+
+#login-box {
+    margin: 0 auto;
+}
+
+
 
 #signup-container {
   justify-content: center;
-  align-items: center;
-  margin-top: 4em;
+  align-items: center ;
+  text-align: center;
+  margin-top: 10%;
+  position: relative;
 
-  p { font-size: 2em; }
+  
+  margin: 0 0 0 0;
+
+  p { font-size:  1.5em; 
+    text-align: center;
+  }
 
   a {
     @include button-component(24px, #88b2f7, #3e5271);
     text-align: center;
     display: block;
     line-height: 48px;
+    margin: 10% 0 0 0;
+    margin-left: 5%;
+    
   }
 }
 
@@ -97,6 +134,7 @@ body {
 
   img {
     height: 96px;
+
   }
 }
 
