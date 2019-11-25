@@ -1,19 +1,64 @@
+<!--
 <header>
     <%= link_to :root  do %>
         <i class="material-icons md-36 md-light">arrow_back</i>
     <% end %>
-    <p class="title">Iniciar Sesión</p>
+    <p class="title">Bienvenido</p>
     <div class="empty"></div>
 </header>
+<table id="loginBox">
+    <tr>
+        <th id="imageColumn" rowspan="2">  
+                <img src="../assets/SAITC.png" > </img>
+            
+        </th>
+        <td>
+            
+                <section id="signup-container" class="button-component">
+                        <p>¿Primera vez aquí?</p>
+                        <%= link_to "Registrarme", :signup  %>
+                </section>  
+        </td>
+        <td>
+                <section id="login-container">
+                    <%= link_to :google_login, {:class => "google-login"} do %>
+                        <img src="/material/btn_google_signin.png" />
+                    <% end %>
+                </section>
+            </td>
+        
+    </tr>     
+</table>
 
-<section id="login-container">
-    <%= link_to :google_login, {:class => "google-login"} do %>
-        <img src="/material/btn_google_signin.png" />
-    <% end %>
-</section>
+-->
+<header>
+    <i class="material-icons md-36 md-light">business_center</i>
 
-<section id="signup-container" class="button-component">
-    <p>¿Primera vez aquí?</p>
-    <%= link_to "Registrarme", :signup  %>
-</section>
+    <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
+</header>
+    
+    <h1 id="greeting" class="main-title">Bienvenido!!!!</h1>
+    
+    <div class="page-wrapper">
+        <section id="image-launcher">
+                <img src="../assets/SAITC.png" > </img>
+        </section>
+    
+        <div class="login-group">
+            <section id="login-box">
+                <section id="signup-container" class="button-component">
+                    <p>¿Primera vez aquí?</p>
+                    <%= link_to "Registrarme", :signup  %>
+                </section>  
+                            
+                <section id="login-container">
+                    <p>¿Ya eres usuario?</p>
+                    <%= link_to :google_login, {:class => "google-login"} do %>
+                        <img src="/material/btn_google_signin.png" />
+                    <% end %>
+                </section>
+            </section>
+        </div>
+    </div>
+
 
