@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   def index
+    @students = Student.all
+    
     unless current_user
       redirect_to(:login) and return
     end
