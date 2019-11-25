@@ -22,4 +22,35 @@
     <span>Puntos: </span>
     <span id="house-points"><%= @house.points %></span>
   </div>
+
+<section id="all-students-panel" class="panel-component">
+  <p class="label">Compañeros de casa:</p>
+  <div id="students-container" class="elements-container">
+    <% Student.all.sort_by(&:points).reverse.each do |student| %>
+    <% if student.house_id == current_user.house_id %>
+    <div class="element-component">
+        <div class="profile-img-component">
+          <%= image_tag student.profile_img_url, :class => "user-img" %>
+
+          <% case student.house.name
+              when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+          <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+          <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
+          <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+          <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
+          <% end %>
+        </div>
+
+        <div class="student-info">
+          <p class="student-name"><%= student.name %></p>
+          <p class="student-tec-id"><%= student.tec_id %></p>
+        </div>
+
+        <p class="student-points">Puntos: <%= student.points %></p>
+    </div>
+    <% end %>
+    <% end %>
+    </div>
+  </section>
+
 </section>

@@ -142,11 +142,14 @@ a#redirects-button {
 
 a#new-registration {
   @include button-component(2em, #ff88aa, #753e4e);
+  margin-top: 0px
 }
 
 #next-events-panel {
   @include panel-component(#466bff, #172455);
   
+  margin-top: 4vh;
+
   #next-events-container {
     overflow: auto;
 
@@ -184,6 +187,7 @@ a#new-registration {
       .right-icon {
         font-size: 2.5em;
         line-height: 2em;
+        margin-right: 10px;
       }
     }
   }
@@ -198,11 +202,33 @@ a#new-registration {
   scroll-behavior: smooth;
 }*/
 
-.twitter-feed{
+#twitter-feed{
   /*@include panel-component(#466bff, #172455);*/
+  /*overflow: auto;
   margin: 15px;
   margin-top: 1.5%;
+  display: 1;*/
+  max-height: 60vh;
 }
 
 @media only screen and (min-width: 640px) {
+    #twitter-feed{
+    /*@include panel-component(#466bff, #172455);*/
+    /*overflow: auto;
+    margin: 15px;
+    margin-top: 1.5%;
+    display: 1;*/
+    min-width: 600px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+    #twitter-feed{
+    /*@include panel-component(#466bff, #172455);*/
+    /*overflow: auto;
+    margin: 15px;
+    margin-top: 1.5%;
+    display: 1;*/
+    max-width: 45vw;
+  }
 }

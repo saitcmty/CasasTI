@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "_global.scss";
+
 #house-img {
     padding: 1em;
     width: fit-content;
@@ -68,4 +70,69 @@
     width: 100%;
     padding: 0;
     margin: 0;
+}
+
+
+#all-students-panel {
+    @include panel-component(#91f999, #437246);
+    max-width: 90vw;
+    margin-bottom: 1em;
+
+    .elements-container {
+        height: fit-content;
+        font-size: 1.25em;
+
+        .element-component {
+            height: 2em;
+            align-items: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.2);
+            .student-info {
+                flex-grow: 1;
+                .student-name { white-space: nowrap; }
+            }
+
+            .profile-img-component {
+                @include user-image(1.5em);
+                margin: 0 0.2em;
+            }
+
+            .student-tec-id {
+              font-size: 0.7em;
+              flex-grow: 1;
+            }
+
+            .student-points {
+                margin: 0 0.5em;
+                width: 7em;
+                text-align: end;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #all-students-panel {
+        .elements-container {
+            font-size: 2.0em;
+            .element-component {
+                height: 2em;
+                align-items: center;
+                padding: 10px; 
+                .profile-img-component {
+                    @include user-image(1.5em);
+                    margin: 0 0.2em;
+                }
+                .student-tec-id {
+                  font-size: 0.9em;
+                  flex-grow: 1;
+                }
+                .student-points {
+                    margin: 0 0.5em;
+                    width: 7em;
+                    text-align: end;
+                }
+            }
+        }
+    }
 }
