@@ -1,0 +1,36 @@
+<header>
+    <% if current_user.admin? %>
+        <%= link_to :admin_dashboard do %>
+            <i class="material-icons md-36 md-light">business_center</i>
+        <% end %>
+    <% else %>
+        <img src="" class="empty">
+    <% end %>
+
+    <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
+
+    <%= link_to current_user do %>
+        <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+    <% end %>
+</header>
+<section id="internships-panel" class="panel-component">
+<p class="label">Internships</p>
+</section>
+
+<% if current_user.admin? %>
+    <%= link_to new_internship_path, {:id => "new-internship", :class => "button-component"}, method: :get do %>
+        <span>Añadir Internship</span>
+        <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+    <% end %>
+<%end%>
+
+<%  @internship.each do |internship| %>
+    <div>
+        <h3 class="internship-title"> <%= internship.title %></h3>
+        <p class="internship-body"> <%= internship.body %> </p>
+        <%= link_to internship_path(internship), {:class => "see-internship "}, method: :get do %>
+            <span>See More</span>
+            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+        <% end %>
+    </div>
+<% end %>

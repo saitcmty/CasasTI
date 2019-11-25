@@ -1,0 +1,40 @@
+<header>
+    <% if current_user.admin? %>
+        <%= link_to :admin_dashboard do %>
+            <i class="material-icons md-36 md-light">business_center</i>
+        <% end %>
+    <% else %>
+        <img src="" class="empty">
+    <% end %>
+
+    <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
+
+    <%= link_to current_user do %>
+        <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+    <% end %>
+</header>
+
+<section id="internships-panel" class="panel-component">
+<p class="label">Edit Internship</p>
+</section>
+
+<%= form_for :internship, url: internship_path(@internship), method: :patch  do |f| %>
+    <p>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title %>
+    </p>
+
+    <p>
+    <%= f.label :body %> <br>
+    <%= f.text_field :body %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to '/internships', {:class => "back-internships"}, method: :get do %>
+    <span>Back</span>
+<% end %>
