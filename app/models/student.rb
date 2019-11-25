@@ -19,7 +19,7 @@ class Student < ApplicationRecord
   end
 
   def self.create_from_omniauth(auth, house_id)
-    student = Student.create(
+    Student.create(
       provider: auth.provider,
       uid: auth.uid,
       f_name: auth.info.first_name,
