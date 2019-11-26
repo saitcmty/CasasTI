@@ -36,6 +36,11 @@
         </form>
         <% end %>
 
+        <%= link_to '/internships', {:id => "internships-button", :class => "button-component"} do %>
+            <span>INTERNSHIPS</span>
+            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+        <% end %>
+
         
         <%= link_to new_registration_path, {:id => "new-registration", :class => "button-component"} do %>
             <span>REGISTRAR EVIDENCIA</span>

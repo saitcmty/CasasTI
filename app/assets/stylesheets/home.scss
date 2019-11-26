@@ -137,6 +137,7 @@ body {
 
 #register-evidence-panel {
   flex-direction: column;
+  width: auto;
 
   p {
     font-size: 18px;
@@ -195,7 +196,8 @@ a#redirects-button {
 }
 
 a#internships-button {
-  @include button-component(2em, #83e6b7, #5fa181);
+  @include button-component(2em, #c5c5c5, #5d5e5d);
+  margin-top: 0;
 }
 
 
@@ -269,6 +271,14 @@ a#new-registration {
   margin-top: 1.5%;
   display: 1;*/
   max-height: 60vh;
+  border: 8px solid #172455;
+  border-radius: 16px;
+  padding: 0;
+}
+
+.button-component#internships-button {
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 @media only screen and (min-width: 640px) {

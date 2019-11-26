@@ -26,8 +26,7 @@
     color:white;
     position:relative;
     height: 2em;
-    width: 50%;
-    max-width: 432px;
+    max-width: 25em;
     margin: 0 auto;
     margin-top: 24px;
     display:flex;
@@ -191,4 +190,7 @@ form {
     font-size: 18px;
     color: white;
   }
+}
+
+@media only screen and (min-width: 640px) {
 }

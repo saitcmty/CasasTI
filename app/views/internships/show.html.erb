@@ -18,12 +18,16 @@
     <p class="internship-body"><%= @internship.body %></p>
     <br>
 
-    <%= link_to edit_internship_path(@internship), {:class => "edit-internship "}, method: :get do %>
-        <span>Edit</span>
-    <% end %>
+    <% if current_user.admin? %>
 
-    <%= link_to internship_path(@internship), :class => "delete-internship ", method: :delete, data:{confirm: 'Are you sure you want to delete?'} do %>
-        <span>Delete</span>
+        <%= link_to edit_internship_path(@internship), {:class => "edit-internship "}, method: :get do %>
+            <span>Edit</span>
+        <% end %>
+
+        <%= link_to internship_path(@internship), :class => "delete-internship ", method: :delete, data:{confirm: 'Are you sure you want to delete?'} do %>
+            <span>Delete</span>
+        <% end %>
+
     <% end %>
 
     <%= link_to '/internships', {:class => "back-internships"}, method: :get do %>
