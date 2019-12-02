@@ -2,6 +2,8 @@
 
 # Applicacion para las Casas de ITC
 
+Link de la aplicación: https://saitcmty.com/
+
 ### All Changes must be made through a pull request.
 
 ## Installing SATIC on MAC OS X
