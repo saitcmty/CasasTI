@@ -32,3 +32,4 @@
 
 # Hide local_env files for key secrecy
 /config/local_env.yml
+/config/secrets/*

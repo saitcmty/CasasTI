@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Google omniauth
 gem 'omniauth-google-oauth2'
+
+# Google Cloud Services Storage
+gem "google-cloud-storage", "~> 1.8", require: false
