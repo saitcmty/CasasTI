@@ -5,12 +5,13 @@
   <div class="empty"></div>
 </header>
 
+<main class="container">
+
 <%= link_to new_evidence_path, {:id => "new-evidence", :class => "button-component"}, method: :get do %>
     <span>NUEVA EVIDENCIA</span>
     <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
 <% end %>
-
-<section id="all-evidences-panel" class="panel-component">
+<section id="all-evidences-panel" class="panel-component mt-5">
     <p class="label">EVIDENCIAS:</p>
     <div id="evidences-container" class="elements-container">
     <% @evidences.each do |evidence| %>
@@ -35,3 +36,4 @@
     <% end %>
     </div>
 </section>
+</main>

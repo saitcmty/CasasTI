@@ -6,81 +6,82 @@
 </header>
 
 <% if @event.portrait.attached? %>
-  <img id="event-portrait" src="<%=(url_for(@event.portrait))%>">
+  <img id="event-portrait" src="<%=(url_for(@event.portrait))%>" style="margin-top: 56px;">
 <% else %>
-  <%= image_tag(@event.img_url, id: "event-portrait") unless @event.img_url.empty? %>
+  <%= image_tag(@event.img_url, id: "event-portrait", style: "margin-top: 56px;") unless @event.img_url.empty? %>
 <% end %>
 
-<h1 class="title"><%= @event.title %></h1>
+<main class="container">
+  <h1 class="title mb-4"><%= @event.title %></h1>
 
-<div class="page-wrapper">
-
-  <section id="event-info">
-    <div id="event-place" class="info-container icon-text-component">
-      <i class="material-icons md-dark md-inherit">room</i>
-      <span><%= @event.place %></span>
-    </div>
-
-    <div id="dates-container">
-      <div id="date-start-info" class="date-time-container">
-        <div class="info-container icon-text-component">
-          <i class="material-icons md-dark md-inherit">event</i>
-          <span>
-            <%= I18n.l(@event.start, format: "%b %d") %>
-          </span>
-        </div>
-
-        <div class="info-container icon-text-component">
-          <i class="material-icons md-dark md-inherit">access_time</i>
-          <span><%= @event.start.strftime("%H:%M %p") %></span>
-        </div>
-
+  <div class="row">
+    <section id="event-info" class="col-md-6">
+      <div id="event-place" class="info-container icon-text-component">
+        <i class="material-icons md-dark md-inherit">room</i>
+        <span><%= @event.place %></span>
       </div>
 
-      <% unless @event.finish.nil? %>
-      <i class="material-icons md-dark md-48 middle-icon">trending_flat</i>
+      <div id="dates-container">
+        <div id="date-start-info" class="date-time-container">
+          <div class="info-container icon-text-component">
+            <i class="material-icons md-dark md-inherit">event</i>
+            <span>
+              <%= I18n.l(@event.start, format: "%b %d") %>
+            </span>
+          </div>
 
-      <div id="date-end-info" class="date-time-container">
-        <div class="info-container icon-text-component">
-          <i class="material-icons md-dark md-inherit">event</i>
-          <span><%= I18n.l(@event.finish, format: "%b %d") %></span>
-        </div>
-        
-        <div class="info-container icon-text-component">
-          <i class="material-icons md-dark md-inherit">access_time</i>
-          <span><%= @event.finish.strftime("%H:%M %p") %></span>
+          <div class="info-container icon-text-component">
+            <i class="material-icons md-dark md-inherit">access_time</i>
+            <span><%= @event.start.strftime("%H:%M %p") %></span>
+          </div>
+
         </div>
 
+        <% unless @event.finish.nil? %>
+        <i class="material-icons md-dark md-48 middle-icon">trending_flat</i>
+
+        <div id="date-end-info" class="date-time-container">
+          <div class="info-container icon-text-component">
+            <i class="material-icons md-dark md-inherit">event</i>
+            <span><%= I18n.l(@event.finish, format: "%b %d") %></span>
+          </div>
+          
+          <div class="info-container icon-text-component">
+            <i class="material-icons md-dark md-inherit">access_time</i>
+            <span><%= @event.finish.strftime("%H:%M %p") %></span>
+          </div>
+
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
 
-    <% if @event.assistances.where(student_id: current_user.tec_id).empty? %>
-      <%= link_to :assistances, method: :post do %>
-        <i class="material-icons md-dark md-inherit">calendar_today</i>
-        <span>¿Asistirás a este evento?</span>
+      <% if @event.assistances.where(student_id: current_user.tec_id).empty? %>
+        <%= link_to :assistances, method: :post do %>
+          <i class="material-icons md-dark md-inherit">calendar_today</i>
+          <span>¿Asistirás a este evento?</span>
+        <% end %>
+      <% else %>
+        <%= link_to @assistance, method: :delete do %>
+          <i class="material-icons md-dark md-inherit" style="color:#30257d;">event_available</i>
+          <span>Asistencia registrada</span>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to @assistance, method: :delete do %>
-        <i class="material-icons md-dark md-inherit" style="color:#30257d;">event_available</i>
-        <span>Asistencia registrada</span>
+    </section>
+
+    <section id="event-details" class="col-md-6 p-3">
+      <p id="event-description"><%= @event.description %></p>
+
+      <% unless @event.link.empty? %>
+      <%= link_to @event.link, {:id => "event-link-component", :class => "button-component mt-2"}, target: :_blank do %>
+          <span>LINK DEL EVENTO</span>
+          <i class="material-icons md-inherit md-dark">arrow_forward_ios</i>
       <% end %>
-    <% end %>
-  </section>
-
-  <section id="event-details">
-    <p id="event-description"><%= @event.description %></p>
-
-    <% unless @event.link.empty? %>
-    <%= link_to @event.link, {:id => "event-link-component", :class => "button-component"}, target: :_blank do %>
-        <span>LINK DEL EVENTO</span>
-        <i class="material-icons md-inherit md-dark">arrow_forward_ios</i>
-    <% end %>
-    <% end %>
-  </section>
+      <% end %>
+    </section>
+  </div>
   
   <% if current_user.admin? %>
-  <section id="assisting-students-panel" class="panel-component">
+  <section id="assisting-students-panel" class="panel-component mt-4">
       <p class="label">ASISTENTES:</p>
       <div id="students-container" class="elements-container">
       <% @event.students.each do |student| %>
@@ -107,4 +108,4 @@
   </section>
   <% end %>
 
-</div>
+</main>

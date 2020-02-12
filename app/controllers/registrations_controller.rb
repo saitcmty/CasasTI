@@ -5,7 +5,8 @@ class RegistrationsController < ApplicationController
   # GET /registrations.json
   def index
     redirect_to :root unless current_user.admin?
-    @registrations = Registration.all.where(approved: false)
+    @non_approved_registrations = Registration.all.where(approved: false)
+    @approved_registrations = Registration.all.where(approved: true)
   end
 
   # GET /registrations/new

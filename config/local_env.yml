@@ -1,3 +1,2 @@
-# Uncomment this in development mode in order to run the Google Environments
-# GOOGLE_ID: "636428038988-smco3uabot8phmmt6i2hqjv2g7j11961.apps.googleusercontent.com"
-# GOOGLE_SECRET: "RBCUnk8IgkZaCR0RW0JJEGDj"
+GOOGLE_ID: "636428038988-smco3uabot8phmmt6i2hqjv2g7j11961.apps.googleusercontent.com"
+GOOGLE_SECRET: "RBCUnk8IgkZaCR0RW0JJEGDj"

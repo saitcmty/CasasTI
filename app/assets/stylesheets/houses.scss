@@ -6,48 +6,50 @@
     padding: 1em;
     width: fit-content;
     margin: 0 auto;
+    text-align: center;
 
     .house-icon {
-        max-height: 50vh;
+        max-height: 15em;
         width: auto;
         height: auto;
     }
 }
 
-.house-img {
-    padding: 1em;
-    width: fit-content;
+.house-icon {
     margin: 0 auto;
-
-    .house-icon {
-        max-height: 20vh;
-        width: auto;
-        height: auto;
-    }
+    width: inherit;
+    height: inherit;
+    padding: 0.5em;
 }
 
 #houses-container {
     background-color: #19143c;
-    min-height: calc(100vh - 56px);
-    width: 100%;
-    padding: 0;
-    margin: 0;
 
     .house-component {
-        margin: 1.5em 0;
+        padding: 0.5em;
 
         .points-container {
             color: white;
             width: fit-content;
             margin: 0 auto;
-            font-size: 1.5em;
-        
+            text-align: center;
+            font-size: 1.25em;
+
             #house-points {
                 font-size: 1.5em;
                 font-weight: 900;
             }
         }
     }
+}
+
+main#houses-container {
+    display: flex;
+    align-items: center;
+}
+
+main>div {
+    height: fit-content;
 }
 
 #points-container {
@@ -64,8 +66,4 @@
 
 #house-display {
     background-color: #19143c;
-    height: calc(100vh - 56px);
-    width: 100%;
-    padding: 0;
-    margin: 0;
 }

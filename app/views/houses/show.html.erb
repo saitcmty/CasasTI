@@ -7,19 +7,21 @@
   <% end %>
 </header>
 
-<section id="house-display">
-  <div id="house-img">
-    <% case @house.name
-        when "Cuervos" %><%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
-    <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
-    <% when "Patos" %><%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
-    <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
-    <% when "Venados" %><%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
-    <% end %>
-  </div>
+<main id="house-display" class="container-fluid">
+  <div class="row flex-column mt-5">
+    <div id="house-img">
+      <% case @house.name
+          when "Cuervos" %><%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
+      <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
+      <% when "Patos" %><%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
+      <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
+      <% when "Venados" %><%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
+      <% end %>
+    </div>
 
-  <div id="points-container">
-    <span>Puntos: </span>
-    <span id="house-points"><%= @house.points %></span>
+    <div id="points-container">
+      <span>Puntos: </span>
+      <span id="house-points"><%= @house.points %></span>
+    </div>
   </div>
-</section>
+</main>

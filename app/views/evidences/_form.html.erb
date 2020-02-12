@@ -28,7 +28,9 @@
 
   <div class="field">
     <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
+    <div class="container d-flex">
+      <%= form.datetime_select :deadline %>
+    </div>
   </div>
 
   <div class="actions">

@@ -23,12 +23,16 @@
 
   <div class="field date_select">
     <p>¿Cuándo comienza?</p>
-    <%= form.datetime_select :start %>
+    <div class="container d-flex">
+      <%= form.datetime_select :start %>
+    </div>
   </div>
 
   <div class="field date_select">
     <p>¿Cuándo termina?</p>
-    <%= form.datetime_select :finish, :include_blank => true %>
+    <div class="container d-flex">
+      <%= form.datetime_select :finish, :include_blank => true %>
+    </div>
   </div>
 
   <div class="field">

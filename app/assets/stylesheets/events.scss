@@ -19,15 +19,10 @@
   width: 100%;
 }
 
-h1 {
-  font-size: 3em;
-  padding: 0.1em;
-}
-
 #event-info {
 
   #event-place {
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: bold;
   }
 
@@ -53,7 +48,7 @@ h1 {
   }
 
   a {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-top: 24px;
     display: flex;
     align-items: center;
@@ -74,13 +69,12 @@ h1 {
 }
 
 input[type="submit"] {
-    background-color: #8099ff;
-    border-color: #3b4675;
+  background-color: #8099ff;
+  border-color: #3b4675;
 }
 
 #all-events-panel {
   @include panel-component(#466bff, #172455);
-  max-width: 90vw;
   margin-bottom: 1em;
 
   .elements-container {
@@ -99,7 +93,7 @@ input[type="submit"] {
         text-align: center;
         font-family: "Roboto Mono", monospace;
       }
-  
+
       .title {
         height: 2em;
         max-height: 2em;
@@ -107,7 +101,7 @@ input[type="submit"] {
         font-weight: bold;
         padding-top: 0.1em;
       }
-  
+
       .icon-text-component {
         font-size: 1.25em;
         max-height: 1em;
@@ -130,32 +124,34 @@ input[type="submit"] {
 }
 
 #assisting-students-panel {
-    @include panel-component(#91f999, #437246);
-    max-width: 90vw;
-    margin-bottom: 1em;
+  @include panel-component(#91f999, #437246);
+  max-width: 90vw;
+  margin-bottom: 1em;
 
-    .elements-container {
-        max-height: fit-content;
-        font-size: 1.25em;
+  .elements-container {
+    max-height: fit-content;
+    font-size: 1.25em;
 
-        .element-component {
-            height: 2em;
-            align-items: center;
+    .element-component {
+      height: 2em;
+      align-items: center;
 
-            .student-info { flex-grow: 1; }
+      .student-info {
+        flex-grow: 1;
+      }
 
-            .profile-img-component {
-                @include user-image(1.5em);
-                height: 1.7em;
-                margin: 0 0.2em;
-            }
+      .profile-img-component {
+        @include user-image(1.5em);
+        height: 1.7em;
+        margin: 0 0.2em;
+      }
 
-            .student-tec-id {
-              font-size: 0.7em;
-              flex-grow: 1;
-            }
-        }
+      .student-tec-id {
+        font-size: 0.7em;
+        flex-grow: 1;
+      }
     }
+  }
 }
 
 #event-link-component.button-component {

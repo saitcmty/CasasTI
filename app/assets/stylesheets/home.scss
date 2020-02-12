@@ -48,7 +48,6 @@ body {
 #greeting {
   font-size: 36px;
   font-family: "Source Sans Pro", sans-serif;
-  padding: 16px;
   text-align: center;
 }
 
@@ -70,33 +69,24 @@ body {
   align-items: center;
   margin-top: 4em;
 
-  p { font-size: 2em; }
+  p {
+    font-size: 2em;
+  }
 
   a {
     @include button-component(24px, #88b2f7, #3e5271);
-    text-align: center;
-    display: block;
-    line-height: 48px;
+    justify-content: center;
   }
 }
 
 #register-evidence-panel {
   flex-direction: column;
+  align-items: center;
 
   p {
     font-size: 18px;
     text-align: center;
     font-family: "Source Sans Pro", sans-serif;
-  }
-}
-
-#houses-container {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  img {
-    height: 96px;
   }
 }
 
@@ -106,12 +96,8 @@ body {
   text-align: center;
 }
 
-#admin-actions {
-
-  .button-component {
-    height: 2em;
-    width: 10em;
-  }
+a.button-component {
+  height: 2.5em;
 }
 
 a#houses-button {
@@ -142,11 +128,13 @@ a#redirects-button {
 
 a#new-registration {
   @include button-component(2em, #ff88aa, #753e4e);
+  max-width: 320px;
+  margin: 0 auto;
 }
 
 #next-events-panel {
   @include panel-component(#466bff, #172455);
-  
+
   #next-events-container {
     overflow: auto;
 
@@ -154,6 +142,7 @@ a#new-registration {
       .date {
         width: 2.5em;
         min-width: 2.5em;
+        line-height: 1em;
         font-size: 2em;
         padding-top: 8px;
         padding-bottom: 8px;
@@ -182,6 +171,11 @@ a#new-registration {
         font-size: 2.5em;
         line-height: 2em;
       }
+
+      .info .event-info {
+        height: 1.25em;
+        overflow-y: hidden;
+      }
     }
   }
 }
@@ -192,5 +186,8 @@ a#new-registration {
 
 
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 768px) {
+  .house-component {
+    font-size: 1.5em;
+  }
 }

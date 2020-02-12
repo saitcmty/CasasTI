@@ -10,67 +10,69 @@
     <img src="/saitc_logo/SAITC_logo_S.png" class="center-icon">
 
     <%= link_to current_user do %>
-        <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+        <%= image_tag current_user.profile_img_url, :class => "user-img d-flex align-items-center" %>
     <% end %>
 </header>
 
-<h1 id="greeting" class="main-title">BIENVENID@ <%= current_user.f_name %>!!</h1>
-
-<div class="page-wrapper">
-    <section id="register-evidence-panel">
-        <% unless @current_events.empty? %>
-        <p>¿Te encuentras en este evento?</p>
-        <form action="/home/validate_input">
-        <div id="code-input" class="input-component">
-            <input
-                class="input-text"
-                type="text"
-                name="registration_code"
-                placeholder="Código:"
-                maxlength="12"
-                size="12"
-                autocomplete="off">
-            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <input id="submit-btn" type="Submit" value=""/>
-        </div>
-        </form>
-        <% end %>
-
-        
-        <%= link_to new_registration_path, {:id => "new-registration", :class => "button-component"} do %>
-            <span>REGISTRAR EVIDENCIA</span>
-            <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-        <% end %>
-    </section>
-
-    <section id="next-events-panel" class="panel-component">
-        <p class="label">Próximos Eventos:</p>
-        
-        <div id="next-events-container" class="elements-container">
-        <% @events.each do |event| %>
-        <%= link_to event, {:class => "event-component element-component"} do %>
-            <span class="date">
-                <%= I18n.l(event.start.to_date, format: "%b %d") %>
-            </span>
-            <div class="info">
-                <p class="title"><%= event.title %></p>
-                <div class="icon-text-component">
-                    <i class="material-icons md-inherit">room</i>
-                    <span class="event-info hour"><%= event.place %></span>
-                </div>
+<main class="container">
+    <h1 id="greeting" class="main-title">BIENVENID@ <%= current_user.f_name %>!!</h1>
+    <div class="row flex-grow-1">
+    
+        <section id="register-evidence-panel" class="col-md-6">
+            <% unless @current_events.empty? %>
+            <p>¿Te encuentras en este evento?</p>
+            <form action="/home/validate_input">
+            <div id="code-input" class="input-component">
+                <input
+                    class="input-text"
+                    type="text"
+                    name="registration_code"
+                    placeholder="Código:"
+                    maxlength="12"
+                    size="12"
+                    autocomplete="off">
+                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+                <input id="submit-btn" type="Submit" value=""/>
             </div>
-
-            <% if event.assistances.where(student_id: current_user.tec_id).empty? %>
-            <i class="material-icons right-icon">
-                calendar_today
-            </i>
-            <% else %>
-            <i class="material-icons right-icon" style="color:#30257d;">
-                event_available
-            </i>
+            </form>
             <% end %>
-        <% end %>
-        <% end %>
-        </div>
-    </section>
-</div>
+
+            
+            <%= link_to new_registration_path, {:id => "new-registration", :class => "button-component"} do %>
+                <span>REGISTRAR EVIDENCIA</span>
+                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
+            <% end %>
+        </section>
+
+        <section id="next-events-panel" class="panel-component col-md-6 mt-4 mt-md-0">
+            <p class="label">Próximos Eventos:</p>
+            
+            <div id="next-events-container" class="elements-container container p-0">
+            <% @events.each do |event| %>
+            <%= link_to event, {:class => "event-component element-component container p-0"} do %>
+                <span class="date">
+                    <%= I18n.l(event.start.to_date, format: "%b %d") %>
+                </span>
+                <div class="info">
+                    <p class="title"><%= event.title %></p>
+                    <div class="icon-text-component">
+                        <i class="material-icons md-inherit">room</i>
+                        <span class="event-info"><%= event.place %></span>
+                    </div>
+                </div>
+
+                <% if event.assistances.where(student_id: current_user.tec_id).empty? %>
+                <i class="material-icons right-icon">
+                    calendar_today
+                </i>
+                <% else %>
+                <i class="material-icons right-icon" style="color:#30257d;">
+                    event_available
+                </i>
+                <% end %>
+            <% end %>
+            <% end %>
+            </div>
+        </section>
+    </div>
+</main>

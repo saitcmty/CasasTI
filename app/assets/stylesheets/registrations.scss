@@ -69,75 +69,85 @@ td {
 }
 
 #all-registrations-panel {
-  @include panel-component(#ff88aa, #753e4e);
-  max-width: 90vw;
-  margin-bottom: 1em;
+    @include panel-component(#ff88aa, #753e4e);
+    margin-bottom: 1em;
 
-  .elements-container {
-    max-height: fit-content;
-    align-items: center;
-
-    .registration-info, .registration-approved, a {
-        height: fit-content;
-    }
-
-    .element-component {
-        height: auto;
+    .elements-container {
+        max-height: fit-content;
         align-items: center;
 
-        .registration-proof {
-            flex-grow: 1;
-            margin-left: 0.5em;
+        .registration-info {
+            padding: 0.25em;
         }
 
-        .file_proof_attachment {
-            margin: 0 8px;
+        .registration-info,
+        .registration-approved,
+        a {
+            height: fit-content;
         }
 
-        .index-justification {
-            font-size: 0.75em;
-            flex-grow: 1;
-        }
-
-        form {
-            display: flex;
+        .element-component {
+            height: auto;
             align-items: center;
 
-            input {
-                height: 1em;
+            .registration-proof {
+                flex-grow: 1;
+                margin-left: 0.5em;
             }
 
-            button {
+            .file_proof_attachment {
+                margin: 0 8px;
+            }
+
+            .index-justification {
+                font-size: 0.75em;
+                flex-grow: 1;
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+
+                input {
+                    height: 1em;
+                }
+
+                button {
+                    background-color: transparent;
+                    border: 0;
+                    padding: 0;
+                    height: fit-content;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .assigned_points {
+                max-width: 2em;
                 background-color: transparent;
-                border: 0;
-                padding: 0;
-                height: fit-content;
+                border: 0px;
+                font-size: 1em;
+                border-bottom: 2px black solid;
+                margin: 0 8px;
+                text-align: center;
             }
-            button:hover {
-                cursor: pointer;
+
+            .student-tec-id {
+                font-weight: bold;
             }
-        }
 
-        .assigned_points {
-            max-width: 2em;
-            background-color: transparent;
-            border: 0px;
-            font-size: 1em;
-            border-bottom: 2px black solid;
-            margin: 0 8px;
-            text-align: center;
-        }
+            .evidence-title {
+                flex-grow: 1;
+                text-align: end;
+                margin: 0 0.5em;
+            }
 
-        .student-tec-id { font-weight: bold; }
-        .evidence-title {
-            flex-grow: 1;
-            text-align: end;
-            margin: 0 0.5em;
-        }
-      
-        .right-icon {
-          margin-left: 0.2em;
+            .right-icon {
+                margin-left: 0.2em;
+                line-height: 1.5em;
+            }
         }
     }
-  }
 }
