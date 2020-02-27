@@ -26,6 +26,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
     registrations
     scaffolds
     students
+    errors
     ).each do |controller|
         Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
 end

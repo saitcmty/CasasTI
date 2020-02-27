@@ -1,0 +1,36 @@
+// Place all the styles related to the errors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_global.scss";
+
+main.container {
+    align-items: center;
+}
+
+main>div {
+    align-items: center;
+}
+
+.saitc-img-container {
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.saitc-img-container>img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.error-banner {
+    font-size: 2em;
+    padding: 0.5em;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    .error-banner {
+        font-size: 4em;
+    }
+}
