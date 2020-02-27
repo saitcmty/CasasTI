@@ -8,11 +8,6 @@ class EvidencesController < ApplicationController
     @evidences = Evidence.all
   end
 
-  # GET /evidences/1
-  # GET /evidences/1.json
-  def show
-  end
-
   # GET /evidences/new
   def new
     @evidence = Evidence.new
@@ -29,8 +24,8 @@ class EvidencesController < ApplicationController
 
     respond_to do |format|
       if @evidence.save
-        format.html { redirect_to @evidence, notice: 'Evidence was successfully created.' }
-        format.json { render :show, status: :created, location: @evidence }
+        format.html { redirect_to '/evidences', notice: 'Evidence was successfully created.' }
+        format.json { render :index, status: :created }
       else
         format.html { render :new }
         format.json { render json: @evidence.errors, status: :unprocessable_entity }

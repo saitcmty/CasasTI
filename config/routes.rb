@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :redirects, except: [:show]
   resources :assistances, only: [:create, :destroy]
-  resources :evidences
+  resources :evidences, except: [:show]
   resources :events
   resources :students, except: [:new]
   resources :houses, except: [:new, :destroy]
