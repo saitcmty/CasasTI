@@ -8,15 +8,10 @@
 
 <main class="container" style="max-width: 320px;">
     <p class="itesm-banner mt-5">Ingresa sesión con una cuenta <strong>@itesm.mx</strong></p>
-    <section id="login-container" class="container align-items-center">
+    <section id="login-container" class="container align-items-center mt-5">
         <%= link_to :google_login do %>
             <img src="/material/btn_google_signin.png" class="w-100" />
         <% end %>
-    </section>
-
-    <section id="signup-container" class="container button-component align-items-center">
-        <p class="m-0">¿Primera vez aquí?</p>
-        <%= link_to "Registrarme", :signup, {:class => "p-4"}  %>
     </section>
 </main>
 
