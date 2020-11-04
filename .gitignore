@@ -33,3 +33,10 @@
 # Hide local_env files for key secrecy
 /config/local_env.yml
 /config/secrets/*
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
