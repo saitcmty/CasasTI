@@ -106,10 +106,6 @@ a#evidences-button {
   @include button-component(2em, #e1d437, #a06e33);
 }
 
-a#redirects-button {
-  @include button-component(2em, #91d3f9, #3e85af);
-}
-
 a#new-registration {
   @include button-component(2em, #ff88aa, #753e4e);
   max-width: 320px;
