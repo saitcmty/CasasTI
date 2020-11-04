@@ -19,25 +19,6 @@
     <div class="row flex-grow-1">
     
         <section id="register-evidence-panel" class="col-md-6">
-            <% unless @current_events.empty? %>
-            <p>¿Te encuentras en este evento?</p>
-            <form action="/home/validate_input">
-            <div id="code-input" class="input-component">
-                <input
-                    class="input-text"
-                    type="text"
-                    name="registration_code"
-                    placeholder="Código:"
-                    maxlength="12"
-                    size="12"
-                    autocomplete="off">
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-                <input id="submit-btn" type="Submit" value=""/>
-            </div>
-            </form>
-            <% end %>
-
-            
             <%= link_to new_registration_path, {:id => "new-registration", :class => "button-component"} do %>
                 <span>REGISTRAR EVIDENCIA</span>
                 <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
