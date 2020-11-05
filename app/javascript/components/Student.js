@@ -10,6 +10,7 @@ class Student extends Component {
                     studentName={this.props.studentName} 
                     studentID={this.props.studentID}
                     studentPictureURL={this.props.studentPictureURL}
+                    studentHouse={this.props.studentHouse}
                     studentHouseURL={this.props.studentHouseURL}
                     studentPoints={this.props.studentPoints}
                     studentEvidences={this.props.studentEvidences}
@@ -23,8 +24,9 @@ Student.propTypes = {
     studentName: PropTypes.string.isRequired,
     studentID: PropTypes.string.isRequired,
     studentPictureURL: PropTypes.string.isRequired,
+    studentHouse: PropTypes.string.isRequired,
     studentHouseURL: PropTypes.string.isRequired,
-    studentPoints: PropTypes.string.isRequired,
+    studentPoints: PropTypes.number.isRequired,
     studentEvidences: PropTypes.array.isRequired
 };
 

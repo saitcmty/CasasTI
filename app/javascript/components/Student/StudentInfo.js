@@ -9,8 +9,10 @@ class StudentInfo extends Component {
             <section>
                 <section id="student-display">
                     <div className="profile-img-component">
-                        <img className="user-img" src={this.props.studentPictureURL}></img>
-                        <img className="house-icon" src={this.props.studentHouseURL}></img>
+                        <a href={'/houses/' + this.props.studentHouse}>
+                            <img className="user-img" src={this.props.studentPictureURL}></img>
+                            <img className="house-icon" src={this.props.studentHouseURL}></img>
+                        </a>
                     </div>
                     <div id="student-info-container">
                         <p id="student-name">{this.props.studentName}</p>
@@ -21,12 +23,12 @@ class StudentInfo extends Component {
                     <span>Puntos: </span>
                     <span id="student-puntos">{this.props.studentPoints}</span>
                 </div>
-                <div class="row">
-                    <section id="my-registrations-panel" class="panel-component">
+                <div className="row">
+                    <section id="my-registrations-panel" className="panel-component">
 
-                        <p class="label">Registros de Evidencias:</p>
+                        <p className="label">Registros de Evidencias:</p>
                         
-                        <div id="my-registrations-container" class="elements-container">
+                        <div id="my-registrations-container" className="elements-container">
                             <StudentEvidences studentEvidences={this.props.studentEvidences}/>
                         </div>
                     </section>
@@ -41,8 +43,9 @@ StudentInfo.propTypes = {
     studentName: PropTypes.string.isRequired,
     studentID: PropTypes.string.isRequired,
     studentPictureURL: PropTypes.string.isRequired,
+    studentHouse: PropTypes.string.isRequired,
     studentHouseURL: PropTypes.string.isRequired,
-    studentPoints: PropTypes.string.isRequired,
+    studentPoints: PropTypes.number.isRequired,
     studentEvidences: PropTypes.array.isRequired
 };
 

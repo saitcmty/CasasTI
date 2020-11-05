@@ -10,22 +10,19 @@
 </header>
 
 <main class="container">
-    <%= link_to current_user.house, class: "profile-img-component" do %>
 
-        <% case current_user.house.name
-            when "Cuervos" %>
-            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/cuervos.png'}) %>
-        <% when "Gallinas de Guinea" %>
-            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/gallinas.png'}) %>
-        <% when "Patos" %>
-            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/patos.png'}) %>
-        <% when "Pavo Reales" %>
-            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/pavo_reales.png'}) %>
-        <% when "Venados" %>
-            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/venados.png'}) %>
-        <% end %>
+    <% case current_user.house.name
+        when "Cuervos" %>
+        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/cuervos.png'}) %>
+    <% when "Gallinas de Guinea" %>
+        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/gallinas.png'}) %>
+    <% when "Patos" %>
+        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/patos.png'}) %>
+    <% when "Pavo Reales" %>
+        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/pavo_reales.png'}) %>
+    <% when "Venados" %>
+        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/venados.png'}) %>
     <% end %>
-    
 
     <div hidden>
     
