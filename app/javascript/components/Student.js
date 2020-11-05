@@ -7,13 +7,10 @@ class Student extends Component {
         return (
             <div>
                 <StudentInfo 
-                    studentName={this.props.studentName} 
-                    studentID={this.props.studentID}
-                    studentPictureURL={this.props.studentPictureURL}
-                    studentHouse={this.props.studentHouse}
-                    studentHouseURL={this.props.studentHouseURL}
-                    studentPoints={this.props.studentPoints}
-                    studentEvidences={this.props.studentEvidences}
+                    student={this.props.student}
+                    points={this.props.points}
+                    registrations={this.props.registrations}
+                    evidences={this.props.evidences}
                 />
             </div>
         );
@@ -21,13 +18,10 @@ class Student extends Component {
 }
 
 Student.propTypes = {
-    studentName: PropTypes.string.isRequired,
-    studentID: PropTypes.string.isRequired,
-    studentPictureURL: PropTypes.string.isRequired,
-    studentHouse: PropTypes.string.isRequired,
-    studentHouseURL: PropTypes.string.isRequired,
-    studentPoints: PropTypes.number.isRequired,
-    studentEvidences: PropTypes.array.isRequired
+    student: PropTypes.object.isRequired,
+    points: PropTypes.number.isRequired,
+    registrations: PropTypes.array.isRequired,
+    evidences: PropTypes.array.isRequired,
 };
 
 export default Student;

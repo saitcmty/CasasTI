@@ -1,28 +1,20 @@
 <header>
-    <div hidden>
-        <%= link_to dashboard_url do %>
-            <i class="material-icons md-36 md-light">arrow_back</i>
-        <% end %>
-        <%= link_to :logout do %>
-            <i class="material-icons md-36 md-light">exit_to_app</i>
-        <% end %>
-    </div>
+    <%= link_to dashboard_url do %>
+        <i class="material-icons md-36 md-light">arrow_back</i>
+    <% end %>
+    <%= link_to :logout do %>
+        <i class="material-icons md-36 md-light">exit_to_app</i>
+    <% end %>
 </header>
 
 <main class="container">
 
-    <% case current_user.house.name
-        when "Cuervos" %>
-        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/cuervos.png'}) %>
-    <% when "Gallinas de Guinea" %>
-        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/gallinas.png'}) %>
-    <% when "Patos" %>
-        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/patos.png'}) %>
-    <% when "Pavo Reales" %>
-        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/pavo_reales.png'}) %>
-    <% when "Venados" %>
-        <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouse: current_user.house.name, studentHouseURL: '/casas/venados.png'}) %>
-    <% end %>
+    <%= react_component("Student", {
+        student: current_user,
+        points: current_user.points,
+        registrations: current_user.registrations,
+        evidences: current_user.evidences
+    }) %>
 
     <div hidden>
     
