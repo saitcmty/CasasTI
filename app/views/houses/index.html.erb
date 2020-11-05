@@ -1,29 +1,37 @@
 <header>
-  <%= link_to :admin_dashboard do %>
-    <i class="material-icons md-36 md-light">arrow_back</i>
-  <% end %>
-  <img>
+    <%= link_to :admin_dashboard do %>
+        <i class="material-icons md-36 md-light">arrow_back</i>
+    <% end %>
 </header>
 
 <main id="houses-container" class="container-fluid">
-  <div class="container">
-    <div class="row">
-      <% @houses.sort_by(&:points).reverse.each do |house| %>
-        <div class="house-component col-6 col-sm">
-          <% case house.name
-              when "Cuervos" %><%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
-          <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
-          <% when "Patos" %><%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
-          <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
-          <% when "Venados" %><%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
-          <% end %>
+    <%= react_component("Houses", { 
+        houses: @houses.each do |house| house.house_points = house.points end
+    }) %>
+    <div hidden>
+        <div class="container">
+            <div class="row">
+                <% @houses.sort_by(&:points).reverse.each do |house| %>
+                    <div class="house-component col-6 col-sm">
+                    <% case house.name when "Cuervos" %>
+                        <%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
+                    <% when "Gallinas de Guinea" %>
+                        <%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
+                    <% when "Patos" %>
+                        <%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
+                    <% when "Pavo Reales" %>
+                        <%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
+                    <% when "Venados" %>
+                        <%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
+                    <% end %>
 
-          <div class="points-container">
-            <span>Puntos: </span>
-            <span id="house-points"><%= house.points %></span>
-          </div>
+                        <div class="points-container">
+                            <span>Puntos: </span>
+                            <span id="house-points"><%= house.points %></span>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
         </div>
-      <% end %>
     </div>
-  </div>
 </main>
