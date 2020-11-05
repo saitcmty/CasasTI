@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get :approve, on: :member
     get :completed, on: :member
   end
-  resources :redirects, except: [:show]
   resources :assistances, only: [:create, :destroy]
   resources :evidences, except: [:show]
   resources :events
@@ -26,8 +25,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/privacy', to: 'privacy#index', as: 'privacy'
-
-  get '/registration_with_code', to: 'registrations#create_with_code', as: 'register_with_code'
 
   # Routes for Google authentication
   get '/login', to: redirect('/home/login'), as: 'login'
