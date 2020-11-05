@@ -1,61 +1,86 @@
 <header>
-  <%= link_to dashboard_url do %>
-    <i class="material-icons md-36 md-light">arrow_back</i>
-  <% end %>
-  <%= link_to :logout do %>
-    <i class="material-icons md-36 md-light">exit_to_app</i>
-  <% end %>
+    <div hidden>
+        <%= link_to dashboard_url do %>
+            <i class="material-icons md-36 md-light">arrow_back</i>
+        <% end %>
+        <%= link_to :logout do %>
+            <i class="material-icons md-36 md-light">exit_to_app</i>
+        <% end %>
+    </div>
 </header>
 
 <main class="container">
-
-  <section id="student-display">
-
     <%= link_to current_user.house, class: "profile-img-component" do %>
-      <%= image_tag current_user.profile_img_url, :class => "user-img" %>
 
-      <% case current_user.house.name
-          when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
-      <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
-      <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
-      <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
-      <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
-      <% end %>
-    <% end %>
-
-    <div id="student-info-container">
-      <p id="student-name"><%= @student.name %></p>
-      <p id="student-id"><%= @student.tec_id %></p>
-    </div>
-
-  </section>
-
-  <div id="puntos-display">
-    <span>Puntos: </span>
-    <span id="student-puntos"><%= @student.points %></span>
-  </div>
-
-  <div class="row">
-    <section id="my-registrations-panel" class="panel-component">
-
-        <p class="label">Registros de Evidencias:</p>
-        
-        <div id="my-registrations-container" class="elements-container">
-        <% current_user.registrations.each do |registration| %>
-          <div class="registration-component element-component">
-              <div class="info">
-                  <p class="title"><%= registration.evidence.title %></p>
-                  <p class="date"><%= registration.date.strftime("%A %B %d, %Y") %></p>
-              </div>
-              <div class="icon-container">
-                <% if registration.approved %>
-                  <i class="material-icons right-icon">done</i>
-                <% end %>
-              </div>
-          </div>
+        <% case current_user.house.name
+            when "Cuervos" %>
+            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/cuervos.png'}) %>
+        <% when "Gallinas de Guinea" %>
+            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/gallinas.png'}) %>
+        <% when "Patos" %>
+            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/patos.png'}) %>
+        <% when "Pavo Reales" %>
+            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/pavo_reales.png'}) %>
+        <% when "Venados" %>
+            <%= react_component("Student", {studentName: @student.name, studentID: @student.tec_id, studentPictureURL: current_user.profile_img_url, studentPoints: @student.points, studentEvidences: current_user.registrations, studentHouseURL: '/casas/venados.png'}) %>
         <% end %>
+    <% end %>
+    
+
+    <div hidden>
+    
+        <section id="student-display">
+
+            <%= link_to current_user.house, class: "profile-img-component" do %>
+                <%= image_tag current_user.profile_img_url, :class => "user-img" %>
+
+                <% case current_user.house.name
+                    when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
+                <% when "Gallinas de Guinea" %>
+                    <%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
+                <% when "Patos" %>
+                    <%= image_tag '/casas/patos.png', :class => "house-icon" %>
+                <% when "Pavo Reales" %>
+                    <%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
+                <% when "Venados" %>
+                    <%= image_tag '/casas/venados.png', :class => "house-icon" %>
+                <% end %>
+            <% end %>
+
+            <div id="student-info-container">
+                <p id="student-name"><%= @student.name %></p>
+                <p id="student-id"><%= @student.tec_id %></p>
+            </div>
+
+        </section>
+
+        <div id="puntos-display">
+            <span>Puntos: </span>
+            <span id="student-puntos"><%= @student.points %></span>
         </div>
 
-    </section>
-  </div>
+        <div class="row">
+            <section id="my-registrations-panel" class="panel-component">
+
+                <p class="label">Registros de Evidencias:</p>
+                
+                <div id="my-registrations-container" class="elements-container">
+                    <% current_user.registrations.each do |registration| %>
+                    <div class="registration-component element-component">
+                        <div class="info">
+                            <p class="title"><%= registration.evidence.title %></p>
+                            <p class="date"><%= registration.date.strftime("%A %B %d, %Y") %></p>
+                        </div>
+                        <div class="icon-container">
+                            <% if registration.approved %>
+                            <i class="material-icons right-icon">done</i>
+                            <% end %>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+
+            </section>
+        </div>
+    </div>
 </main>
