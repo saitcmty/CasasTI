@@ -27,7 +27,9 @@ class House extends Component {
     render() {
         return (
             <div className="house-component col-6 col-sm">
+                
                 <img className="house-icon" src={this.state.housePictureURL} />
+                
                 <div className="points-container">
                     <span>Puntos: </span>
                     <span id="house-points">{this.props.house.house_points}</span>

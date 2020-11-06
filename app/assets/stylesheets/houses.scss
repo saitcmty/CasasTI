@@ -22,6 +22,19 @@
     padding: 0.5em;
 }
 
+.points-container {
+    color: white;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.25em;
+
+    #house-points {
+        font-size: 1.5em;
+        font-weight: 900;
+    }
+}
+
 #houses-container {
     background-color: #19143c;
 
@@ -45,7 +58,9 @@
 
 main#houses-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 main>div {
