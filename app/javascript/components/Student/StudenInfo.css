@@ -1,0 +1,135 @@
+h1 {
+    color: #ffbb11
+}
+/* header {
+    justify-content: space-between;
+}
+
+.profile-img-component {
+    @include user-image(6em);
+}
+
+#student-display {
+    width: 100%;
+    min-width: calc(320px - 2em);
+    margin: 8px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    justify-content: center;
+
+    .profile-img-component {
+        @include user-image(6em);
+    }
+
+    #student-info-container {
+        padding: 4px;
+
+        #student-name {
+            font-size: 2em;
+            height: 2.25em;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 600;
+        }
+
+        #student-id {
+            font-size: 1.5em;
+            font-family: 'Roboto Mono', monospace;
+        }
+    }
+}
+
+#puntos-display {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3em;
+
+    span#student-puntos {
+        font-size: 1.5em;
+        font-weight: 900;
+    }
+}
+
+#my-registrations-panel {
+    @include panel-component(#ea6d91, #622839);
+    margin-bottom: 1em;
+
+    .registration-component {
+        height: 4.5em;
+
+        .info {
+            padding: 0.3em;
+        }
+
+        .title {
+            height: 2em;
+            max-height: 2em;
+            font-size: 1.5em;
+        }
+
+        .date {
+            margin-top: 0.25em;
+        }
+
+        .right-icon {
+            font-size: 2.5em;
+            line-height: 2em;
+        }
+    }
+
+    .info .date {
+        font-family: 'Roboto Mono', monospace;
+    }
+}
+
+
+
+#all-students-panel {
+    @include panel-component(#91f999, #437246);
+    flex-direction: column;
+    font-size: 1.5em;
+    margin-top: 96px;
+    width: fit-content;
+
+    .elements-container {
+        height: fit-content;
+        font-size: 1.25em;
+
+        .element-component {
+            .student-info {
+                flex-grow: 1;
+                height: fit-content;
+
+                .student-name {
+                    white-space: nowrap;
+                }
+            }
+
+            .profile-img-component {
+                @include user-image(1.5em);
+                margin: 0 0.2em;
+            }
+
+            .student-tec-id {
+                font-size: 0.7em;
+                flex-grow: 1;
+            }
+
+            .student-points {
+                margin: 0 0.5em;
+                width: 7em;
+                line-height: 2em;
+                text-align: end;
+            }
+        }
+    }
+}
+
+.student-tec-id {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.student-points {
+    font-weight: bold;
+} */
