@@ -1,27 +1,15 @@
 <header>
-  <%= link_to dashboard_url do %>
-    <i class="material-icons md-36 md-light">arrow_back</i>
-  <% end %>
-  <%= link_to :logout do %>
-    <i class="material-icons md-36 md-light">exit_to_app</i>
-  <% end %>
+    <%= link_to dashboard_url do %>
+        <i class="material-icons md-36 md-light">arrow_back</i>
+    <% end %>
+    <%= link_to :logout do %>
+        <i class="material-icons md-36 md-light">exit_to_app</i>
+    <% end %>
 </header>
 
 <main id="house-display" class="container-fluid">
-  <div class="row flex-column mt-5">
-    <div id="house-img">
-      <% case @house.name
-          when "Cuervos" %><%= image_tag '/casas/cuervos_XXL.png', :class => "house-icon" %>
-      <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas_XXL.png', :class => "house-icon" %>
-      <% when "Patos" %><%= image_tag '/casas/patos_XXL.png', :class => "house-icon" %>
-      <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales_XXL.png', :class => "house-icon" %>
-      <% when "Venados" %><%= image_tag '/casas/venados_XXL.png', :class => "house-icon" %>
-      <% end %>
-    </div>
-
-    <div id="points-container">
-      <span>Puntos: </span>
-      <span id="house-points"><%= @house.points %></span>
-    </div>
-  </div>
+    <%= react_component("SingleHouse", { 
+        house: @house,
+        housePoints: @house.points
+    }) %>
 </main>
