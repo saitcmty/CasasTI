@@ -39,12 +39,6 @@ class Admin extends Component {
                         buttonText="EVIDENCIAS"
                     />
 
-                    <AdminButton 
-                        buttonID="redirects"
-                        buttonRedirect="/houses"
-                        buttonText="REDIRECTS"
-                    />
-
                 </section> 
             </div>
         );

@@ -282,10 +282,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionpack (>= 5.2.4.3)
-  actionview (>= 5.2.4.4)
-  activestorage (>= 5.2.4.3)
-  activesupport (>= 5.2.4.3)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
@@ -313,4 +309,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   1.17.3
+   2.1.4
