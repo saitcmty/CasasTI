@@ -1,38 +1,12 @@
 <header>
-  <%= link_to :admin_dashboard do %>
-      <i class="material-icons md-36 md-light">arrow_back</i>
-  <% end %>
-  <div class="empty"></div>
+    <%= link_to :admin_dashboard do %>
+        <i class="material-icons md-36 md-light">arrow_back</i>
+    <% end %>
+    <div class="empty"></div>
 </header>
 
 <main class="container">
-  <div class="row">
-    <section id="all-students-panel" class="panel-component">
-      <p class="label">ESTUDIANTES:</p>
-      <div id="students-container" class="elements-container">
-      <% @students.reject(&:admin).sort_by(&:points).reverse.each do |student| %>
-        <div class="event-component element-component container p-0">
-          <div class="profile-img-component">
-            <%= image_tag student.profile_img_url, :class => "user-img" %>
-
-            <% case student.house.name
-                when "Cuervos" %><%= image_tag '/casas/cuervos.png', :class => "house-icon" %>
-            <% when "Gallinas de Guinea" %><%= image_tag '/casas/gallinas.png', :class => "house-icon" %>
-            <% when "Patos" %><%= image_tag '/casas/patos.png', :class => "house-icon" %>
-            <% when "Pavo Reales" %><%= image_tag '/casas/pavo_reales.png', :class => "house-icon" %>
-            <% when "Venados" %><%= image_tag '/casas/venados.png', :class => "house-icon" %>
-            <% end %>
-          </div>
-
-          <div class="student-info">
-            <p class="student-name"><%= student.name %></p>
-            <p class="student-tec-id"><%= student.tec_id %></p>
-          </div>
-
-          <p class="student-points">Puntos: <%= student.points %></p>
-        </div>
-      <% end %>
-      </div>
-    </section>
-  </div>
+    <%= react_component("StudentsAdmin", {
+        students: @students.sort_by(&:points).reverse.each do |student| student.uid = student.points end,
+    }) %>
 </main>
