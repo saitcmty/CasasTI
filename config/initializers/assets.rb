@@ -22,7 +22,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
     houses
     me
     privacy
-    redirects
     registrations
     scaffolds
     students

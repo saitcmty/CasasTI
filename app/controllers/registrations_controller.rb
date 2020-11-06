@@ -41,26 +41,6 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  # POST /registrations
-  # POST /registrations.json
-  def create_with_code
-    @registration = Registration.new
-    @registration.student_id = current_user.tec_id
-    @registration.approved = true
-    @registration.evidence_id = session[:matching_evidence]
-    @registration.date = DateTime.current
-
-    respond_to do |format|
-      if @registration.save
-        format.html { redirect_to completed_registration_path(@registration.id), notice: 'Registration was successfully created.' }
-        format.json { render :completed, status: :created, location: @registration }
-      else
-        format.html { render :new }
-        format.json { render json: @registration.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /registrations/1
   # PATCH/PUT /registrations/1.json
   def update
