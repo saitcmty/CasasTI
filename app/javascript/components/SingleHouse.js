@@ -8,7 +8,6 @@ class SingleHouse extends Component {
     }
 
     render() {
-        console.log(this.props.house)
         return (
             <div className="container">
                 <div className="row flex-column mt-5">
