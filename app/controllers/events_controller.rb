@@ -49,15 +49,13 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     redirect_to :root unless current_user.admin?
-    @event.portrait.attach(params[:portrait])
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if params[:portrait]
+      @event.portrait.attach(params[:portrait])
+    end
+    if @event.update(event_params)
+      render json: { msg: "Evento actualizado satisfactoriamente", status: :created, location: @event }
+    else
+      render json: { error: @event.errors, status: :unprocessable_entity }
     end
   end
 

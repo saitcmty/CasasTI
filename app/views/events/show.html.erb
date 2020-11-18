@@ -10,7 +10,7 @@
   backendURL: $BACKEND_URL,
   assistants: @event.students,
   admin: current_user.admin?,
-  portrait: @event.portrait.attached? ? url_for(@event.portrait) : @event.img_url,
+  portrait: url_for(@event.portrait),
   currentUser: current_user,
   currentAssistance: @assistance
 }) %>

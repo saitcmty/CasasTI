@@ -7,25 +7,7 @@ export default function NewEvent(props) {
   const { backendURL } = props;
 
   const createEvent = async (event) => {
-    const { title, place, start, finish, description, imgFile, link } = event;
-    let incompleteForm = false;
-
-    if (!title) {
-      incompleteForm = true;
-      setTitleError("Hace falta colocar un título");
-    }
-
-    if (!place) {
-      incompleteForm = true;
-      setPlaceError("Hace falta especificar un lugar físico o virtual");
-    }
-
-    if (!start) {
-      incompleteForm = true;
-      setStartError("Hace falta especificar fecha y hora de evento");
-    }
-
-    if (incompleteForm) return;
+    const { title, place, start, finish, description, portrait, link } = event;
 
     const newEvent = new FormData();
     newEvent.append("title", title);
@@ -33,7 +15,7 @@ export default function NewEvent(props) {
     newEvent.append("start", start);
     newEvent.append("finish", finish);
     newEvent.append("description", description);
-    newEvent.append("portrait", imgFile);
+    newEvent.append("portrait", portrait);
     newEvent.append("link", link);
 
     try {
@@ -43,7 +25,7 @@ export default function NewEvent(props) {
         },
       });
       alert(response.data.msg);
-      window.location = "/admin";
+      window.location = "/events";
     } catch (error) {
       console.log(error);
       const { msg } = error.response.data;

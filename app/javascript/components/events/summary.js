@@ -15,8 +15,7 @@ export default function EventSummary(props) {
       await axios.delete(`${backendURL}/events/${id}`);
       window.location = "/admin";
     } catch (error) {
-      const { msg } = error.response.data;
-      alert(msg);
+      window.location = "/admin";
     }
   };
 

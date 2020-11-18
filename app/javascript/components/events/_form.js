@@ -5,33 +5,73 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../../App.css";
 
 export default function EventForm(props) {
-  const { formFunction } = props;
+  const { formFunction, event } = props;
 
-  const [title, setTitle] = useState("");
-  const [place, setPlace] = useState("");
-  const [start, setStart] = useState(new Date());
-  const [finish, setFinish] = useState(undefined);
-  const [description, setDescription] = useState("");
-  const [imgFile, setImgFile] = useState(undefined);
-  const [link, setLink] = useState("");
+  const [title, setTitle] = useState(event ? event.title : "");
+  const [place, setPlace] = useState(event ? event.place : "");
+  const [start, setStart] = useState(
+    event && event.start ? new Date(event.start) : new Date()
+  );
+  const [finish, setFinish] = useState(
+    event && event.finish ? new Date(event.finish) : undefined
+  );
+  const [description, setDescription] = useState(
+    event ? event.description : ""
+  );
+  const [portrait, setPortrait] = useState(undefined);
+  const [link, setLink] = useState(event ? event.link : "");
 
   const [titleError, setTitleError] = useState("");
   const [placeError, setPlaceError] = useState("");
-  const [startError, setStartError] = useState(undefined);
+  const [startError, setStartError] = useState("");
+  const [startFinishError, setStartFinishError] = useState("");
+
+  const formIncomplete = () => {
+    let incompleteForm = false;
+
+    if (!title) {
+      incompleteForm = true;
+      setTitleError("Hace falta colocar un título");
+      alert("Hace falta colocar un título");
+    }
+
+    if (!place) {
+      incompleteForm = true;
+      setPlaceError("Hace falta especificar un lugar físico o virtual");
+      alert("Hace falta especificar un lugar físico o virtual");
+    }
+
+    if (!start) {
+      incompleteForm = true;
+      setStartError("Hace falta especificar fecha y hora de evento");
+      alert("Hace falta especificar fecha y hora de evento");
+    }
+
+    if (finish && finish < start) {
+      incompleteForm = true;
+      setStartFinishError(
+        "La fecha final debe ser DESPUÉS de la fecha de inicio"
+      );
+      alert("La fecha final debe ser DESPUÉS de la fecha de inicio");
+    }
+
+    return incompleteForm;
+  };
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        formFunction({
-          title,
-          place,
-          start,
-          finish,
-          description,
-          imgFile,
-          link,
-        });
+        if (!formIncomplete())
+          formFunction({
+            title,
+            place,
+            start,
+            finish,
+            description,
+            portrait,
+            link,
+          });
       }}
       autoComplete="off"
     >
@@ -74,6 +114,7 @@ export default function EventForm(props) {
               onChange={(start) => {
                 setStart(start);
                 setStartError("");
+                setStartFinishError("");
               }}
               dateFormat="dd MMMM yyyy h:mm aa"
               showTimeInput
@@ -86,7 +127,10 @@ export default function EventForm(props) {
             <label>Fecha de finalización: </label>
             <DatePicker
               selected={finish}
-              onChange={(finish) => setFinish(finish)}
+              onChange={(finish) => {
+                setFinish(finish);
+                setStartFinishError("");
+              }}
               dateFormat="dd MMMM yyyy h:mm aa"
               showTimeInput
               calendarClassName="w-100"
@@ -95,6 +139,7 @@ export default function EventForm(props) {
                 .format("DD MMMM yyyy h:mm A")}
             />
           </div>
+          <small className="text-danger">{startFinishError}</small>
 
           <div className="form-group">
             <label>Descripción del evento: </label>
@@ -107,10 +152,16 @@ export default function EventForm(props) {
             />
           </div>
 
+          {event && (
+            <small className="text-warning" style={{ lineHeight: "1em" }}>
+              La imagen previa continúa guardada, pero si se desea editarla se
+              puede hacer aquí.
+            </small>
+          )}
           <input
             type="file"
             className="form-control"
-            onChange={(e) => setImgFile(e.target.files[0])}
+            onChange={(e) => setPortrait(e.target.files[0])}
           />
 
           <div className="form-group">
