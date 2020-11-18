@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def register_assistance
@@ -37,14 +38,10 @@ class EventsController < ApplicationController
     redirect_to :root unless current_user.admin?
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      render json: { msg: "Evento creado satisfactoriamente", status: :created, location: @event }
+    else
+      render json: { error: @event.errors, status: :unprocessable_entity }
     end
   end
 
@@ -83,6 +80,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :place, :start, :finish, :description, :img_url, :link, :portrait)
+      params.permit(:title, :place, :start, :finish, :description, :img_url, :link, :portrait)
     end
 end
