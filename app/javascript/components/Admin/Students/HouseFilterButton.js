@@ -24,9 +24,6 @@ class HouseFilterButton extends Component {
 
         this.setState({housePictureURL: `/casas/${houseName}.png`});
     }
-
-    // componentWillReceiveProps(nextProps) {
-    // }
     
     static getDerivedStateFromProps(props, state) {
         return changeStyle(props.isShowingHouse);
@@ -34,13 +31,16 @@ class HouseFilterButton extends Component {
 
     render() {
         return (
-            <div className={this.state.class}>
-                <img onClick={this.props.changeHouseFilters.bind(this, this.props.houseName)} className="house-filter-img" src={this.state.housePictureURL}/>
+            <div onClick={this.props.changeHouseFilters.bind(this, this.props.houseName)} className={this.state.class}>
+                <img className="house-filter-img" src={this.state.housePictureURL}/>
             </div>
         );
     }
 }
-
+/*
+    Cambia el color de fondo de los botones de los filtros de las casas para mostrar
+    si se está mostrando esa casa o no
+*/
 function changeStyle(isShowing) {
     if (!isShowing) {
         return {class: "house-filter-button house-filter-button-red"};

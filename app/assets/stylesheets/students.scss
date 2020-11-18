@@ -98,16 +98,41 @@ header {
 }
 
 .house-filter-button {
-    background-color: #91f999;
-    padding: 3pt;
+    padding: 5pt;
+    margin: 0pt 3pt;
+    border: #444444 3pt solid;
+    border-radius: 20pt;
+}
+
+.house-filter-button:active {
+    padding: 5pt;
+    margin: 0pt 3pt;
+    border: #000000 3pt solid;
+    border-style: inset;
+    border-radius: 20pt;
+}
+
+.house-filter-button:hover {
+    padding: 5pt;
+    margin: 0pt 3pt;
+    border: #333333 3pt solid;
+    border-radius: 20pt;
 }
 
 .house-filter-button-green {
     background-color: #91f999;
 }
 
+.house-filter-button-green:hover {
+    background-color: #6dff79;
+}
+
 .house-filter-button-red {
     background-color: #ea6d91;
+}
+
+.house-filter-button-red:hover {
+    background-color: #fa4d7e;
 }
 
 .house-filter-img {
