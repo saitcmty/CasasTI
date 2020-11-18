@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import StudentList from './Admin/Students/StudentList';
 import HouseFilterButton from './Admin/Students/HouseFilterButton';
+import PointsFilterInput from './Admin/Students/PointsFilterInput';
 
 let houseFilters = {}
+const minPointsDefault = 0;
+const maxPointsDefault = 999999;
 
 class StudentsAdmin extends Component {
     constructor(props) {
@@ -14,7 +17,11 @@ class StudentsAdmin extends Component {
     state = {
         studentList: [],
         filters: {
-            houses: houseFilters
+            houses: houseFilters,
+            points: {
+                min: minPointsDefault,
+                max: maxPointsDefault
+            }
         }
     }
 
@@ -42,15 +49,24 @@ class StudentsAdmin extends Component {
             }
         })
 
+        list = list.filter(student => (student.uid <= this.state.filters.points.max && student.uid >= this.state.filters.points.min));
+
         this.setState({studentList: list});
     }
 
     changeHouseFilters = (house) => {
-        let newHouses = this.state.filters.houses
-        newHouses[house] = !newHouses[house];
-        this.setState({filters: {houses: newHouses}});
+        let newHouses = this.state.filters
+        newHouses.houses[house] = !newHouses.houses[house];
+        this.setState({filters: newHouses});
         this.filterList();
     }
+
+    changePointsFilters = (filter, points) => {
+        let obj = this.state.filters;
+        obj.points[filter] = ((points) ? parseInt(points) : ((filter == 'max') ? maxPointsDefault : minPointsDefault));
+        this.setState({filters: obj});
+        this.filterList();
+	}
 
     componentDidMount() {
         this.createHouseFilters();
@@ -61,15 +77,22 @@ class StudentsAdmin extends Component {
         return (
             <div>
                 <div className="row admin-student-list-filters">
-                    <div className="student-filters" id="houses-filter">
-                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Cuervos']} changeHouseFilters={this.changeHouseFilters}      houseName="Cuervos"/>
-                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Gallinas de Guinea']} changeHouseFilters={this.changeHouseFilters}     houseName="Gallinas de Guinea"/>
-                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Patos']} changeHouseFilters={this.changeHouseFilters}        houseName="Patos"/>
-                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Pavo Reales']} changeHouseFilters={this.changeHouseFilters}  houseName="Pavo Reales"/>
-                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Venados']} changeHouseFilters={this.changeHouseFilters}      houseName="Venados"/>
+                    <div className="student-filters" >
+                        <h1 id="filter-title">Filtros de casa</h1>
+                        <div id="houses-filter">
+                            <HouseFilterButton isShowingHouse={this.state.filters.houses['Cuervos']}            changeHouseFilters={this.changeHouseFilters}    houseName="Cuervos"/>
+                            <HouseFilterButton isShowingHouse={this.state.filters.houses['Gallinas de Guinea']} changeHouseFilters={this.changeHouseFilters}    houseName="Gallinas de Guinea"/>
+                            <HouseFilterButton isShowingHouse={this.state.filters.houses['Patos']}              changeHouseFilters={this.changeHouseFilters}    houseName="Patos"/>
+                            <HouseFilterButton isShowingHouse={this.state.filters.houses['Pavo Reales']}        changeHouseFilters={this.changeHouseFilters}    houseName="Pavo Reales"/>
+                            <HouseFilterButton isShowingHouse={this.state.filters.houses['Venados']}            changeHouseFilters={this.changeHouseFilters}    houseName="Venados"/>
+                        </div>
                     </div>
-                    <div className="student-filters">
-                        
+                    <div className="student-filters" id="points-filter">
+                        <h1 id="filter-title">Filtros de puntos</h1>
+                        <div id="points-filter-inputs">
+                            <PointsFilterInput pointsFilter="min" changePointsFilters={this.changePointsFilters}/>
+                            <PointsFilterInput pointsFilter="max" changePointsFilters={this.changePointsFilters}/>
+                        </div>
                     </div>
                 </div>
                 <div className="row">
