@@ -6,7 +6,9 @@
 </header>
 
 <main class="container">
-    <%= react_component("StudentsAdmin", {
+    <%= react_component("students/list", {
+        label: "ESTUDIANTES:",
         students: @students.sort_by(&:points).reverse.each do |student| student.uid = student.points end,
+        showPoints: true
     }) %>
 </main>

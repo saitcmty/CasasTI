@@ -8,12 +8,10 @@
 </header>
 
 <main class="container">
-
-    <%= react_component("Student", {
+    <%= react_component("students/show", {
         student: current_user,
         points: current_user.points,
         registrations: current_user.registrations,
         evidences: current_user.evidences
     }) %>
-    
 </main>
