@@ -86,7 +86,35 @@ header {
     }
 }
 
+.student-filters {
+    margin-top: 5vh;
+    width: 50%;
+}
 
+#houses-filter {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.house-filter-button {
+    background-color: #91f999;
+    padding: 3pt;
+}
+
+.house-filter-button-green {
+    background-color: #91f999;
+}
+
+.house-filter-button-red {
+    background-color: #ea6d91;
+}
+
+.house-filter-img {
+    margin: 0pt 5pt;
+    height: 60pt;
+    width: auto;
+}
 
 #all-students-panel {
     @include panel-component(#91f999, #437246);

@@ -1,22 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import StudentList from './Admin/Students/StudentList';
+import HouseFilterButton from './Admin/Students/HouseFilterButton';
+
+let houseFilters = {}
 
 class StudentsAdmin extends Component {
+    constructor(props) {
+        super(props);
+        this.createHouseFilters();
+    }
+
     state = {
         studentList: [],
         filters: {
-            houses: {
-                Cuervos: true,
-                Gallinas: true,
-                Patos: true,
-                Pavorreales: true,
-                Venados: true,
-            }
+            houses: houseFilters
         }
     }
 
-    filterList() {
+    createHouseFilters = () => {
+        let housesNames = [
+            'Cuervos',            
+            'Gallinas de Guinea',
+            'Patos',
+            'Pavo Reales',
+            'Venados'
+        ]
+
+        for (let i = 0; i < 5; i++) {
+            houseFilters[housesNames[i]] = true;
+        }
+    }
+
+    filterList = () => {
         let list = this.props.students;
         let keys = Object.keys(this.state.filters.houses);
 
@@ -29,8 +45,7 @@ class StudentsAdmin extends Component {
         this.setState({studentList: list});
     }
 
-    changeHouseFilters(house) {
-        console.log(house);
+    changeHouseFilters = (house) => {
         let newHouses = this.state.filters.houses
         newHouses[house] = !newHouses[house];
         this.setState({filters: {houses: newHouses}});
@@ -38,20 +53,23 @@ class StudentsAdmin extends Component {
     }
 
     componentDidMount() {
+        this.createHouseFilters();
         this.setState({studentList: this.props.students})
     }
 
     render() {
-        console.log(this.props.students)
         return (
             <div>
                 <div className="row admin-student-list-filters">
-                    <div id="houses-filter">
-                        <img onClick={this.changeHouseFilters.bind(this, 'Cuervos')} className="house-filter-img" src="/casas/cuervos.png"/>
-                        <img onClick={this.changeHouseFilters.bind(this, 'Gallinas')} className="house-filter-img" src="/casas/gallinas.png"/>
-                        <img onClick={this.changeHouseFilters.bind(this, 'Patos')} className="house-filter-img" src="/casas/patos.png"/>
-                        <img onClick={this.changeHouseFilters.bind(this, 'Pavorreales')} className="house-filter-img" src="/casas/pavo_reales.png"/>
-                        <img onClick={this.changeHouseFilters.bind(this, 'Venados')} className="house-filter-img" src="/casas/venados.png"/>
+                    <div className="student-filters" id="houses-filter">
+                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Cuervos']} changeHouseFilters={this.changeHouseFilters}      houseName="Cuervos"/>
+                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Gallinas de Guinea']} changeHouseFilters={this.changeHouseFilters}     houseName="Gallinas de Guinea"/>
+                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Patos']} changeHouseFilters={this.changeHouseFilters}        houseName="Patos"/>
+                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Pavo Reales']} changeHouseFilters={this.changeHouseFilters}  houseName="Pavo Reales"/>
+                        <HouseFilterButton isShowingHouse={this.state.filters.houses['Venados']} changeHouseFilters={this.changeHouseFilters}      houseName="Venados"/>
+                    </div>
+                    <div className="student-filters">
+                        
                     </div>
                 </div>
                 <div className="row">
