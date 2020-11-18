@@ -25,7 +25,7 @@ export default function StudentShow(props) {
   }
 
   return (
-    <main class="container">
+    <main className="container">
       <section>
         <section id="student-display">
           <div className="profile-img-component">
