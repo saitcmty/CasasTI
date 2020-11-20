@@ -152,8 +152,43 @@ header {
     flex-wrap: wrap;
 }
 
+.points-filter-inputs-50 {
+    width: 40%;
+    padding: 0pt 5pt;
+    margin: 0pt 5pt;
+}
+
+.points-range-filter-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.filter-div {
+    // padding: 5pt;
+    margin: 5pt 5pt;
+}
+
 .points-filter-input-header {
-    
+    text-decoration: solid;
+    padding: 0pt 2pt;
+}
+
+.filter-inputs {
+    margin: 2pt 0pt;
+    padding: 4pt 4pt;
+    margin: 8pt 0;
+    box-sizing: border-box;
+    // background-color: #3e8aee;
+    border: 3pt solid #555;
+    background-color: #eeeeee;
+    border-radius: 5pt;
+}
+
+.filter-inputs:focus, .filter-inputs:hover {
+    border: 3pt solid #222222;
+    background-color: #ffffff;
+    border-radius: 5pt;
 }
 
 #all-students-panel {

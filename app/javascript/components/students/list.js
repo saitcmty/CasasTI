@@ -20,7 +20,7 @@ function createHouseFilters() {
     }
 }
 
-function filterList(students, houseFilters, pointsFilters) {
+function filterList(students, houseFilters, pointsFilters, topOfList) {
     let list = students;
     let keys = Object.keys(houseFilters);
 
@@ -31,6 +31,10 @@ function filterList(students, houseFilters, pointsFilters) {
     })
 
     list = list.filter(student => (student.uid <= pointsFilters.max && student.uid >= pointsFilters.min));
+
+    if (topOfList > 0) {
+        list = list.slice(0, topOfList);
+    }
 
     return list;
 }
@@ -64,13 +68,21 @@ export default function StudentsList(props) {
         max: maxPointsDefault
     });
 
+    const [topOfList, setTopOfList] = useState('');
+
+    const changeTopOfList = (e) => {
+        e.preventDefault();
+        setTopOfList(parseInt(e.target.value));
+        changeFilteredList();
+    }
+
     const [filteredList, setFilteredList] = useState(students);
 
     const changeFilteredList = () => {
-        let list = filterList(students, houseFilters, pointsFilters);
+        let list = filterList(students, houseFilters, pointsFilters, topOfList);
         setFilteredList(list);
     }
-    
+
     return (
         <div>
             <div className="row admin-student-list-filters">
@@ -90,8 +102,23 @@ export default function StudentsList(props) {
                     <div className="student-filters" id="points-filter">
                         <h1 id="filter-title">Filtros de puntos</h1>
                         <div id="points-filter-inputs">
-                            <PointsFilterInput pointsFilter="min" changePointsFilters={changePointsFilters}/>
-                            <PointsFilterInput pointsFilter="max" changePointsFilters={changePointsFilters}/>
+                            <div className="points-filter-inputs-50 points-range-filter-inputs">
+                                <PointsFilterInput pointsFilter="min" changePointsFilters={changePointsFilters}/>
+                                <PointsFilterInput pointsFilter="max" changePointsFilters={changePointsFilters}/>
+                            </div>
+                            <div className="points-filter-inputs-50">
+                                <div className="filter-div">
+                                    <p className="points-filter-input-header">Top N</p>
+                                    <input 
+                                        className="filter-inputs"
+                                        type="number" 
+                                        name="topOfList" 
+                                        placeholder="Top..."
+                                        value={topOfList}
+                                        onChange={changeTopOfList}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
