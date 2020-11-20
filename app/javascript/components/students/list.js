@@ -14,6 +14,29 @@ let housesNames = [
     'Venados'
 ]
 
+let topFilters = [
+    {
+        text: 'Mostrar Todos',
+        value: 0
+    },
+    {
+        text: 'Top 5',
+        value: 5
+    },
+    {
+        text: 'Top 10',
+        value: 10
+    },
+    {
+        text: 'Top 15',
+        value: 15
+    },
+    {
+        text: 'Top 20',
+        value: 20
+    },
+]
+
 function createHouseFilters() {
     for (let i = 0; i < 5; i++) {
         defHouseFilters[housesNames[i]] = true;
@@ -108,15 +131,15 @@ export default function StudentsList(props) {
                             </div>
                             <div className="points-filter-inputs-50">
                                 <div className="filter-div">
-                                    <p className="points-filter-input-header">Top N</p>
-                                    <input 
+                                    <p className="points-filter-input-header">Top de Alumnos</p>
+                                    <select 
+                                        name="tops"
                                         className="filter-inputs"
-                                        type="number" 
-                                        name="topOfList" 
-                                        placeholder="Top..."
-                                        value={topOfList}
-                                        onChange={changeTopOfList}
-                                    />
+                                        onChange={changeTopOfList}>
+                                        {topFilters.map((top, i) => (
+                                            <option key={i} value={top.value}>{top.text}</option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
                         </div>
