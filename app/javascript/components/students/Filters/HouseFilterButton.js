@@ -31,8 +31,10 @@ class HouseFilterButton extends Component {
 
     render() {
         return (
-            <div onClick={this.props.changeHouseFilters.bind(this, this.props.houseName)} className={this.state.class}>
-                <img className="house-filter-img" src={this.state.housePictureURL}/>
+            <div 
+            onClick={this.props.changeHouseFilters.bind(this, this.props.houseName)} 
+            className={this.state.class}>
+                <img className="house-filter-img" alt={this.props.houseName} src={this.state.housePictureURL}/>
             </div>
         );
     }

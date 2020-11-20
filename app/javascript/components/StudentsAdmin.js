@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import StudentList from './Admin/Students/StudentList';
-import HouseFilterButton from './Admin/Students/HouseFilterButton';
-import PointsFilterInput from './Admin/Students/PointsFilterInput';
+import HouseFilterButton from './Filters/HouseFilterButton';
+import PointsFilterInput from './Filters/PointsFilterInput';
 
 let houseFilters = {}
 const minPointsDefault = 0;
