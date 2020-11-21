@@ -106,6 +106,8 @@ export default function StudentsList(props) {
         setFilteredList(list);
     }
 
+    topFilters[0].text = `Mostrar Todos (${filteredList.length})`
+
     return (
         <div>
             <div className="row admin-student-list-filters">
