@@ -19,7 +19,7 @@ class PointsFilterInput extends Component {
 
     render() {
         return (
-            <div className="filter-div">
+            <div className="field filter-div">
                 <p className="points-filter-input-header">{this.state.header}</p>
                 <input 
                     className="filter-inputs"

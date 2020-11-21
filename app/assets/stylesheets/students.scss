@@ -172,24 +172,37 @@ header {
 .points-filter-input-header {
     text-decoration: solid;
     padding: 0pt 2pt;
+    margin: 5pt 0pt;
 }
 
-.filter-inputs {
-    margin: 2pt 0pt;
-    padding: 4pt 4pt;
-    margin: 8pt 0;
-    box-sizing: border-box;
-    // background-color: #3e8aee;
-    border: 3pt solid #555;
-    background-color: #eeeeee;
-    border-radius: 5pt;
-    width: 80%;
+input[type="number"] {
+    width: 5em;
+    margin: 0 auto;
+    padding: 4px;
+    font-size: 24px;
+    border: 0;
+    border-bottom: solid 2px;
+    background-color: transparent;
 }
 
-.filter-inputs:focus, .filter-inputs:hover {
-    border: 3pt solid #222222;
-    background-color: #ffffff;
-    border-radius: 5pt;
+input[type="number"]:hover, input[type="number"]:focus {
+    background-color: #00000013;
+}
+
+select {
+    display: block;
+    width: 256px;
+    height: 32px;
+    margin: 0 auto;
+    background-color: #00000060;
+    border-color: #00000060;
+    font-size: 18px;
+    color: white;
+    margin: 8pt 0pt;
+}
+
+select:hover, select:focus {
+    background-color: #000000a4;
 }
 
 .student-buttons {
@@ -202,7 +215,7 @@ header {
             font-size: 1em; 
         }
     }
-  }
+}
 
 #all-students-panel {
     @include panel-component(#91f999, #437246);

@@ -28,6 +28,10 @@ form {
             min-height: 5em;
             height: auto;
         }
+
+        textarea:hover, textarea:focus {
+            background-color: #0000008e;
+        }
     }
 }
 
@@ -41,6 +45,10 @@ form {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 18px;
     color: white;
+}
+
+.field select:hover, .field select:focus {
+    background-color: #000000a4;
 }
 
 .file_proof {
