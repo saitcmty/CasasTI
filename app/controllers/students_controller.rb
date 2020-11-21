@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    redirect_to :root if current_user != @student or !current_user.admin?
+    redirect_to :root if (!current_user.admin? and current_user != @student)
   end
 
   # GET /students/1/edit
