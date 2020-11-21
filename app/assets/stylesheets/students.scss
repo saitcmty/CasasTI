@@ -152,6 +152,12 @@ header {
     flex-wrap: wrap;
 }
 
+@media (max-width:900px){
+    #points-filter-inputs {
+        flex-direction: column;
+    }
+}
+
 .points-filter-inputs-50 {
     width: 40%;
     padding: 0pt 5pt;
