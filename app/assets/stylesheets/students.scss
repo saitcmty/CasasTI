@@ -192,6 +192,18 @@ header {
     border-radius: 5pt;
 }
 
+.student-buttons {
+    width: 1.5em;
+    align-self: center;
+    a {
+        font-size: 1.5em;
+        i {
+            display: block;
+            font-size: 1em; 
+        }
+    }
+  }
+
 #all-students-panel {
     @include panel-component(#91f999, #437246);
     flex-direction: column;
