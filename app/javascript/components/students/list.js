@@ -3,7 +3,7 @@ import StudentElement from "./summary";
 import HouseFilterButton from './Filters/HouseFilterButton';
 import PointsFilterInput from './Filters/PointsFilterInput';
 
-let defHouseFilters = {}
+const defHouseFilters = {}
 const minPointsDefault = 0;
 const maxPointsDefault = 999999;
 let housesNames = [
@@ -39,19 +39,28 @@ let topFilters = [
 
 function createHouseFilters() {
     for (let i = 0; i < 5; i++) {
-        defHouseFilters[housesNames[i]] = true;
+        defHouseFilters[housesNames[i]] = false;
     }
 }
 
 function filterList(students, houseFilters, pointsFilters, topOfList) {
     let list = students;
     let keys = Object.keys(houseFilters);
+    let shouldFilterHouses = {
+        should: false,
+        house: ''
+    };
 
     keys.forEach(house => {
-        if (!houseFilters[house]) {
-            list = list.filter(student => student.house_id != house);
+        if (houseFilters[house]) {
+            shouldFilterHouses.house = house;
+            shouldFilterHouses.should = true
         }
     })
+
+    if (shouldFilterHouses.should) {
+        list = list.filter(student => student.house_id == shouldFilterHouses.house);
+    }
 
     list = list.filter(student => (student.uid <= pointsFilters.max && student.uid >= pointsFilters.min));
 
@@ -74,7 +83,15 @@ export default function StudentsList(props) {
 
     const changeHouseFilters = (house) => {
         let newHouses = houseFilters;
-        newHouses[house] = !newHouses[house]
+        let filter = newHouses[house];
+        
+        let keys = Object.keys(newHouses);
+        keys.forEach(houseKey => {
+            houseFilters[houseKey] = false;
+        });
+
+        newHouses[house] = !filter;
+
         setHouseFilters(newHouses);
         changeFilteredList();
     }
