@@ -24,7 +24,15 @@ a#new-evidence {
 
         .element-component {
             align-items: center;
-            height: 2.5em;
+            height: 4em;
+
+            .title {
+                height: 2em;
+                max-height: 2em;
+                font-size: 1.5em;
+                font-weight: bold;
+                padding-top: 0.1em;
+            }
 
             .evidence-info {
                 flex-grow: 1;
@@ -36,9 +44,9 @@ a#new-evidence {
                 margin: 0 0.5em;
             }
 
-            .element-title {
+            /*.element-title {
                 font-weight: bold;
-            }
+            }*/
 
             .right-icon {
                 font-size: 2em;
