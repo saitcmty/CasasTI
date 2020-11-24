@@ -1,4 +1,5 @@
 $registration-button-color: #ff5e8c;//#c6538c;
+$registration-button-color: #ff336de0;//#c6538c;
 $registration-border-color: #4f2934;//rgba($base-color, 0.88);
 
 $events-button-color: #5c7cff; // 466bff
@@ -82,7 +83,8 @@ main {
   line-height: 1em;
   background-color: $back-color;
   border: $bord-color solid 4px;
-  border-radius: 8px;
+  // border-radius: 8px;
+  border-radius: 3px;
   color: rgb(0, 0, 0);
   color: #ffffff;
   span {
@@ -119,7 +121,8 @@ main {
 
 @mixin panel-component($comp-color, $focus-color) {
   border: solid;
-  border-radius: 0.5em;
+  // border-radius: 0.5em;
+  border-radius: 3px;
   border: $comp-color solid 4px;
   padding: 0;
   flex-grow: 1;
