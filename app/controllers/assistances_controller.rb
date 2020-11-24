@@ -1,5 +1,6 @@
 class AssistancesController < ApplicationController
-  before_action :set_assistance, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :set_assistance, only: [:destroy]
 
   # POST /assistances
   # POST /assistances.json
@@ -8,24 +9,20 @@ class AssistancesController < ApplicationController
     @assistance.student_id = current_user.tec_id
     @assistance.event_id = session[:selected_event]
 
-    respond_to do |format|
-      if @assistance.save
-        format.html { redirect_to Event.find(session[:selected_event]) }
-        format.json { render :show, status: :created, location: @assistance }
-      else
-        format.html { render :new }
-        format.json { render json: @assistance.errors, status: :unprocessable_entity }
-      end
+    if @assistance.save
+      render json: { msg: "Asistencia registrada satisfactoriamente", status: :created, location: @event }
+    else
+      render json: { error: @assistance.errors, status: :unprocessable_entity }
     end
   end
 
   # DELETE /assistances/1
   # DELETE /assistances/1.json
   def destroy
-    @assistance.destroy
-    respond_to do |format|
-      format.html { redirect_to Event.find(session[:selected_event]) }
-      format.json { head :no_content }
+    if @assistance.destroy
+      render json: { msg: "Asistencia removida satisfactoriamente" }
+    else
+      render json: { error: @assistance.errors, status: :unprocessable_entity }
     end
   end
 
