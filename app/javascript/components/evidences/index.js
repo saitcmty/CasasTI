@@ -4,7 +4,7 @@ import "../../App.css";
 
 export default function EvidencesIndex(props) {
   const { evidences, backendURL } = props;
-  evidences.sort((a, b) => (a.start_date > b.start_date ? 1 : -1));
+  evidences.sort((a, b) => (a.deadline > b.deadline ? 1 : -1));
 
   return (
     <main className="container">
@@ -16,7 +16,7 @@ export default function EvidencesIndex(props) {
       <div className="row">
         <section id="all-evidences-panel" className="panel-component">
           <p className="label">EVIDENCIAS:</p>
-          <div id="next-evidences-container" className="elements-container">
+          <div id="next-evidence-container" className="elements-container">
             {evidences.map((evidence) => (
               <EvidenceSummary
                 key={evidence.id}
