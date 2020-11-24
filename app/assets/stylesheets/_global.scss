@@ -1,8 +1,11 @@
 $registration-button-color: #ff5e8c;//#c6538c;
 $registration-border-color: #4f2934;//rgba($base-color, 0.88);
 
-$events-button-color: #5c7cff;
-$events-border-color: #333b5e;
+$events-button-color: #5c7cff; // 466bff
+$events-border-color: #333b5e; // 172455
+$events-button-color: #466bff;
+$events-border-color: #172455;
+
 
 $houses-button-color: #8d70eb;
 $houses-border-color: #322c48;
@@ -85,7 +88,8 @@ main {
   span {
     flex-grow: 1;
     text-align: center;
-    color: #ffffff;
+    // color: #ffffff;
+    color: #222222;
   }
 
   i {
@@ -156,7 +160,7 @@ header .material-icons {
 
 body {
   background-color: #9092c7;
-  background-color: #eaeaeaa6;
+  background-color: #eeeeee;
   font-family: "Source Sans Pro", sans-serif;
   padding-top: 56px;
 }

@@ -56,12 +56,12 @@ form {
 }
 
 .button-component {
-    @include button-component(24px, #ff88aa, #753e4e);
+    @include button-component(24px, $registration-button-color, $registration-border-color);
 }
 
 input[type="submit"] {
-    background-color: #ff88aa;
-    border-color: #753e4e;
+    background-color: $registration-button-color;
+    border-color: $registration-border-color;
 }
 
 td {
@@ -69,7 +69,7 @@ td {
 }
 
 #all-registrations-panel {
-    @include panel-component(#ff88aa, #753e4e);
+    @include panel-component($registration-button-color, $registration-border-color);
     margin-bottom: 1em;
 
     .elements-container {

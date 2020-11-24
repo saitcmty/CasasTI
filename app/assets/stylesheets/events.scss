@@ -73,7 +73,7 @@ input[type="submit"] {
 }
 
 #all-events-panel {
-  @include panel-component(#466bff, #172455);
+  @include panel-component($events-button-color, $events-border-color);
   margin-bottom: 1em;
 
   .elements-container {
@@ -123,7 +123,7 @@ input[type="submit"] {
 }
 
 #assisting-students-panel {
-  @include panel-component(#91f999, #437246);
+  @include panel-component($students-button-color, $students-border-color);
   max-width: 90vw;
   margin-bottom: 1em;
 
@@ -154,10 +154,10 @@ input[type="submit"] {
 }
 
 #event-link-component.button-component {
-  @include button-component(1em, #8099ff, #3b4675);
+  @include button-component(1em, $events-button-color, $events-border-color);
 }
 
 a#new-event {
-  @include button-component(2em, #8099ff, #3b4675);
+  @include button-component(2em, $events-button-color, $events-border-color);
   margin: 1em auto;
 }
