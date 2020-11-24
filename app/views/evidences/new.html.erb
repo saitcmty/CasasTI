@@ -1,16 +1,17 @@
 <header>
   <%= link_to :admin_dashboard do %>
-      <i class="material-icons md-36 md-light">arrow_back</i>
+    <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
   <div class="empty"></div>
 </header>
+
+<div className="d-flex min-vh-100 align-items-center">
+  <%= react_component("evidences/new", { backendURL: $BACKEND_URL }) %>
+</div>
+<% # remove avobe for old form %>
 
 <main class="container">
   <section id="show-evidence">
   <%= render 'form', evidence: @evidence %>
   </section>
-</main>
-
-# <div className="d-flex min-vh-100 align-items-center">
-#   <%= react_component("events/new", { backendURL: $BACKEND_URL }) %>
-# </div>
+</main> 

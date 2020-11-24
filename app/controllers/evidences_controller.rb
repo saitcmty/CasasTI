@@ -10,6 +10,7 @@ class EvidencesController < ApplicationController
 
   # GET /evidences/new
   def new
+    redirect_to :root unless current_user.admin?
     @evidence = Evidence.new
   end
 
