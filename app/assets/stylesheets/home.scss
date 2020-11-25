@@ -4,10 +4,6 @@
 
 @import "_global.scss";
 
-body {
-  background-color: #9092c7;
-}
-
 .itesm-banner {
   font-size: 2em;
   text-align: center;
@@ -87,27 +83,27 @@ a.button-component {
 }
 
 a#houses-button {
-  @include button-component(2em, #9b83ea, #473c6b);
+  @include button-component(2em, $houses-button-color, $houses-border-color);
 }
 
 a#students-button {
-  @include button-component(2em, #91f999, #437246);
+  @include button-component(2em, $students-button-color, $students-border-color);
 }
 
 a#registrations-button {
-  @include button-component(2em, #ff88aa, #753e4e);
+  @include button-component(2em, $registration-button-color, $registration-border-color);
 }
 
 a#events-button {
-  @include button-component(2em, #8099ff, #3b4675);
+  @include button-component(2em, $events-button-color, $events-border-color);
 }
 
 a#evidences-button {
-  @include button-component(2em, #e1d437, #a06e33);
+  @include button-component(2em, $evidences-button-color, $evidences-border-color);
 }
 
 a#new-registration {
-  @include button-component(2em, #ff88aa, #753e4e);
+  @include button-component(2em, $registration-button-color, $registration-border-color);
   max-width: 320px;
   margin: 0 auto;
 }

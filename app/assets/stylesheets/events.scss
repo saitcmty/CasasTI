@@ -51,12 +51,14 @@
     margin-top: 24px;
     display: flex;
     align-items: center;
-    background-color: rgba(128, 153, 255, 0.7);
+    background-color: $events-button-color;
     padding: 0.3em;
-    border: #3b4675 solid 0.2em;
-    border-radius: 0.5em;
+    // border: $events-border-color solid 0.2em;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
 
     i {
+      color: black;
       font-size: 1.5em;
       margin-right: 0.2em;
     }
@@ -68,12 +70,24 @@
 }
 
 input[type="submit"] {
-  background-color: #8099ff;
-  border-color: #3b4675;
+  background-color: $events-button-color;//#8099ff;
+  // border-color: #3b4675;
+  color: black;
+  // box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border:none;
+  // -webkit-border-radius:5px;
+  // -moz-border-radius:5px;
+  // border-radius:5px;
+  // -webkit-box-shadow:0 0 5px #666 inset;
+  // -moz-box-shadow:0 0 5px #666 inset;
+  // box-shadow:0 0 5px #666 inset;
+  // line-height:25px;
+  // text-indent:5px;
+
 }
 
 #all-events-panel {
-  @include panel-component(#466bff, #172455);
+  @include panel-component($events-button-color, $events-border-color);
   margin-bottom: 1em;
 
   .elements-container {
@@ -123,7 +137,7 @@ input[type="submit"] {
 }
 
 #assisting-students-panel {
-  @include panel-component(#91f999, #437246);
+  @include panel-component($students-button-color, $students-border-color);
   max-width: 90vw;
   margin-bottom: 1em;
 
@@ -154,10 +168,10 @@ input[type="submit"] {
 }
 
 #event-link-component.button-component {
-  @include button-component(1em, #8099ff, #3b4675);
+  @include button-component(1em, $events-button-color, $events-border-color);
 }
 
 a#new-event {
-  @include button-component(2em, #8099ff, #3b4675);
+  @include button-component(2em, $events-button-color, $events-border-color);
   margin: 1em auto;
 }
