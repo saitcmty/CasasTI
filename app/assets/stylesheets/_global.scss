@@ -137,6 +137,7 @@ main {
     color: #ffffff;
     background-color: $comp-color;
     margin: 0 !important;
+    padding: 0 3pt;
   }
 
   .elements-container {
@@ -281,6 +282,11 @@ form {
     border-bottom: solid 2px;
   }
 
+  input[type="number"]:hover, input[type="number"]:focus,
+  input[type="text"]:hover, input[type="text"]:focus {
+    background-color: #00000013;
+  }
+
   input[type="submit"] {
     height: 64px;
     margin: 2em auto;
@@ -305,6 +311,10 @@ form {
     font-size: 18px;
     color: white;
   }
+
+  .field select:hover, .field select:focus {
+    background-color: #000000a4;
+}
 }
 
 .icon-text-component {

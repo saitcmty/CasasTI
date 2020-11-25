@@ -35,8 +35,16 @@ export default function StudentSummary(props) {
         <p className="student-name">{`${f_name} ${l_name}`}</p>
         <p className="student-tec-id">{tec_id}</p>
       </div>
-
       {showPoints && <p className="student-points">Puntos: {puntos}</p>}
+      {(
+        <div className="student-buttons">
+          <a href={`students/${tec_id}`}>
+            <i className="material-icons right-icon md-inherit">
+              remove_red_eye
+            </i>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
