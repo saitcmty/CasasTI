@@ -105,39 +105,38 @@ header {
 .house-filter-button {
     padding: 5pt;
     margin: 0pt 3pt;
-    border: #444444 3pt solid;
-    border-radius: 20pt;
+    // border: #222222 3pt solid;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
 }
 
 .house-filter-button:hover {
     padding: 5pt;
     margin: 0pt 3pt;
-    border: #333333 3pt solid;
-    border-radius: 20pt;
+    // border: #111111 3pt solid;
 }
 
 .house-filter-button:active {
     padding: 5pt;
     margin: 0pt 3pt;
-    border: #000000 3pt solid;
+    // border: #000000 3pt solid;
     border-style: inset;
-    border-radius: 20pt;
 }
 
 .house-filter-button-green {
-    background-color: #91f999;
+    background-color: $students-button-color;
 }
 
 .house-filter-button-green:hover {
-    background-color: #6dff79;
+    background-color: $students-hover-color;
 }
 
 .house-filter-button-red {
-    background-color: #ea6d91;
+    background-color: $registration-button-color;
 }
 
 .house-filter-button-red:hover {
-    background-color: #fa4d7e;
+    background-color: $registration-hover-color;
 }
 
 .house-filter-img {
