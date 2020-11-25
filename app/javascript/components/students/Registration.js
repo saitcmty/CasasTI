@@ -8,7 +8,6 @@ class Registration extends Component {
     }  
 
     componentDidMount() {
-        console.log(this.props);
         const dateString = moment(this.props.registration.date).locale("es").format("DD-MMM-YYYY hh:mma");
 
         this.setState({date: dateString});
@@ -22,10 +21,8 @@ class Registration extends Component {
                         <p className="title">{this.props.evidence.title}</p>
                         <p className="date">{this.state.date}</p>
                     </div>
-                    <p className="student-points-panel">Puntos: {this.props.evidence.points}</p>
-                    <div className="icon-container">
-                        <Approved approved={this.props.registration.approved}/>
-                    </div>
+                    {this.props.registration.approved && <p className="student-points-panel">Puntos: {this.props.evidence.points}</p>}
+                    <Approved approved={this.props.registration.approved}/>
                 </div>
             </div>
         );
@@ -33,9 +30,17 @@ class Registration extends Component {
 }
 
 function Approved(props) {
-    const approved = props.approved;
+    const {approved} = props;
     if (approved) {
-        return <i className="material-icons right-icon">done</i>;
+        return (
+            <span>
+                <div className="icon-container">
+                    <i className="material-icons right-icon">done</i>
+                </div>
+            </span>
+        );
+    } else {
+        return <i></i>
     }
 }
 
