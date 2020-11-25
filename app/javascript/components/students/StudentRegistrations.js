@@ -6,7 +6,7 @@ class StudentRegistrations extends Component {
     render() {
         return this.props.registrations.map((registration) => {
             return this.props.evidences.map ((evidence) => {
-                if (evidence.id == registration.id) {
+                if (evidence.id == registration.evidence_id) {
                     return (
                         <Registration key={registration.id} registration={registration} evidence={evidence}/>
                     )
