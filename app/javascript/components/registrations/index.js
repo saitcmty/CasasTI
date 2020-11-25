@@ -1,38 +1,39 @@
 import React, { useState, useEffect } from "react";
-import RegistrationsSummary from "./summary";
+import RegistrationSummary from "./summary";
 import "../../App.css";
 
 export default function RegistrationsIndex(props) {
-  const { registrations, non_a_registrations, backendURL } = props;
-  //registrations.sort((a, b) => (a.date > b.date ? 1 : -1));
-  console.log("evidences");
-  console.log(evidences);
+  const { registrations, evidences, file_proofs, backendURL } = props;
+  for (const i in registrations) {
+    registrations[i].evidence = evidences[i];
+    registrations[i].proof = file_proofs[i];
+  }
+
+  const approved_registrations = registrations.filter((r) => r.approved);
+  const non_approved_registrations = registrations.filter((r) => !r.approved);
+
   return (
     <main className="container">
-
       <div className="row">
         <section id="all-registrations-panel" className="panel-component">
           <p className="label">Registros:</p>
           <div id="next-events-container" className="elements-container">
-            
-            {non_a_registrations.map((registration) => (
-              <RegistrationsSummary
-                key={registration.id}
-                registration={registration}
-                showControls={true} 
-                backendURL={backendURL}
-              />
-            ))}
-            
-            {registrations.map((registration) => (
-              <RegistrationsSummary
-                key={registration.id}
-                registration={registration}
-                showControls={true} 
+            {non_approved_registrations.map((r) => (
+              <RegistrationSummary
+                key={r.id}
+                registration={r}
+                showControls={true}
                 backendURL={backendURL}
               />
             ))}
 
+            {approved_registrations.map((r) => (
+              <RegistrationSummary
+                key={r.id}
+                registration={r}
+                backendURL={backendURL}
+              />
+            ))}
           </div>
         </section>
       </div>

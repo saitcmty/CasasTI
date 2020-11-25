@@ -7,62 +7,8 @@
 </header>
 
 <%= react_component("registrations/index", {
-	registrations: @approved_registrations.sort_by(&:date),
-	non_a_registrations: @non_approved_registrations.sort_by(&:date),
+	registrations: @registrations,
+	evidences: @evidences,
+	file_proofs: @file_proofs,
   	backendURL: $BACKEND_URL,
 }) %> 
-
-<% if false %> 
-
-<main class="container">
-<section id="all-registrations-panel" class="panel-component mt-5">
-	<p class="label">REGISTROS:</p>
-	<div id="next-events-container" class="elements-container">
-
-		<% @non_approved_registrations.each do |registration| %>
-		<div class="registration-component element-component">
-			<div class="registration-info">
-					<p class="student-tec-id"><%= registration.student.tec_id %></p>
-					<p class="evidence-title"><%= registration.evidence.title %></p>
-			</div>
-			<p class="index-justification"><%= registration.justification %></p>
-			<% if registration.file_proof.attached? %>
-					<%= link_to registration.file_proof, target: '_blank', class: "file_proof_attachment" do %>
-							<i class="material-icons">attachment</i>
-					<% end %>
-			<% end %>
-
-			<% if registration.approved? == false %>
-			<%= form_tag approve_registration_path(registration.id), method: "get" do %>
-				<%= text_field_tag :assigned_points, params[:assigned_points], class: "assigned_points" %>
-				<%= button_tag :type => :submit, :class => "btn btn-medium btn-inverse", :data => { confirm: '¿Aprobar registro?' } do %>
-					<i class="material-icons">done_outline</i>
-				<% end %>
-			<% end %>
-			<% end %>
-			<%= link_to registration, method: :delete, data: { confirm: 'Are you sure?' } do %>
-			<i class="material-icons right-icon">delete</i>
-			<% end %>
-		</div>
-		<% end %>
-
-		<% @approved_registrations.each do |registration| %>
-		<div class="registration-component element-component">
-			<div class="registration-info">
-					<p class="student-tec-id"><%= registration.student.tec_id %></p>
-					<p class="evidence-title"><%= registration.evidence.title %></p>
-			</div>
-			<p class="index-justification"><%= registration.justification %></p>
-			<% if registration.file_proof.attached? %>
-					<%= link_to registration.file_proof, target: '_blank', class: "file_proof_attachment" do %>
-							<i class="material-icons">attachment</i>
-					<% end %>
-			<% end %>
-		</div>
-		<% end %>
-
-	</div>
-</section>
-</main>
-
-<% end %> 

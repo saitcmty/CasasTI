@@ -5,163 +5,171 @@
 @import "_global.scss";
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 form {
-    input {
-        display: block;
-        width: 256px;
-        height: 32px;
-        margin: 0 auto;
-    }
-
-    span.side-note {
-        font-size: 0.75em;
-        font-style: italic;
-    }
-
-    .field {
-        margin-bottom: 2.5em;
-    }
-
-    .justification_field {
-        textarea {
-            margin-top: 0.5em;
-            font-size: 0.9em;
-            min-height: 5em;
-            height: auto;
-        }
-
-        textarea:hover, textarea:focus {
-            background-color: #0000008e;
-        }
-    }
-}
-
-.field select {
+  input {
     display: block;
     width: 256px;
     height: 32px;
     margin: 0 auto;
-    background-color: #00000060;
-    border-color: #00000060;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 18px;
-    color: white;
+  }
+
+  span.side-note {
+    font-size: 0.75em;
+    font-style: italic;
+  }
+
+  .field {
+    margin-bottom: 2.5em;
+  }
+
+  .justification_field {
+    textarea {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      min-height: 5em;
+      height: auto;
+    }
+
+    textarea:hover,
+    textarea:focus {
+      background-color: #0000008e;
+    }
+  }
 }
 
-.field select:hover, .field select:focus {
-    background-color: #000000a4;
+.field select {
+  display: block;
+  width: 256px;
+  height: 32px;
+  margin: 0 auto;
+  background-color: #00000060;
+  border-color: #00000060;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.field select:hover,
+.field select:focus {
+  background-color: #000000a4;
 }
 
 .file_proof {
-    p {
-        margin-bottom: 0.5em;
-    }
+  p {
+    margin-bottom: 0.5em;
+  }
 }
 
 .justification_field {
-    textarea {
-        color: white;
-    }
+  textarea {
+    color: white;
+  }
 }
 
 .button-component {
-    @include button-component(24px, $registration-button-color, $registration-border-color, $registration-hover-color);
+  @include button-component(
+    24px,
+    $registration-button-color,
+    $registration-border-color,
+    $registration-hover-color
+  );
 }
 
 input[type="submit"] {
-    background-color: $registration-button-color;
-    border-color: $registration-border-color;
-    // @include button-component(24px, $registration-button-color, $registration-border-color);
-
+  background-color: $registration-button-color;
+  border-color: $registration-border-color;
+  // @include button-component(24px, $registration-button-color, $registration-border-color);
 }
 
 td {
-    padding: 4px;
+  padding: 4px;
 }
 
 #all-registrations-panel {
-    @include panel-component($registration-button-color, $registration-border-color);
-    margin-bottom: 1em;
+  @include panel-component(
+    $registration-button-color,
+    $registration-border-color
+  );
+  margin-bottom: 1em;
 
-    .elements-container {
-        max-height: fit-content;
+  .elements-container {
+    max-height: fit-content;
+    align-items: center;
+
+    .registration-info {
+      padding: 0.25em;
+    }
+
+    .registration-info,
+    .registration-approved,
+    a {
+      height: fit-content;
+    }
+
+    .element-component {
+      height: auto;
+      align-items: center;
+
+      .registration-proof {
+        flex-grow: 1;
+        margin-left: 0.5em;
+      }
+
+      .file_proof_attachment {
+        margin: 0 8px;
+      }
+
+      .index-justification {
+        font-size: 0.75em;
+        flex-grow: 1;
+      }
+
+      form {
+        display: flex;
         align-items: center;
 
-        .registration-info {
-            padding: 0.25em;
+        input {
+          height: 1em;
         }
 
-        .registration-info,
-        .registration-approved,
-        a {
-            height: fit-content;
+        button {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
+          height: fit-content;
         }
 
-        .element-component {
-            height: auto;
-            align-items: center;
-
-            .registration-proof {
-                flex-grow: 1;
-                margin-left: 0.5em;
-            }
-
-            .file_proof_attachment {
-                margin: 0 8px;
-            }
-
-            .index-justification {
-                font-size: 0.75em;
-                flex-grow: 1;
-            }
-
-            form {
-                display: flex;
-                align-items: center;
-
-                input {
-                    height: 1em;
-                }
-
-                button {
-                    background-color: transparent;
-                    border: 0;
-                    padding: 0;
-                    height: fit-content;
-                }
-
-                button:hover {
-                    cursor: pointer;
-                }
-            }
-
-            .assigned_points {
-                max-width: 2em;
-                background-color: transparent;
-                border: 0px;
-                font-size: 1em;
-                border-bottom: 2px black solid;
-                margin: 0 8px;
-                text-align: center;
-            }
-
-            .student-tec-id {
-                font-weight: bold;
-            }
-
-            .evidence-title {
-                flex-grow: 1;
-                text-align: end;
-                margin: 0 0.5em;
-            }
-
-            .right-icon {
-                margin-left: 0.2em;
-                line-height: 1.5em;
-            }
+        button:hover {
+          cursor: pointer;
         }
+      }
+
+      .assigned_points {
+        max-width: 2em;
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 2px black solid;
+        margin: 0;
+        text-align: right;
+      }
+
+      .student-tec-id {
+        font-weight: bold;
+      }
+
+      .evidence-title {
+        flex-grow: 1;
+        text-align: end;
+        margin: 0 0.5em;
+      }
+
+      .right-icon {
+        margin-left: 0.2em;
+        line-height: 1.5em;
+      }
     }
+  }
 }
