@@ -6,14 +6,6 @@
   <div class="empty"></div>
 </header>
 
-<%= react_component("registrations/index", {
-	registrations: @approved_registrations.sort_by(&:date),
-	non_a_registrations: @non_approved_registrations.sort_by(&:date),
-  	backendURL: $BACKEND_URL,
-}) %> 
-
-<% if false %> 
-
 <main class="container">
 <section id="all-registrations-panel" class="panel-component mt-5">
 	<p class="label">REGISTROS:</p>
@@ -64,5 +56,3 @@
 	</div>
 </section>
 </main>
-
-<% end %> 
