@@ -164,6 +164,9 @@ header .material-icons {
 body {
   background-color: #9092c7;
   background-color: #eeeeee;
+  // background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(96, 187, 218) 100%);
+  // background: linear-gradient(180deg, #4a36df66 0%, #2eabe166 50%);
+  background: linear-gradient(180deg, #2eabe166 0%, #4a36df66 90%);
   font-family: "Source Sans Pro", sans-serif;
   padding-top: 56px;
 }
@@ -179,7 +182,9 @@ header {
   z-index: 10;
   box-shadow: 0px 0px 8px;
   // background-color: #30257d;
-  background: linear-gradient(65deg, rgba(0,172,228,1) 0%, rgba(23,12,102,1) 100%);
+  // background: linear-gradient(65deg, rgba(0,172,228,1) 0%, rgba(23,12,102,1) 100%);
+  background: linear-gradient(65deg, #4a36df 0%, #2eaae1 100%);
+  // background: linear-gradient(65deg, #2eaae1 0%, #4a36df 100%);
 
   a {
     height: 100%;

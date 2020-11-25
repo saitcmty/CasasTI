@@ -51,12 +51,13 @@
     margin-top: 24px;
     display: flex;
     align-items: center;
-    background-color: rgba(128, 153, 255, 0.7);
+    background-color: $events-button-color;
     padding: 0.3em;
-    border: #3b4675 solid 0.2em;
-    border-radius: 0.5em;
+    border: $events-border-color solid 0.2em;
+    border-radius: 4px;
 
     i {
+      color: black;
       font-size: 1.5em;
       margin-right: 0.2em;
     }
