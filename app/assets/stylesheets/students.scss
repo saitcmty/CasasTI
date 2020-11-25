@@ -270,3 +270,13 @@ select:hover, select:focus {
 .student-points {
     font-weight: bold;
 }
+
+.student-points-panel {
+    height: fit-content;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0.5em;
+    width: 7em;
+    line-height: 2em;
+    text-align: end;
+}
