@@ -53,7 +53,8 @@
     align-items: center;
     background-color: $events-button-color;
     padding: 0.3em;
-    border: $events-border-color solid 0.2em;
+    // border: $events-border-color solid 0.2em;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 4px;
 
     i {
@@ -69,8 +70,20 @@
 }
 
 input[type="submit"] {
-  background-color: #8099ff;
-  border-color: #3b4675;
+  background-color: $events-button-color;//#8099ff;
+  // border-color: #3b4675;
+  color: black;
+  // box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border:none;
+  // -webkit-border-radius:5px;
+  // -moz-border-radius:5px;
+  // border-radius:5px;
+  // -webkit-box-shadow:0 0 5px #666 inset;
+  // -moz-box-shadow:0 0 5px #666 inset;
+  // box-shadow:0 0 5px #666 inset;
+  // line-height:25px;
+  // text-indent:5px;
+
 }
 
 #all-events-panel {

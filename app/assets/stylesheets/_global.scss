@@ -82,8 +82,10 @@ main {
   padding: 8px;
   line-height: 1em;
   background-color: $back-color;
-  border: $bord-color solid 4px;
+  // border: $bord-color solid 4px;
   // border-radius: 8px;
+  box-shadow: 5px 10px 8px #888888;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 3px;
   color: rgb(0, 0, 0);
   color: #ffffff;
@@ -124,6 +126,7 @@ main {
   // border-radius: 0.5em;
   border-radius: 3px;
   border: $comp-color solid 4px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 0;
   flex-grow: 1;
 
@@ -265,8 +268,8 @@ form {
     margin: 0 auto;
     padding: 4px;
     font-size: 24px;
-    border: 0;
-    border-bottom: solid 2px;
+    // border: 0;
+    // border-bottom: solid 2px;
   }
 
   input[type="number"] {
@@ -286,9 +289,10 @@ form {
     justify-content: space-between;
     padding: 8px;
     font-size: 24px;
-    border: solid 4px;
+    // border: solid 4px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgb(0, 0, 0);
   }
 
   .field select {
