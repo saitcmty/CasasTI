@@ -11,12 +11,13 @@ export default function EventSummary(props) {
   dateString = dateString.substring(0, dateString.length - 1);
 
   const deleteEvent = async () => {
-    try {
-      await axios.delete(`${backendURL}/events/${id}`);
-      window.location = "/admin";
-    } catch (error) {
-      window.location = "/admin";
-    }
+    axios
+      .delete(`${backendURL}/events/${id}`)
+      .catch((error) => alert(JSON.stringify(error)))
+      .then((resDelete) => {
+        alert(resDelete.data.msg);
+        window.location = "/events";
+      });
   };
 
   return (
