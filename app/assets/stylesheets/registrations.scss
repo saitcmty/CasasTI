@@ -4,6 +4,10 @@
 
 @import "_global.scss";
 
+html {
+    height: 100%;
+}
+
 form {
     input {
         display: block;
