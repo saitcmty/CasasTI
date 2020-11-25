@@ -6,31 +6,25 @@ import "../../App.css";
 export default function NewEvidence(props) {
   const { backendURL } = props;
 
-  const createEvidence = async (evidence) => {
-    const { points, title, img_url, deadline } = evidence;
+  const createEvidence = (evidence) => {
+    const { points, title, deadline } = evidence;
 
     const newEvidence = new FormData();
     newEvidence.append("title", title);
-     newEvidence.append("points", points);
-     newEvidence.append("img_url", img_url);
-     newEvidence.append("deadline", deadline);
-    // newEvidence.append("description", description);
-    // newEvidence.append("portrait", portrait);
-    // newEvidence.append("link", link);
+    newEvidence.append("points", points);
+    newEvidence.append("deadline", deadline);
 
-    try {
-      const response = await axios.post(`${backendURL}/evidences`, newEvidence, {
+    axios
+      .post(`${backendURL}/evidences`, newEvidence, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+      })
+      .catch((error) => alert(JSON.stringify(error)))
+      .then((resNewEvidence) => {
+        alert(resNewEvidence.data.msg);
+        window.location = "/evidences";
       });
-      alert(response.data.msg);
-      window.location = "/evidences";
-    } catch (error) {
-      console.log(error);
-      const { msg } = error.response.data;
-      alert(msg);
-    }
   };
 
   return (

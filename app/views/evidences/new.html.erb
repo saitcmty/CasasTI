@@ -8,10 +8,4 @@
 <div className="d-flex min-vh-100 align-items-center">
   <%= react_component("evidences/new", { backendURL: $BACKEND_URL }) %>
 </div>
-<% # remove avobe for old form %>
 
-<main class="container">
-  <section id="show-evidence">
-  <%= render 'form', evidence: @evidence %>
-  </section>
-</main> 

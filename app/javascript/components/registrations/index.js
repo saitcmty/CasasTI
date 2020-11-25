@@ -3,7 +3,7 @@ import RegistrationsSummary from "./summary";
 import "../../App.css";
 
 export default function RegistrationsIndex(props) {
-  const { registrations, non_a_registrations, evidences, backendURL } = props;
+  const { registrations, non_a_registrations, backendURL } = props;
   //registrations.sort((a, b) => (a.date > b.date ? 1 : -1));
   console.log("evidences");
   console.log(evidences);
