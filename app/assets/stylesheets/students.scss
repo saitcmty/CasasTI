@@ -55,7 +55,7 @@ header {
 }
 
 #my-registrations-panel {
-    @include panel-component(#ea6d91, #622839);
+    @include panel-component($registration-button-color, $registration-border-color);
     margin-bottom: 1em;
 
     .registration-component {
@@ -89,7 +89,7 @@ header {
 
 
 #all-students-panel {
-    @include panel-component(#91f999, #437246);
+    @include panel-component($students-button-color, $students-border-color);
     flex-direction: column;
     font-size: 1.5em;
     margin-top: 96px;
