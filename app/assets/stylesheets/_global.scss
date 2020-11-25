@@ -1,21 +1,26 @@
-$registration-button-color: #ff5e8c;//#c6538c;
+// $registration-button-color: #ff5e8c;//#c6538c;
 $registration-button-color: #ff336de0;//#c6538c;
 $registration-border-color: #4f2934;//rgba($base-color, 0.88);
+$registration-hover-color: #ff0048e0;
 
-$events-button-color: #5c7cff; // 466bff
-$events-border-color: #333b5e; // 172455
+// $events-button-color: #5c7cff; // 466bff
+// $events-border-color: #333b5e; // 172455
+
 $events-button-color: #466bff;
 $events-border-color: #172455;
-
+$events-hover-color: #466bff;
 
 $houses-button-color: #8d70eb;
 $houses-border-color: #322c48;
+$houses-hover-color: #8d70eb;
 
 $students-button-color: #36ee46;
 $students-border-color: #355538;
+$students-hover-color: #4fff5e;
 
 $evidences-button-color: #e1d01a;
 $evidences-border-color: #5e4121;
+$evidences-hover-color: #e1d01a;
 
 .material-icons.md-inherit {
   font-size: inherit;
@@ -72,7 +77,7 @@ main {
 }
 
 // Hecho para una o dos lineas solamente
-@mixin button-component($font-size, $back-color, $bord-color) {
+@mixin button-component($font-size, $back-color, $bord-color, $hover-color) {
   font-size: $font-size;
   display: flex;
   align-items: center;
@@ -89,6 +94,11 @@ main {
   border-radius: 3px;
   color: rgb(0, 0, 0);
   color: #ffffff;
+  
+  // :hover{
+  //   background-color: $hover-color;
+  // }
+
   span {
     flex-grow: 1;
     text-align: center;

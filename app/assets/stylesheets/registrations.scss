@@ -68,7 +68,7 @@ form {
 }
 
 .button-component {
-    @include button-component(24px, $registration-button-color, $registration-border-color);
+    @include button-component(24px, $registration-button-color, $registration-border-color, $registration-hover-color);
 }
 
 input[type="submit"] {

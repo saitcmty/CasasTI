@@ -83,27 +83,27 @@ a.button-component {
 }
 
 a#houses-button {
-  @include button-component(2em, $houses-button-color, $houses-border-color);
+  @include button-component(2em, $houses-button-color, $houses-border-color, $houses-hover-color);
 }
 
 a#students-button {
-  @include button-component(2em, $students-button-color, $students-border-color);
+  @include button-component(2em, $students-button-color, $students-border-color, $students-hover-color);
 }
 
 a#registrations-button {
-  @include button-component(2em, $registration-button-color, $registration-border-color);
+  @include button-component(2em, $registration-button-color, $registration-border-color, $registration-hover-color);
 }
 
 a#events-button {
-  @include button-component(2em, $events-button-color, $events-border-color);
+  @include button-component(2em, $events-button-color, $events-border-color, $events-hover-color);
 }
 
 a#evidences-button {
-  @include button-component(2em, $evidences-button-color, $evidences-border-color);
+  @include button-component(2em, $evidences-button-color, $evidences-border-color, $evidences-hover-color);
 }
 
 a#new-registration {
-  @include button-component(2em, $registration-button-color, $registration-border-color);
+  @include button-component(2em, $registration-button-color, $registration-border-color, $registration-hover-color);
   max-width: 320px;
   margin: 0 auto;
 }

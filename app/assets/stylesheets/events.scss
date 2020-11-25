@@ -168,10 +168,10 @@ input[type="submit"] {
 }
 
 #event-link-component.button-component {
-  @include button-component(1em, $events-button-color, $events-border-color);
+  @include button-component(1em, $events-button-color, $events-border-color, $events-hover-color);
 }
 
 a#new-event {
-  @include button-component(2em, $events-button-color, $events-border-color);
+  @include button-component(2em, $events-button-color, $events-border-color, $events-hover-color);
   margin: 1em auto;
 }

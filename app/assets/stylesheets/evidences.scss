@@ -5,17 +5,17 @@
 @import "_global.scss";
 
 input[type="submit"] {
-    background-color: #e1d437;
+    background-color: $evidences-button-color;
     border-color: #676119;
 }
 
 a#new-evidence {
-  @include button-component(2em, #e1d437, #676119);
+  @include button-component(2em,  $evidences-button-color, $evidences-border-color, $evidences-hover-color);
   margin: 1em auto;
 }
 
 .panel-component {
-    @include panel-component(#e1d437, #676119);
+    @include panel-component($evidences-button-color, $evidences-border-color);
     max-width: 90vw;
     margin-bottom: 1em;
 
