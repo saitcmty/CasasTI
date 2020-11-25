@@ -63,10 +63,10 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     redirect_to :root unless current_user.admin?
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+    if @event.destroy
+      render json: { msg: "Evento removido satisfactoriamente" }
+    else
+      render json: { error: @event.errors, status: :unprocessable_entity }
     end
   end
 

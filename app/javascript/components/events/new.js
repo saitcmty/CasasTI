@@ -13,24 +13,22 @@ export default function NewEvent(props) {
     newEvent.append("title", title);
     newEvent.append("place", place);
     newEvent.append("start", start);
-    newEvent.append("finish", finish);
-    newEvent.append("description", description);
-    newEvent.append("portrait", portrait);
-    newEvent.append("link", link);
+    if (finish) newEvent.append("finish", finish);
+    if (description) newEvent.append("description", description);
+    if (portrait) newEvent.append("portrait", portrait);
+    if (link) newEvent.append("link", link);
 
-    try {
-      const response = await axios.post(`${backendURL}/events`, newEvent, {
+    axios
+      .post(`${backendURL}/events`, newEvent, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+      })
+      .catch((error) => alert(JSON.stringify(error)))
+      .then((resNew) => {
+        alert(resNew.data.msg);
+        window.location = "/events";
       });
-      alert(response.data.msg);
-      window.location = "/events";
-    } catch (error) {
-      console.log(error);
-      const { msg } = error.response.data;
-      alert(msg);
-    }
   };
 
   return (

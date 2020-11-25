@@ -16,37 +16,28 @@ export default function EditEvent(props) {
       portrait,
       link,
     } = formEvent;
-    console.log(formEvent);
 
     const eventUpdate = new FormData();
     eventUpdate.append("title", title);
     eventUpdate.append("place", place);
     eventUpdate.append("start", start);
-    eventUpdate.append("finish", finish);
-    eventUpdate.append("description", description);
-    eventUpdate.append("link", link);
-    if (portrait) {
-      eventUpdate.append("portrait", portrait);
-    }
+    if (finish) eventUpdate.append("finish", finish);
+    if (description) eventUpdate.append("description", description);
+    if (portrait) eventUpdate.append("portrait", portrait);
+    if (link) eventUpdate.append("link", link);
 
-    try {
-      if (portrait) alert("Comenzando petición, esto tomará unos segundos");
-      const response = await axios.put(
-        `${backendURL}/events/${event.id}`,
-        eventUpdate,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      alert(response.data.msg);
-      window.location = "/events";
-    } catch (error) {
-      console.log(error);
-      const { msg } = error.response.data;
-      alert(msg);
-    }
+    if (portrait) alert("Comenzando petición, esto tomará unos segundos");
+    axios
+      .put(`${backendURL}/events/${event.id}`, eventUpdate, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .catch((error) => alert(JSON.stringify(error)))
+      .then((resEdit) => {
+        alert(resEdit.data.msg);
+        window.location = "/events";
+      });
   };
 
   return (

@@ -16,10 +16,10 @@ export default function EventForm(props) {
     event && event.finish ? new Date(event.finish) : undefined
   );
   const [description, setDescription] = useState(
-    event ? event.description : ""
+    event && event.description ? event.description : ""
   );
   const [portrait, setPortrait] = useState(undefined);
-  const [link, setLink] = useState(event ? event.link : "");
+  const [link, setLink] = useState(event && event.link ? event.link : "");
 
   const [titleError, setTitleError] = useState("");
   const [placeError, setPlaceError] = useState("");

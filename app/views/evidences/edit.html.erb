@@ -2,11 +2,11 @@
   <%= link_to :admin_dashboard do %>
       <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
+  <p class="title">ADMIN</p>
   <div class="empty"></div>
 </header>
 
-<main class="container">
-<section id="edit-evidence">
-  <%= render 'form', evidence: @evidence %>
-</section>
-</main>
+<div className="d-flex min-vh-100 align-items-center">
+  <%= react_component("evidences/edit", { backendURL: $BACKEND_URL, evidence: @evidence }) %>
+</div>
+

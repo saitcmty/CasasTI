@@ -2,8 +2,17 @@
   <%= link_to :admin_dashboard do %>
       <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
+  <p class="title">ADMIN</p>
   <div class="empty"></div>
 </header>
+
+<%= react_component("registrations/index", {
+	registrations: @approved_registrations.sort_by(&:date),
+	non_a_registrations: @non_approved_registrations.sort_by(&:date),
+  	backendURL: $BACKEND_URL,
+}) %> 
+
+<% if false %> 
 
 <main class="container">
 <section id="all-registrations-panel" class="panel-component mt-5">
@@ -55,3 +64,5 @@
 	</div>
 </section>
 </main>
+
+<% end %> 
