@@ -95,6 +95,6 @@ class RegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
-      params.permit(:student_id, :evidence_id, :proof, :approved, :date, :justification, :assigned_points, :file_proof)
+      params.require(:registration).permit(:student_id, :evidence_id, :proof, :approved, :date, :justification, :assigned_points, :file_proof)
     end
 end
