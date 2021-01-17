@@ -1,60 +1,51 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 
-class HouseFilterButton extends Component {
-    state = {
-        housePictureURL: '',
-        class: 'house-filter-button house-filter-button-green'
-    }
+export default function HouseFilterButton(props) {
+    const {houseName, changeSelectedHouse, selectedHouse} = props;
 
-    componentDidMount() {
-        let houseName;
-        let houseID = this.props.houseName
+    const [cssClass, setCssClass] = useState('house-filter-button house-filter-button-green');
+
+    const [housePictureURL, setHousePictureURL] = useState('');
+
+    useEffect(() => {
+        let houseURLName;
+        let houseID = houseName;
         if (houseID == 'Cuervos') {
-            houseName = 'cuervos';
+            houseURLName = 'cuervos';
         } else if(houseID == 'Gallinas de Guinea') {
-            houseName = 'gallinas';
+            houseURLName = 'gallinas';
         } else if(houseID == 'Patos') {
-            houseName = 'patos';
+            houseURLName = 'patos';
         } else if(houseID == 'Pavo Reales') {
-            houseName = 'pavo_reales';
+            houseURLName = 'pavo_reales';
         } else if(houseID == 'Venados'){
-            houseName = 'venados';
+            houseURLName = 'venados';
         }
 
-        this.setState({housePictureURL: `/casas/${houseName}.png`});
-    }
-    
-    static getDerivedStateFromProps(props, state) {
-        return changeStyle(props.isShowingHouse);
-    }
+        setHousePictureURL(`/casas/${houseURLName}.png`);
+    }, [])
 
-    render() {
-        return (
-            <div 
-            onClick={this.props.changeHouseFilters.bind(this, this.props.houseName)} 
-            className={this.state.class}>
-                <img className="house-filter-img" alt={this.props.houseName} src={this.state.housePictureURL}/>
-            </div>
-        );
-    }
+    useEffect(() => {
+        setCssClass(changeStyle(selectedHouse == houseName));
+    }, [selectedHouse])
+
+    return (
+        <div 
+        onClick={() => changeSelectedHouse(houseName)} 
+        className={cssClass}>
+            <img className="house-filter-img" alt={houseName} src={housePictureURL}/>
+        </div>
+    );
 }
+
 /*
     Cambia el color de fondo de los botones de los filtros de las casas para mostrar
     si se está mostrando esa casa o no
 */
 function changeStyle(isShowing) {
     if (!isShowing) {
-        return {class: "house-filter-button house-filter-button-red"};
+        return "house-filter-button house-filter-button-red";
     } else {
-        return {class: "house-filter-button house-filter-button-green"};
+        return "house-filter-button house-filter-button-green";
     }
 }
-
-HouseFilterButton.propTypes = {
-    houseName: PropTypes.string.isRequired,
-    changeHouseFilters: PropTypes.func.isRequired,
-    isShowingHouse: PropTypes.bool.isRequired
-};
-
-export default HouseFilterButton;

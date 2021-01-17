@@ -225,6 +225,16 @@ When prompted for the name of the user we type or UNIX username and for the role
 
 <br>
 
+### React-rails
+
+We used the gem called _react-rails_, which permits the usage of React inside Rails. Just run this commands and everything will run fine (just mind the rails version).
+
+```
+$ bundle install
+$ rails webpacker:install       # OR (on rails version < 5.0) rake webpacker:install
+$ rails webpacker:install:react # OR (on rails version < 5.0) rake webpacker:install:react
+```
+
 ### Setting up the app and running
 Now we are ready to set up the app!!
 Run: `$ bin/setup`
