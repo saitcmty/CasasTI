@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudentElement from "./summary";
 import HouseFilterButton from './Filters/HouseFilterButton';
 import PointsFilterInput from './Filters/PointsFilterInput';
@@ -93,14 +93,14 @@ export default function StudentsList(props) {
         newHouses[house] = !filter;
 
         setHouseFilters(newHouses);
-        changeFilteredList();
+        // changeFilteredList();
     }
 
     const changePointsFilters = (filter, points) => {
         let obj = pointsFilters;
         obj[filter] = ((points) ? parseInt(points) : ((filter == 'max') ? maxPointsDefault : minPointsDefault));
         setPointsFilters(obj);
-        changeFilteredList();
+        // changeFilteredList();
     }
 
     const [pointsFilters, setPointsFilters] = useState({
@@ -113,7 +113,7 @@ export default function StudentsList(props) {
     const changeTopOfList = (e) => {
         e.preventDefault();
         setTopOfList(parseInt(e.target.value));
-        changeFilteredList();
+        // changeFilteredList();
     }
 
     const [filteredList, setFilteredList] = useState(students);
@@ -123,7 +123,11 @@ export default function StudentsList(props) {
         setFilteredList(list);
     }
 
-    topFilters[0].text = `Mostrar Todos (${filteredList.length})`
+    useEffect(() => {
+        let list = filterList(students, houseFilters, pointsFilters, topOfList);
+        setFilteredList(list);
+        topFilters[0].text = `Mostrar Todos (${filteredList.length})`
+    }, [pointsFilters, houseFilters, topOfList]);
 
     return (
         <div>
