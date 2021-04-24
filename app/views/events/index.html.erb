@@ -6,46 +6,7 @@
   <div class="empty"></div>
 </header>
 
-<main class="container">
-	<%= link_to new_event_path, {:id => "new-event", :class => "button-component"}, method: :get do %>
-		<span>NUEVO EVENTO</span>
-		<i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-	<% end %>
-
-	<div class="row">
-	<section id="all-events-panel" class="panel-component">
-
-		<p class="label">EVENTOS:</p>
-		<div id="next-events-container" class="elements-container">
-			<% @events.sort_by(&:start).reverse.each do |event| %>
-			<div class="event-component element-component">
-					<span class="date">
-							<%= I18n.l(event.start.to_date, format: "%b %d") %>
-					</span>
-					<div class="info">
-							<p class="title"><%= event.title %></p>
-							<div class="icon-text-component">
-									<i class="material-icons md-inherit">room</i>
-									<span class="event-info"><%= event.place %></span>
-							</div>
-					</div>
-
-					<div class="event-buttons">
-							<%= link_to event do %>
-							<i class="material-icons right-icon md-inherit">remove_red_eye</i>
-							<% end %>
-
-							<%= link_to edit_event_path(event) do %>
-							<i class="material-icons right-icon md-inherit">edit</i>
-							<% end %>
-
-							<%= link_to event, method: :delete, data: { confirm: 'Are you sure?' } do %>
-							<i class="material-icons right-icon md-inherit">delete</i>
-							<% end %>
-					</div>
-			</div>
-			<% end %>
-		</div>
-	</section>
-	</div>
-</main>
+<%= react_component("events/index", {
+  events: @events.sort_by(&:start),
+  backendURL: $BACKEND_URL,
+}) %> 

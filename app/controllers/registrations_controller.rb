@@ -1,12 +1,22 @@
 class RegistrationsController < ApplicationController
-  before_action :set_registration, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :set_registration, only: [:show, :edit, :update, :destroy, :approve]
 
   # GET /registrations
   # GET /registrations.json
   def index
     redirect_to :root unless current_user.admin?
-    @non_approved_registrations = Registration.all.where(approved: false)
-    @approved_registrations = Registration.all.where(approved: true)
+    @registrations = Registration.all.sort_by(&:date)
+    @evidences = []
+    @file_proofs = []
+    @registrations.each do |r|
+      @evidences.append(r.evidence)
+      if r.file_proof.attached?
+        @file_proofs.append(url_for(r.file_proof))
+      else
+        @file_proofs.append(nil)
+      end
+    end
   end
 
   # GET /registrations/new
@@ -55,23 +65,25 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  # POST /registrations/1/approve
   # For admins to approve students' registrations
   def approve
-    registration = Registration.find(params[:id])
-    if (params[:assigned_points].present? || registration.evidence.points)
-      registration.update(assigned_points: params[:assigned_points])
-      registration.update(approved: true)
+    assigned_points = params[:assigned_points]
+    @registration.update(assigned_points: assigned_points) unless assigned_points.nil?
+    if @registration.update(approved: true)
+      render json: { msg: "Registro aprovado satisfactoriamente" }
+    else
+      render json: { error: @registration.errors, status: :unprocessable_entity }
     end
-    redirect_to :registrations
   end
 
   # DELETE /registrations/1
   # DELETE /registrations/1.json
   def destroy
-    @registration.destroy
-    respond_to do |format|
-      format.html { redirect_to registrations_url, notice: 'Registration was successfully destroyed.' }
-      format.json { head :no_content }
+    if @registration.destroy
+      render json: { msg: "Registro removido satisfactoriamente" }
+    else
+      render json: { error: @registration.errors, status: :unprocessable_entity }
     end
   end
 

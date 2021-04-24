@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+    background: linear-gradient(245deg, #362a96 0%, #19143c 100%);
+}
+
 #house-img {
     padding: 1em;
     width: fit-content;
@@ -22,9 +26,21 @@
     padding: 0.5em;
 }
 
-#houses-container {
-    background-color: #19143c;
+.points-container {
+    color: white;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.25em;
 
+    #house-points {
+        font-size: 1.5em;
+        font-weight: 900;
+    }
+}
+
+#houses-container {
+    background: linear-gradient(245deg, #362a96 0%, #19143c 100%);
     .house-component {
         padding: 0.5em;
 
@@ -45,7 +61,9 @@
 
 main#houses-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 main>div {
@@ -65,5 +83,6 @@ main>div {
 }
 
 #house-display {
-    background-color: #19143c;
+    // background-color: #19143c;
+    background: linear-gradient(245deg, #362a96 0%, #19143c 100%);
 }

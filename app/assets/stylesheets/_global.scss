@@ -1,3 +1,27 @@
+// $registration-button-color: #ff5e8c;//#c6538c;
+$registration-button-color: #ff336de0;//#c6538c;
+$registration-border-color: #4f2934;//rgba($base-color, 0.88);
+$registration-hover-color: #ff0048e0;
+
+// $events-button-color: #5c7cff; // 466bff
+// $events-border-color: #333b5e; // 172455
+
+$events-button-color: #466bff;
+$events-border-color: #172455;
+$events-hover-color: #466bff;
+
+$houses-button-color: #8d70eb;
+$houses-border-color: #322c48;
+$houses-hover-color: #8d70eb;
+
+$students-button-color: #36ee46;
+$students-border-color: #355538;
+$students-hover-color: #4fff5e;
+
+$evidences-button-color: #e1d01a;
+$evidences-border-color: #5e4121;
+$evidences-hover-color: #e1d01a;
+
 .material-icons.md-inherit {
   font-size: inherit;
 }
@@ -53,7 +77,7 @@ main {
 }
 
 // Hecho para una o dos lineas solamente
-@mixin button-component($font-size, $back-color, $bord-color) {
+@mixin button-component($font-size, $back-color, $bord-color, $hover-color) {
   font-size: $font-size;
   display: flex;
   align-items: center;
@@ -63,13 +87,23 @@ main {
   padding: 8px;
   line-height: 1em;
   background-color: $back-color;
-  border: $bord-color solid 4px;
-  border-radius: 8px;
-  color: rgba(0, 0, 0, 0.54);
+  // border: $bord-color solid 4px;
+  // border-radius: 8px;
+  box-shadow: 5px 10px 8px #888888;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  color: rgb(0, 0, 0);
+  color: #ffffff;
+  
+  // :hover{
+  //   background-color: $hover-color;
+  // }
 
   span {
     flex-grow: 1;
     text-align: center;
+    // color: #ffffff;
+    color: #222222;
   }
 
   i {
@@ -99,17 +133,21 @@ main {
 
 @mixin panel-component($comp-color, $focus-color) {
   border: solid;
-  border-radius: 0.5em;
+  // border-radius: 0.5em;
+  border-radius: 3px;
   border: $comp-color solid 4px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 0;
   flex-grow: 1;
 
   .label {
     font-size: 1.5em;
     line-height: 1.5em;
-    color: rgba(0, 0, 0, 0.54);
+    // color: rgb(0, 0, 0);
+    color: #ffffff;
     background-color: $comp-color;
     margin: 0 !important;
+    padding: 0 3pt;
   }
 
   .elements-container {
@@ -139,6 +177,10 @@ header .material-icons {
 
 body {
   background-color: #9092c7;
+  background-color: #eeeeee;
+  // background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(96, 187, 218) 100%);
+  // background: linear-gradient(180deg, #4a36df66 0%, #2eabe166 50%);
+  background: linear-gradient(180deg, #2eabe166 0%, #4a36df66 90%);
   font-family: "Source Sans Pro", sans-serif;
   padding-top: 56px;
 }
@@ -153,7 +195,10 @@ header {
   align-items: center;
   z-index: 10;
   box-shadow: 0px 0px 8px;
-  background-color: #30257d;
+  // background-color: #30257d;
+  // background: linear-gradient(65deg, rgba(0,172,228,1) 0%, rgba(23,12,102,1) 100%);
+  background: linear-gradient(65deg, #4a36df 0%, #2eaae1 100%);
+  // background: linear-gradient(65deg, #2eaae1 0%, #4a36df 100%);
 
   a {
     height: 100%;
@@ -234,8 +279,8 @@ form {
     margin: 0 auto;
     padding: 4px;
     font-size: 24px;
-    border: 0;
-    border-bottom: solid 2px;
+    // border: 0;
+    // border-bottom: solid 2px;
   }
 
   input[type="number"] {
@@ -247,6 +292,11 @@ form {
     border-bottom: solid 2px;
   }
 
+  input[type="number"]:hover, input[type="number"]:focus,
+  input[type="text"]:hover, input[type="text"]:focus {
+    background-color: #00000013;
+  }
+
   input[type="submit"] {
     height: 64px;
     margin: 2em auto;
@@ -255,9 +305,10 @@ form {
     justify-content: space-between;
     padding: 8px;
     font-size: 24px;
-    border: solid 4px;
+    // border: solid 4px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 8px;
-    color: rgba(0, 0, 0, 0.54);
+    color: rgb(0, 0, 0);
   }
 
   .field select {
@@ -270,6 +321,10 @@ form {
     font-size: 18px;
     color: white;
   }
+
+  .field select:hover, .field select:focus {
+    background-color: #000000a4;
+}
 }
 
 .icon-text-component {

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
@@ -62,3 +62,6 @@ gem 'omniauth-google-oauth2'
 
 # Google Cloud Services Storage
 gem "google-cloud-storage", "~> 1.8", require: false
+
+gem 'webpacker', '~> 5.2', '>= 5.2.1'
+gem 'react-rails', '~> 2.6', '>= 2.6.1'

@@ -2,38 +2,13 @@
   <%= link_to :admin_dashboard do %>
       <i class="material-icons md-36 md-light">arrow_back</i>
   <% end %>
+  <p class="title">ADMIN</p>
   <div class="empty"></div>
 </header>
 
-<main class="container">
+<%= react_component("evidences/index", {
+  evidences: @evidences.sort_by(&:deadline),
+  backendURL: $BACKEND_URL,
+}) %> 
 
-<%= link_to new_evidence_path, {:id => "new-evidence", :class => "button-component"}, method: :get do %>
-    <span>NUEVA EVIDENCIA</span>
-    <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-<% end %>
-<section id="all-evidences-panel" class="panel-component mt-5">
-    <p class="label">EVIDENCIAS:</p>
-    <div id="evidences-container" class="elements-container">
-    <% @evidences.each do |evidence| %>
-    <div class="evidence-component element-component">
-        <div class="evidence-info">
-            <p class="element-title"><%= evidence.title %></p>
-            <div class="icon-text-component">
-                <i class="material-icons md-inherit">outlined_flag</i>
-                <span class="event-info hour"><%= evidence.deadline %></span>
-            </div>
-        </div>
-        <span class="evidence-points"><%= evidence.points %></span>
 
-        <%= link_to edit_evidence_path(evidence) do %>
-        <i class="material-icons right-icon md-inherit">edit</i>
-        <% end %>
-
-        <%= link_to evidence, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <i class="material-icons right-icon md-inherit">delete</i>
-        <% end %>
-    </div>
-    <% end %>
-    </div>
-</section>
-</main>

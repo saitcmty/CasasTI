@@ -55,7 +55,7 @@ header {
 }
 
 #my-registrations-panel {
-    @include panel-component(#ea6d91, #622839);
+    @include panel-component($registration-button-color, $registration-border-color);
     margin-bottom: 1em;
 
     .registration-component {
@@ -86,10 +86,144 @@ header {
     }
 }
 
+#filter-title {
+    text-align: center;
+    margin-bottom: 20pt;
+}
 
+.student-filters {
+    margin-top: 5vh;
+    width: 50%;
+}
+
+#houses-filter {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.house-filter-button {
+    padding: 5pt;
+    margin: 0pt 3pt;
+    // border: #222222 3pt solid;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+}
+
+.house-filter-button:hover {
+    padding: 5pt;
+    margin: 0pt 3pt;
+    // border: #111111 3pt solid;
+}
+
+.house-filter-button:active {
+    padding: 5pt;
+    margin: 0pt 3pt;
+    // border: #000000 3pt solid;
+    border-style: inset;
+}
+
+.house-filter-button-green {
+    background-color: $students-button-color;
+}
+
+.house-filter-button-green:hover {
+    background-color: $students-hover-color;
+}
+
+.house-filter-button-red {
+    background-color: $registration-button-color;
+}
+
+.house-filter-button-red:hover {
+    background-color: $registration-hover-color;
+}
+
+.house-filter-img {
+    margin: 0pt 5pt;
+    height: 60pt;
+    width: auto;
+}
+
+#points-filter-inputs {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+@media (max-width:900px){
+    #points-filter-inputs {
+        flex-direction: column;
+    }
+}
+
+.points-filter-inputs-50 {
+    width: 40%;
+    padding: 0pt 5pt;
+    margin: 0pt 5pt;
+}
+
+.points-range-filter-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.filter-div {
+    // padding: 5pt;
+    margin: 5pt 5pt;
+}
+
+.points-filter-input-header {
+    text-decoration: solid;
+    padding: 0pt 2pt;
+    margin: 5pt 0pt;
+}
+
+input[type="number"] {
+    width: 5em;
+    margin: 0 auto;
+    padding: 4px;
+    font-size: 24px;
+    border: 0;
+    border-bottom: solid 2px;
+    background-color: transparent;
+}
+
+input[type="number"]:hover, input[type="number"]:focus {
+    background-color: #00000013;
+}
+
+select {
+    display: block;
+    width: 256px;
+    height: 32px;
+    margin: 0 auto;
+    background-color: #00000060;
+    border-color: #00000060;
+    font-size: 18px;
+    color: white;
+    margin: 8pt 0pt;
+}
+
+select:hover, select:focus {
+    background-color: #000000a4;
+}
+
+.student-buttons {
+    width: 1.5em;
+    align-self: center;
+    a {
+        font-size: 1.5em;
+        i {
+            display: block;
+            font-size: 1em; 
+        }
+    }
+}
 
 #all-students-panel {
-    @include panel-component(#91f999, #437246);
+    @include panel-component($students-button-color, $students-border-color);
     flex-direction: column;
     font-size: 1.5em;
     margin-top: 96px;
@@ -135,4 +269,14 @@ header {
 
 .student-points {
     font-weight: bold;
+}
+
+.student-points-panel {
+    height: fit-content;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0.5em;
+    width: 7em;
+    line-height: 2em;
+    text-align: end;
 }

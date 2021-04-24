@@ -1,48 +1,16 @@
 <header>
+    <%= link_to dashboard_url do %>
+        <i class="material-icons md-36 md-light">arrow_back</i>
+    <% end %>
     <img src="" class="empty">
     <p class="title">ADMIN</p>
     <img src="" class="empty">
+    <div class="empty"></div>
 </header>
 
 
 <main class="container">
-    <h1 class="main-title">BIENVENIDO <%= current_user.f_name %>!! TOP SECRET</h1>
-
-    <section id="admin-actions" class="row">
-        <div class="col-md-6" style="padding: 8px;">
-            <%= link_to :houses, {:id => "houses-button", :class => "button-component"}, method: :get do %>
-                <span>CASAS</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
-        </div>
-
-        <div class="col-md-6" style="padding: 8px;">
-            <%= link_to :students, {:id => "students-button", :class => "button-component"}, method: :get do %>
-                <span>ESTUDIANTES</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
-        </div>
-
-        <div class="col-md-6" style="padding: 8px;">
-            <%= link_to :events, {:id => "events-button", :class => "button-component"}, method: :get do %>
-                <span>EVENTOS</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
-        </div>
-
-        <div class="col-md-6" style="padding: 8px;">
-            <%= link_to :registrations, {:id => "registrations-button", :class => "button-component"}, method: :get do %>
-                <span>REGISTROS</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
-        </div>
-
-        <div class="col-md-6" style="padding: 8px;">
-            <%= link_to :evidences, {:id => "evidences-button", :class => "button-component"}, method: :get do %>
-                <span>EVIDENCIAS</span>
-                <i class="material-icons md-36 md-dark">arrow_forward_ios</i>
-            <% end %>
-        </div>
-
-    </section>
+    <%= react_component("Admin", {
+        userName: current_user.f_name
+    }) %>
 </main>

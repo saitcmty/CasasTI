@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'home/signup', as: 'signup'
 
   resources :registrations  do
-    get :approve, on: :member
+    post :approve, on: :member
     get :completed, on: :member
   end
   resources :assistances, only: [:create, :destroy]

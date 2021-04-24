@@ -8,16 +8,15 @@ local:
 
 google:
   service: GCS
-  project: todo-pic
+  project: casas-ti
   credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
-  bucket: casas-ti-evidencias
+  bucket: casas-ti-production
 
 google_dev:
   service: GCS
-  project: todo-pic
-  credentials: <%= Rails.root.join("config/secrets/casas-ti-production.json") %>
-  bucket: casas-ti-evidencias
-
+  project: casas-ti
+  credentials: <%= Rails.root.join("config/secrets/casas-ti-mty.json") %>
+  bucket: casas-ti-development
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
